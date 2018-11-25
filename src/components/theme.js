@@ -9,7 +9,8 @@ const theme = createMuiTheme({
     primary: { main: violet },
     secondary: { main: cream },
     error: { main: red }
-  }
+  },
+  typography: { fontSize: 10 }
 });
 
 export default theme;
