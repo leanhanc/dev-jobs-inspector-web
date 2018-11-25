@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import React, { Component } from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 class App extends Component {
   render() {
@@ -7,7 +7,7 @@ class App extends Component {
       <div className="App">
         <React.Fragment>
           <CssBaseline />
-          {/* The rest of your application */}
+          TEST
         </React.Fragment>
       </div>
     );
