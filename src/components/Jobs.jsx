@@ -2,7 +2,12 @@ import React from 'react';
 import Job from './Job';
 
 export default props => {
-  return props.jobs.map(job => {
-    return <Job job={job} />;
-  });
+  const { jobs } = props;
+  return (
+    <section id="Jobs">
+      {jobs.map(job => {
+        return <Job job={job} />;
+      })}
+    </section>
+  );
 };

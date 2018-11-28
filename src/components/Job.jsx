@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -10,9 +9,9 @@ const SimpleCard = props => {
   return (
     <Card className="Card">
       <CardContent>
-        <h2>{job.title}</h2>
-        <p>{job.description}</p>
-        <h3>
+        <h2 className="Jobs__title">{job.title}</h2>
+        <p className="Jobs__paragraph">{job.description}</p>
+        <h3 className="Jobs__publishment">
           {job.site} || {job.publisher}
         </h3>
       </CardContent>

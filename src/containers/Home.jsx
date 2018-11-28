@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 import api from '../api/index';
 import FormControl from '@material-ui/core/FormControl';
 import SearchBar from 'material-ui-search-bar';
+import Jobs from '../components/Jobs';
 
 import '../assets/scss/pages/Home.scss';
-import Jobs from '../components/Jobs';
+import '../assets/scss/pages/Jobs.scss';
 
 export default class Home extends Component {
   constructor(props) {
