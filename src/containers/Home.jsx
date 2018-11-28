@@ -9,19 +9,14 @@ import '../assets/scss/pages/Home.scss';
 import '../assets/scss/pages/Jobs.scss';
 
 export default class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { searchString: '', searchResults: [] };
+  
+    state = { searchString: '', searchResults: [] };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(searchString) {
+  handleChange = (searchString) => {
     this.setState({ searchString });
   }
 
-  handleSubmit(algo) {
+  handleSubmit = (algo) => {
     api
       .search(this.state.searchString)
       .then(response => {
@@ -38,8 +33,8 @@ export default class Home extends Component {
           <FormControl className="form">
             <SearchBar
               placeholder="Buscar"
-              onChange={this.handleChange.bind(this)}
-              onRequestSearch={this.handleSubmit.bind(this)}
+              onChange={this.handleChange}
+              onRequestSearch={this.handleSubmit}
               value={searchString}
             />
           </FormControl>
