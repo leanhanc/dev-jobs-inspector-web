@@ -9,21 +9,20 @@ import '../assets/scss/pages/Home.scss';
 import '../assets/scss/pages/Jobs.scss';
 
 export default class Home extends Component {
-  
-    state = { searchString: '', searchResults: [] };
+  state = { searchString: '', searchResults: [] };
 
-  handleChange = (searchString) => {
+  handleChange = searchString => {
     this.setState({ searchString });
-  }
+  };
 
-  handleSubmit = (algo) => {
+  handleSubmit = () => {
     api
       .search(this.state.searchString)
       .then(response => {
         this.setState({ searchResults: response });
       })
       .catch(error => console.log(error));
-  }
+  };
 
   render() {
     const { searchString, searchResults } = this.state;
