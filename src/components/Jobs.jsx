@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Job from './Job';
 
-export default props => {
-  const { jobs } = props;
-  return (
-    <section id="Jobs">
-      {jobs.map(job => {
-        return <Job job={job} />;
-      })}
-    </section>
-  );
-};
+export default class Jobs extends Component {
+  state = {
+    expandendDescription: false
+  };
+  render() {
+    const { jobs } = this.props;
+
+    return (
+      <section id="Jobs">
+        {jobs.map(job => {
+          return <Job job={job} />;
+        })}
+      </section>
+    );
+  }
+}
