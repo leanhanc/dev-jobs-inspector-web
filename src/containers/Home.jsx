@@ -38,7 +38,7 @@ export default class Home extends Component {
         <section id="Home">
           <FormControl className="form">
             <SearchBar
-              placeholder="Buscar"
+              placeholder="Buscar..."
               onChange={this.handleChange}
               onRequestSearch={this.handleSubmit}
               value={searchString}

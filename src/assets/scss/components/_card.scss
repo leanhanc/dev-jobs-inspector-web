@@ -1,12 +1,35 @@
 @import '../abstract/mixins';
+@import '../abstract/variables';
 
 .Card {
   max-width: 300px !important;
   margin: 4rem 8rem !important;
   box-shadow: 0 1.5rem 4rem rgba(black, 0.15) !important;
+  padding: 1rem !important;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__btn--primary {
+    width: 66%;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: 1.2rem !important;
+  }
+
+  &__btn--secondary {
+    width: 66%;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: 1.2rem !important;
+  }
 
   @include tablet {
     max-width: 420px !important;
+    padding: 3rem !important;
   }
   @include desktop {
     width: 500px !important;
