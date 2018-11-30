@@ -6,8 +6,21 @@ import Button from '@material-ui/core/Button';
 import '../assets/scss/components/_card.scss';
 
 const SimpleCard = props => {
-  const { job } = props;
-  return <Card className="Card"> {job.description}</Card>;
+  const { job, expandedDescription } = props;
+  return (
+    <Card className="Card">
+      <h3>{job.title}</h3>
+      <h4>{job.publisher}</h4>
+      {expandedDescription
+        ? job.description
+        : job.description
+            .split(' ')
+            .splice(0, 10)
+            .join(' ')}
+      ...
+      <h4>{job.site}</h4>
+    </Card>
+  );
 };
 
 export default SimpleCard;

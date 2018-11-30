@@ -9,19 +9,26 @@ import '../assets/scss/pages/Home.scss';
 import '../assets/scss/pages/Jobs.scss';
 
 export default class Home extends Component {
-  state = { searchString: '', searchResults: [] };
+  state = { searchString: '', searchResults: '' };
 
   handleChange = searchString => {
     this.setState({ searchString });
   };
 
   handleSubmit = () => {
-    api
-      .search(this.state.searchString)
-      .then(response => {
-        this.setState({ searchResults: response });
-      })
-      .catch(error => console.log(error));
+    if (this.state.searchString !== '') {
+      api
+        .search(this.state.searchString)
+        .then(response => {
+          if (!response.length) {
+            this.setState({ searchResults: null });
+          }
+          if (response.length) {
+            this.setState({ searchResults: response });
+          }
+        })
+        .catch(error => console.log(error));
+    }
   };
 
   render() {
