@@ -3,7 +3,6 @@
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  flex-basis: 300px;
 
   font-size: 1.5rem;
 
@@ -11,9 +10,4 @@
     padding: 1rem;
     line-height: 2;
   }
-}
-
-.Card {
-  max-width: 400px;
-  margin: 4rem auto;
 }
