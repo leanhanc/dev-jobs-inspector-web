@@ -2,12 +2,14 @@
 
 .modal-card {
   @include absoluteCenter;
+  width: 95%;
+  overflow: auto !important;
+
   padding: 3rem;
+  display: flex;
+  flex-direction: column;
 
   & > *:not(:last-child) {
-    margin-top: 2rem;
-  }
-  .job__title {
-    margin-bottom: 4rem !important;
+    margin-bottom: 2rem;
   }
 }

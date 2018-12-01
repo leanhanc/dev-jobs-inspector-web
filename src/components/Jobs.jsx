@@ -57,23 +57,32 @@ export default class Jobs extends Component {
           aria-describedby="obtener-detalles-del-trabajo"
           open={open}
           onClose={this.handleClose}
+          style={{ overflow: 'auto' }}
         >
           {open && jobs && jobs.length ? (
             <div className="Jobs">
               <Card className="modal-card">
-                <Typography align="right" color="secondary">
-                  <h4 className="job__date">
+                <h4 className="job__date">
+                  <Typography align="right" color="secondary">
                     {this.getTime(jobs[jobIndex].created_at)}
-                  </h4>
-                </Typography>
+                  </Typography>
+                </h4>
                 <h3 className="job__title">{jobs[jobIndex].title}</h3>
-                <Typography align="left" color="secondary">
-                  <h4 className="job__location">{jobs[jobIndex].location}</h4>
-                </Typography>
-                <p className="job__description">{jobs[jobIndex].description}</p>{' '}
+                <h4 className="job__location">
+                  <Typography align="left" color="secondary">
+                    {jobs[jobIndex].location}{' '}
+                  </Typography>
+                </h4>
+                <p className="job__description">{jobs[jobIndex].description}</p>
                 <div className="Jobs__extra-info">
-                  <h4 className="job__site">{jobs[jobIndex].site}</h4>
-                  <h4 className="job__publisher">{jobs[jobIndex].publisher}</h4>
+                  <h4 className="job__site">
+                    <i className="fas fa-globe-americas" />
+                    <span>{jobs[jobIndex].site}</span>
+                  </h4>
+                  <h4 className="job__publisher">
+                    <i className="fas fa-user-tie" />
+                    <span>{jobs[jobIndex].publisher}</span>
+                  </h4>
                 </div>
               </Card>
             </div>

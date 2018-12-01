@@ -13,16 +13,17 @@
     text-align: center;
   }
 
-  h4.job__location {
+  h4.job__location > * {
     text-transform: uppercase;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    font-weight: 500;
     color: #666;
     margin-top: -1rem;
   }
 
-  h4.job__date {
+  h4.job__date > * {
     text-transform: uppercase;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   p.job__description {
@@ -43,10 +44,10 @@
     align-items: center;
 
     * {
-      width: 100%;
-      margin: 2rem !important;
-      padding: 2rem;
-      border-radius: 2px;
+      font-size: 1rem;
+      flex-basis: 50%;
+      flex-wrap: wrap;
+      padding-left: 0.5rem;
       text-transform: uppercase;
       text-align: center;
     }

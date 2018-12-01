@@ -17,20 +17,25 @@ const SimpleCard = props => {
 
   return (
     <Card className="Card">
-      <Typography align="right" color="secondary">
-        <h4 className="job__date">{getTime(job.created_at)}</h4>
-      </Typography>
+      <h4 className="job__date">
+        <Typography align="right" color="secondary">
+          {getTime(job.created_at)}
+        </Typography>
+      </h4>
       <h3 className="job__title">{job.title}</h3>
-      <Typography align="left" color="secondary">
-        <h4 className="job__location">{job.location}</h4>
-      </Typography>
+      <h4 className="job__location">
+        <Typography align="left" color="secondary">
+          {job.location}
+        </Typography>
+      </h4>
+
       <p className="job__description">
         {job.description
           .split(' ')
           .splice(0, 10)
           .join(' ')}
         ...
-      </p>{' '}
+      </p>
       <Button
         color="primary"
         variant="text"
