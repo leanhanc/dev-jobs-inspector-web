@@ -1,6 +1,13 @@
 $tablet-width: 700px;
 $desktop-width: 1024px;
 
+@mixin absoluteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 @mixin tablet {
   @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
     @content;

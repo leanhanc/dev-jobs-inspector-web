@@ -10,7 +10,7 @@ import theme from '../components/theme';
 import '../assets/scss/components/_card.scss';
 
 const SimpleCard = props => {
-  const { job } = props;
+  const { job, openModal, index } = props;
 
   function getTime(time) {
     return distanceInWordsToNow(new Date(time), { locale: es });
@@ -28,7 +28,14 @@ const SimpleCard = props => {
             .join(' ')}
           ...
         </p>{' '}
-        <Button color="primary" variant="text" className="Card__btn--secondary">
+        <Button
+          color="primary"
+          variant="text"
+          className="Card__btn--secondary"
+          onClick={() => {
+            openModal(index);
+          }}
+        >
           Más info
         </Button>
         <Button

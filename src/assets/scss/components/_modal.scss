@@ -1,0 +1,6 @@
+@import '../abstract/mixins';
+
+.modal-card {
+  @include absoluteCenter;
+  padding: 3rem;
+}

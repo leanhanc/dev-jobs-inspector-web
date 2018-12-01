@@ -1,4 +1,4 @@
-#Jobs {
+.Jobs {
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -8,6 +8,7 @@
     line-height: 1.7;
     font-size: 1.7rem;
     margin-bottom: 2rem;
+    text-align: center;
   }
 
   h4.job__date {
