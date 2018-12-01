@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import Modal from '@material-ui/core/Modal';
-import Card from '@material-ui/core/Card';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import withMobileDialog from '@material-ui/core/withMobileDialog';
 import Job from './Job';
 
 import { Typography } from '@material-ui/core/';
@@ -8,11 +12,11 @@ import { Typography } from '@material-ui/core/';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 import * as es from '../lib/es/';
 
+import '../assets/scss/components/_dialog.scss';
 import '../assets/scss/components/_card.scss';
-import '../assets/scss/components/_modal.scss';
 import '../assets/scss/pages/Jobs.scss';
 
-export default class Jobs extends Component {
+class Jobs extends Component {
   state = {
     open: false,
     showDetailsOfJob: null
@@ -33,7 +37,7 @@ export default class Jobs extends Component {
   };
 
   render() {
-    const { jobs } = this.props;
+    const { jobs, fullScreen } = this.props;
     const { open, showDetailsOfJob: jobIndex } = this.state;
 
     return (
@@ -52,16 +56,16 @@ export default class Jobs extends Component {
             );
           })
         ) : null}
-        <Modal
-          aria-labelledby="modal-job-details"
-          aria-describedby="obtener-detalles-del-trabajo"
-          open={open}
-          onClose={this.handleClose}
-          style={{ overflow: 'auto' }}
-        >
-          {open && jobs && jobs.length ? (
-            <div className="Jobs">
-              <Card className="modal-card">
+        {open && jobs && jobs.length ? (
+          <Dialog
+            open={this.state.open}
+            onClose={this.handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+            fullScreen={fullScreen}
+          >
+            <div className="Jobs dialog">
+              <DialogContent>
                 <h4 className="job__date">
                   <Typography align="right" color="secondary">
                     {this.getTime(jobs[jobIndex].created_at)}
@@ -73,7 +77,12 @@ export default class Jobs extends Component {
                     {jobs[jobIndex].location}{' '}
                   </Typography>
                 </h4>
-                <p className="job__description">{jobs[jobIndex].description}</p>
+                <DialogContentText
+                  className="job__description"
+                  id="alert-dialog-description"
+                >
+                  {jobs[jobIndex].description}
+                </DialogContentText>
                 <div className="Jobs__extra-info">
                   <h4 className="job__site">
                     <i className="fas fa-globe-americas" />
@@ -84,11 +93,32 @@ export default class Jobs extends Component {
                     <span>{jobs[jobIndex].publisher}</span>
                   </h4>
                 </div>
-              </Card>
+              </DialogContent>
+              <DialogActions>
+                <Button
+                  onClick={this.handleClose}
+                  color="secondary"
+                  variant="text"
+                  className="close"
+                >
+                  <span>CERRAR</span>
+                </Button>
+                <Button
+                  onClick={this.handleClose}
+                  variant="contained"
+                  color="primary"
+                  className="open"
+                  href={jobs[jobIndex].url}
+                  target="_blank"
+                >
+                  ABRIR
+                </Button>
+              </DialogActions>
             </div>
-          ) : null}
-        </Modal>
+          </Dialog>
+        ) : null}
       </section>
     );
   }
 }
+export default withMobileDialog()(Jobs);

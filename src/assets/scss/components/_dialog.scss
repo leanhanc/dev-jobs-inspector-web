@@ -1,0 +1,23 @@
+.dialog {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .Jobs__extra-info {
+    margin-top: 2rem;
+  }
+
+  .job__title {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .job__location {
+    padding-bottom: 2rem;
+  }
+
+  .close,
+  .open {
+    font-size: 1.5rem;
+  }
+}

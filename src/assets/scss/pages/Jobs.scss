@@ -7,7 +7,7 @@
 
   h3.job__title {
     line-height: 1.7;
-    font-size: 1.7rem;
+    font-size: 1.7rem !important;
     margin-bottom: 2rem;
     margin-top: 1rem;
     text-align: center;
@@ -28,7 +28,8 @@
 
   p.job__description {
     text-align: justify;
-    font-size: 1.3rem;
+    line-height: 2;
+    font-size: 1.3rem !important;
   }
 
   h4.job__date--extra-info {
