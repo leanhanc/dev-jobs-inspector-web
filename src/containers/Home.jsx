@@ -6,7 +6,6 @@ import SearchBar from 'material-ui-search-bar';
 import Jobs from '../components/Jobs';
 
 import '../assets/scss/pages/Home.scss';
-import '../assets/scss/pages/Jobs.scss';
 
 export default class Home extends Component {
   state = { searchString: '', searchResults: '' };

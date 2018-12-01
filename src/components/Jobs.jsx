@@ -7,6 +7,8 @@ import * as es from '../lib/es/';
 
 import '../assets/scss/components/_card.scss';
 import '../assets/scss/components/_modal.scss';
+import '../assets/scss/pages/Jobs.scss';
+import { Typography } from '@material-ui/core';
 
 export default class Jobs extends Component {
   state = {
@@ -57,9 +59,11 @@ export default class Jobs extends Component {
           {open && jobs && jobs.length ? (
             <div className="Jobs">
               <Card className="modal-card">
-                <h4 className="job__date">
-                  {this.getTime(jobs[jobIndex].created_at)}
-                </h4>
+                <Typography align="right">
+                  <h4 className="job__date">
+                    {this.getTime(jobs[jobIndex].created_at)}
+                  </h4>
+                </Typography>
                 <h3 className="job__title">{jobs[jobIndex].title}</h3>
                 <p className="job__description">{jobs[jobIndex].description}</p>
               </Card>
