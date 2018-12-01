@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import Modal from '@material-ui/core/Modal';
 import Card from '@material-ui/core/Card';
 import Job from './Job';
+
+import { Typography } from '@material-ui/core/';
+
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 import * as es from '../lib/es/';
 
 import '../assets/scss/components/_card.scss';
 import '../assets/scss/components/_modal.scss';
 import '../assets/scss/pages/Jobs.scss';
-import { Typography } from '@material-ui/core';
 
 export default class Jobs extends Component {
   state = {
@@ -59,13 +61,20 @@ export default class Jobs extends Component {
           {open && jobs && jobs.length ? (
             <div className="Jobs">
               <Card className="modal-card">
-                <Typography align="right">
+                <Typography align="right" color="secondary">
                   <h4 className="job__date">
                     {this.getTime(jobs[jobIndex].created_at)}
                   </h4>
                 </Typography>
                 <h3 className="job__title">{jobs[jobIndex].title}</h3>
-                <p className="job__description">{jobs[jobIndex].description}</p>
+                <Typography align="left" color="secondary">
+                  <h4 className="job__location">{jobs[jobIndex].location}</h4>
+                </Typography>
+                <p className="job__description">{jobs[jobIndex].description}</p>{' '}
+                <div className="Jobs__extra-info">
+                  <h4 className="job__site">{jobs[jobIndex].site}</h4>
+                  <h4 className="job__publisher">{jobs[jobIndex].publisher}</h4>
+                </div>
               </Card>
             </div>
           ) : null}

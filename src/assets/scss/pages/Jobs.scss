@@ -1,6 +1,7 @@
 .Jobs {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
 
@@ -8,18 +9,46 @@
     line-height: 1.7;
     font-size: 1.7rem;
     margin-bottom: 2rem;
+    margin-top: 1rem;
     text-align: center;
+  }
+
+  h4.job__location {
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: -1rem;
   }
 
   h4.job__date {
     text-transform: uppercase;
-
-    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
   }
 
   p.job__description {
     text-align: justify;
     font-size: 1.3rem;
-    margin-bottom: 2.5rem;
+  }
+
+  h4.job__date--extra-info {
+    line-height: 2;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__extra-info {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+
+    * {
+      width: 100%;
+      margin: 2rem !important;
+      padding: 2rem;
+      border-radius: 2px;
+      text-transform: uppercase;
+      text-align: center;
+    }
   }
 }

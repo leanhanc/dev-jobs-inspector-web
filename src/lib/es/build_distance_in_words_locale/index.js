@@ -33,8 +33,8 @@ function buildDistanceInWordsLocale() {
     },
 
     xDays: {
-      one: '1 día',
-      other: '{{count}} días'
+      one: 'ayer',
+      other: 'hace {{count}} días'
     },
 
     aboutXMonths: {

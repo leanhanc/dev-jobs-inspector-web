@@ -3,4 +3,11 @@
 .modal-card {
   @include absoluteCenter;
   padding: 3rem;
+
+  & > *:not(:last-child) {
+    margin-top: 2rem;
+  }
+  .job__title {
+    margin-bottom: 4rem !important;
+  }
 }
