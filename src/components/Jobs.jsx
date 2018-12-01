@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import Modal from '@material-ui/core/Modal';
 import Job from './Job';
 
 export default class Jobs extends Component {
   state = {
-    expandedDescription: false
+    modalOpen: false
   };
   render() {
     const { jobs } = this.props;
-    const { expandedDescription } = this.state;
+    const { modalOpen } = this.state;
 
     return (
       <section id="Jobs">
@@ -15,15 +16,10 @@ export default class Jobs extends Component {
           <h4>No se encontraron resultados</h4>
         ) : jobs && jobs.length ? (
           jobs.map(job => {
-            return (
-              <Job
-                job={job}
-                key={job.url}
-                expandendDescription={expandedDescription}
-              />
-            );
+            return <Job job={job} key={job.url} />;
           })
         ) : null}
+        <Modal open={modalOpen} />
       </section>
     );
   }

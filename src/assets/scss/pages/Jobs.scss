@@ -4,10 +4,21 @@
   flex-direction: row;
   flex-wrap: wrap;
 
-  font-size: 1.5rem;
+  h3.job__title {
+    line-height: 1.7;
+    font-size: 1.7rem;
+    margin-bottom: 2rem;
+  }
 
-  * {
-    padding: 1rem;
-    line-height: 2;
+  h4.job__date {
+    text-transform: uppercase;
+    margin-left: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  p.job__description {
+    text-align: justify;
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
   }
 }

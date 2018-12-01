@@ -16,7 +16,8 @@
     display: block !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    font-size: 1.2rem !important;
+    font-size: 1.3rem !important;
+    text-align: center !important;
   }
 
   &__btn--secondary {
@@ -24,7 +25,7 @@
     display: block !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    font-size: 1.2rem !important;
+    font-size: 1.3rem !important;
   }
 
   @include tablet {
@@ -34,5 +35,9 @@
   @include desktop {
     width: 500px !important;
     padding: 4rem !important;
+  }
+
+  & > button:not(:last-child) {
+    margin-bottom: 1rem;
   }
 }
