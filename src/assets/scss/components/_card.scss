@@ -14,14 +14,14 @@
 
   @include tablet {
     min-width: 0px;
-    max-width: 340px !important;
-    flex-basis: 340px;
+    max-width: 300px;
+    flex-basis: 300px;
   }
 
   @include desktop {
     min-width: 0px;
-    max-width: 400px !important;
-    flex-basis: 400px;
+    max-width: 300px;
+    flex-basis: 300px;
   }
 
   & > button:not(:last-child) {
