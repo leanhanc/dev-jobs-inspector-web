@@ -1,3 +1,6 @@
+@import '../abstract/mixins';
+@import '../abstract/variables';
+
 .Jobs {
   display: flex;
   justify-content: space-around;
