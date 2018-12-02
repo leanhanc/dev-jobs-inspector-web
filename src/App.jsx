@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from './components/theme';
+import RouterView from './router';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Jobs from './components/Jobs';
@@ -39,6 +40,7 @@ class App extends Component {
       <div className="App">
         <MuiThemeProvider theme={theme}>
           <Header handleChange={handleChange} handleSubmit={handleSubmit} />
+          <RouterView />
           <Jobs jobs={searchResults} />
           <Footer />
         </MuiThemeProvider>

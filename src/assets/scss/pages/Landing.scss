@@ -1,0 +1,6 @@
+@import '../abstract/mixins';
+
+.Landing {
+  height: 30vh;
+  @include flexCenter;
+}
