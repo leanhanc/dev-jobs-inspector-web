@@ -4,6 +4,7 @@
   height: 80vh;
   @include flexCenter;
   flex-direction: column;
+  padding: 3rem;
 
   @include tablet {
     flex-direction: row;
@@ -15,14 +16,11 @@
   &__title {
     font-size: 1.5rem;
     text-align: center;
-    padding-right: 1.5rem;
     padding-bottom: 2rem;
   }
   &__subtitle {
     font-size: 1.3rem;
     text-align: center;
-    padding-left: 1.8rem;
-
     font-weight: normal;
   }
 
