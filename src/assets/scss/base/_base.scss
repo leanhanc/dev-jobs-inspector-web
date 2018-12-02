@@ -13,3 +13,18 @@ html {
 body {
   box-sizing: border-box;
 }
+
+a:link,
+a:visited {
+  color: $violet;
+  text-decoration: none;
+  border-bottom: 2px solid;
+  transform: translateY(2px);
+  border-bottom-color: transparent;
+  transition: 0.2s;
+}
+
+a:link:hover,
+a:visited:hover {
+  border-bottom-color: $violet;
+}
