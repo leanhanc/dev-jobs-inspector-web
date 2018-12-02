@@ -14,6 +14,18 @@ body {
   box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 a:link,
 a:visited {
   color: $ligth;
@@ -27,4 +39,22 @@ a:visited {
 a:link:hover,
 a:visited:hover {
   border-bottom-color: $ligth;
+}
+
+.divider {
+  display: none;
+
+  @include tablet {
+    display: inline-block;
+    width: 2px;
+    background-color: #aaa;
+    height: 10rem;
+  }
+
+  @include desktop {
+    display: inline-block;
+    width: 2px;
+    background-color: #aaa;
+    height: 10rem;
+  }
 }

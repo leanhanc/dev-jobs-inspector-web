@@ -9,7 +9,7 @@ export default function Header(props) {
   const { searchString, handleChange, handleSubmit } = props;
 
   return (
-    <header>
+    <header className="Header">
       <section id="Search">
         <FormControl className="form">
           <SearchBar
