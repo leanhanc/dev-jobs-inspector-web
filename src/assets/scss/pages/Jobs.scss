@@ -7,6 +7,15 @@
   a:visited {
     color: $cream;
   }
+
+  .no-results-found {
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+
   display: flex;
   justify-content: center;
   align-items: center;

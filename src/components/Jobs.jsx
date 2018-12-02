@@ -5,6 +5,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import withMobileDialog from '@material-ui/core/withMobileDialog';
+
+import NoResultsFound from './NoResultsFound';
 import Job from './Job';
 
 import { Typography } from '@material-ui/core/';
@@ -43,7 +45,7 @@ class Jobs extends Component {
     return (
       <section className="Jobs">
         {jobs === null ? (
-          <h4>No se encontraron resultados</h4>
+          <NoResultsFound />
         ) : jobs && jobs.length ? (
           jobs.map((job, index) => {
             return (
