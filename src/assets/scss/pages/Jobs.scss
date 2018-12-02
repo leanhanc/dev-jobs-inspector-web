@@ -2,6 +2,11 @@
 @import '../abstract/variables';
 
 .Jobs {
+  // Override link color
+  a:link,
+  a:visited {
+    color: $cream;
+  }
   display: flex;
   justify-content: center;
   align-items: center;
