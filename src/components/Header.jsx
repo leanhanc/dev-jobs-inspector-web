@@ -33,8 +33,8 @@ export default class Home extends Component {
   render() {
     const { searchString, searchResults } = this.state;
     return (
-      <React.Fragment>
-        <section id="Home">
+      <header>
+        <section id="Search">
           <FormControl className="form">
             <SearchBar
               placeholder="Buscar..."
@@ -45,7 +45,7 @@ export default class Home extends Component {
           </FormControl>
         </section>
         <Jobs jobs={searchResults} />
-      </React.Fragment>
+      </header>
     );
   }
 }
