@@ -1,0 +1,35 @@
+@import '../abstract/mixins';
+
+.Features {
+  &__Container {
+    @include flexCenter;
+    margin: 4rem auto;
+    flex-wrap: wrap;
+  }
+
+  &__Feature {
+    line-height: 2.5;
+    font-size: 1.3rem;
+    text-align: justify;
+  }
+
+  &__Group {
+    height: 200px;
+    @include flexCenter;
+    flex-direction: column;
+    & > * {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__Title {
+    letter-spacing: 2px;
+  }
+
+  &__Feature-Link {
+    color: $violet !important;
+  }
+  &__Feature-Link:hover {
+    border-bottom-color: $violet !important;
+  }
+}
