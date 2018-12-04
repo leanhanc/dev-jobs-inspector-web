@@ -5,7 +5,7 @@ import '../assets/scss/pages/Features.scss';
 
 export default function Features() {
   return (
-    <section>
+    <section className="Features">
       <div className="Features__Container">
         <Card className="Card">
           <div className="Features__Group">

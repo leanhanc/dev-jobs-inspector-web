@@ -1,6 +1,9 @@
 @import '../abstract/mixins';
 
 .Features {
+  .Card {
+    height: 500px;
+  }
   &__Container {
     @include flexCenter;
     margin: 4rem auto;

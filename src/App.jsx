@@ -35,7 +35,7 @@ class App extends Component {
 
   render() {
     const { handleChange, handleSubmit } = this;
-    const { searchString, searchResults } = this.state;
+    const { searchResults } = this.state;
     return (
       <div className="App">
         <MuiThemeProvider theme={theme}>

@@ -22,7 +22,7 @@
   @include desktop {
     min-width: 0px;
     max-width: 300px;
-    flex-basis: 300px;
+    flex-basis: 250px;
   }
 
   & > button:not(:last-child) {
