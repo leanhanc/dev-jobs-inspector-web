@@ -36,11 +36,13 @@
     font-weight: 500;
     color: $dark;
     margin-top: -1rem;
+    text-align: left;
   }
 
   h4.job__date > * {
     text-transform: uppercase;
     font-size: 1.2rem;
+    text-align: right !important;
   }
 
   p.job__description {

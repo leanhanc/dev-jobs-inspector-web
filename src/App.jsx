@@ -11,7 +11,12 @@ import api from './api/index';
 import './assets/scss/main.scss';
 
 class App extends Component {
-  state = { searchString: '', searchResults: '' };
+  state = {
+    searchString: '',
+    searchResults: '',
+    totalItems: null,
+    hasMoreItems: false
+  };
 
   handleChange = searchString => {
     this.setState({ searchString });
@@ -25,8 +30,12 @@ class App extends Component {
           if (!response.length) {
             this.setState({ searchResults: null });
           }
-          if (response.length) {
-            this.setState({ searchResults: response });
+          if (response.data.length) {
+            this.setState({
+              searchResults: response.data,
+              totalItems: response.totalItems,
+              hasMoreItems: response.hasMoreItems
+            });
           }
         })
         .catch(error => console.log(error));
@@ -35,13 +44,17 @@ class App extends Component {
 
   render() {
     const { handleChange, handleSubmit } = this;
-    const { searchResults } = this.state;
+    const { searchResults, hasMoreItems, totalItems } = this.state;
     return (
       <div className="App">
         <MuiThemeProvider theme={theme}>
           <Header handleChange={handleChange} handleSubmit={handleSubmit} />
           <RouterView />
-          <Jobs jobs={searchResults} />
+          <Jobs
+            jobs={searchResults}
+            hasMoreItems={hasMoreItems}
+            totalItems={totalItems}
+          />
           <Footer />
         </MuiThemeProvider>
       </div>
