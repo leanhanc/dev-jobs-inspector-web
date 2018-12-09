@@ -1,0 +1,7 @@
+@import '../abstract/_mixins.scss';
+
+.spinner-container {
+  height: 100%;
+  @include flexCenter;
+  margin: 5rem;
+}

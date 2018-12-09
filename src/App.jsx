@@ -6,6 +6,8 @@ import RouterView from './router';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Jobs from './components/Jobs';
+import Spinner from './components/ui/Spinner';
+
 import api from './api/index';
 import _throttle from 'lodash.throttle';
 
@@ -16,7 +18,9 @@ class App extends Component {
     searchString: '',
     searchResults: '',
     totalItems: null,
-    hasMoreItems: false
+    currentPage: 2,
+    hasMoreItems: false,
+    loading: false
   };
 
   handleChange = searchString => {
@@ -41,7 +45,7 @@ class App extends Component {
               () => {
                 window.addEventListener(
                   'scroll',
-                  _throttle(this.handleScroll, 500, {
+                  _throttle(this.handleScroll, 1000, {
                     leading: true,
                     trailing: true
                   })
@@ -64,7 +68,27 @@ class App extends Component {
         ((document.documentElement && document.documentElement.scrollTop) || 0);
 
     if (pageHeight <= windowHeight + scrollPosition) {
-      alert('At the bottom');
+      this.getNextPage();
+    }
+  };
+
+  getNextPage = () => {
+    if (this.state.hasMoreItems) {
+      this.setState({ loading: true });
+      api
+        .search(this.state.searchString, this.state.currentPage)
+        .then(({ data, hasMoreItems }) => {
+          this.setState(
+            prevState => ({
+              searchResults: [...prevState.searchResults, ...data],
+              hasMoreItems
+            }),
+            () => {
+              this.setState({ currentPage: this.state.currentPage + 1 });
+              this.setState({ loading: false });
+            }
+          );
+        });
     }
   };
 
@@ -77,7 +101,7 @@ class App extends Component {
 
   render() {
     const { handleChange, handleSubmit } = this;
-    const { searchResults, hasMoreItems, totalItems } = this.state;
+    const { searchResults, hasMoreItems, totalItems, loading } = this.state;
     return (
       <div className="App">
         <MuiThemeProvider theme={theme}>
@@ -88,6 +112,7 @@ class App extends Component {
             hasMoreItems={hasMoreItems}
             totalItems={totalItems}
           />
+          <Spinner loading={loading} />
           <Footer />
         </MuiThemeProvider>
       </div>
