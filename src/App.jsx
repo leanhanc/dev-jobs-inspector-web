@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Jobs from './components/Jobs';
 import api from './api/index';
+import _throttle from 'lodash.throttle';
 
 import './assets/scss/main.scss';
 
@@ -31,16 +32,48 @@ class App extends Component {
             this.setState({ searchResults: null });
           }
           if (response.data.length) {
-            this.setState({
-              searchResults: response.data,
-              totalItems: response.totalItems,
-              hasMoreItems: response.hasMoreItems
-            });
+            this.setState(
+              {
+                searchResults: response.data,
+                totalItems: response.totalItems,
+                hasMoreItems: response.hasMoreItems
+              },
+              () => {
+                window.addEventListener(
+                  'scroll',
+                  _throttle(this.handleScroll, 500, {
+                    leading: true,
+                    trailing: true
+                  })
+                );
+              }
+            );
           }
         })
         .catch(error => console.log(error));
     }
   };
+
+  handleScroll = e => {
+    const pageHeight = document.documentElement.offsetHeight;
+    const windowHeight = window.innerHeight;
+    const scrollPosition =
+      window.scrollY ||
+      window.pageYOffset ||
+      document.body.scrollTop +
+        ((document.documentElement && document.documentElement.scrollTop) || 0);
+
+    if (pageHeight <= windowHeight + scrollPosition) {
+      alert('At the bottom');
+    }
+  };
+
+  componentWillUnmount() {
+    window.removeEventListener(
+      'scroll',
+      _throttle(this.handleScroll, 700, { leading: true, trailing: true })
+    );
+  }
 
   render() {
     const { handleChange, handleSubmit } = this;

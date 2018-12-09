@@ -24,14 +24,6 @@ class Jobs extends Component {
     showDetailsOfJob: null
   };
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  }
-
-  handleScroll = e => {
-    //console.log(e);
-  };
-
   handleOpen = index => {
     this.setState({ showDetailsOfJob: index }, () => {
       this.setState({ open: true });
