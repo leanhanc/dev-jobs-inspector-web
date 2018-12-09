@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -29,12 +29,23 @@ class Jobs extends Component {
   }
 
   handleScroll = e => {
-    console.log(e);
+    //console.log(e);
   };
 
   handleOpen = index => {
     this.setState({ showDetailsOfJob: index }, () => {
       this.setState({ open: true });
+    });
+  };
+
+  respectLineBreaks = str => {
+    return str.split('\n').map((item, key) => {
+      return (
+        <Fragment key={key}>
+          {item}
+          <br />
+        </Fragment>
+      );
     });
   };
 
@@ -91,7 +102,7 @@ class Jobs extends Component {
                   className="job__description"
                   id="alert-dialog-description"
                 >
-                  {jobs[jobIndex].description}
+                  {this.respectLineBreaks(jobs[jobIndex].description)}
                 </DialogContentText>
                 <div className="Jobs__extra-info">
                   <h4 className="job__site">
