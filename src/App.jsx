@@ -6,6 +6,7 @@ import RouterView from './router';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Jobs from './components/Jobs';
+import ResultsFound from './components/ResultsFound';
 import Spinner from './components/ui/Spinner';
 
 import api from './api/index';
@@ -107,6 +108,7 @@ class App extends Component {
         <MuiThemeProvider theme={theme}>
           <Header handleChange={handleChange} handleSubmit={handleSubmit} />
           <RouterView />
+          <ResultsFound totalItems={totalItems} />
           <Jobs
             jobs={searchResults}
             hasMoreItems={hasMoreItems}
