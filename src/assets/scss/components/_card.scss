@@ -31,11 +31,17 @@
 
   &__btn--primary {
     width: 66%;
+    height: 100%;
     display: block !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    font-size: 1.3rem !important;
+    font-size: 1.5rem !important;
     text-align: center !important;
+
+    &:hover {
+      box-shadow: none !important;
+      outline: none;
+    }
   }
 
   &__btn--secondary {
