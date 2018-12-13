@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from './components/theme';
-import RouterView from './router';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Landing from './components/Landing';
 import Jobs from './components/Jobs';
 import ResultsFound from './components/ResultsFound';
 import Spinner from './components/ui/Spinner';
@@ -107,13 +108,17 @@ class App extends Component {
       <div className="App">
         <MuiThemeProvider theme={theme}>
           <Header handleChange={handleChange} handleSubmit={handleSubmit} />
-          <RouterView />
+          {searchResults ? (
+            <Jobs
+              jobs={searchResults}
+              hasMoreItems={hasMoreItems}
+              totalItems={totalItems}
+            />
+          ) : (
+            <Landing />
+          )}
           <ResultsFound totalItems={totalItems} />
-          <Jobs
-            jobs={searchResults}
-            hasMoreItems={hasMoreItems}
-            totalItems={totalItems}
-          />
+
           <Spinner loading={loading} />
           <Footer />
         </MuiThemeProvider>
