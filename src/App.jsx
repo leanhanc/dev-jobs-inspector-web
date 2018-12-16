@@ -109,15 +109,17 @@ class App extends Component {
         <MuiThemeProvider theme={theme}>
           <Header handleChange={handleChange} handleSubmit={handleSubmit} />
           {searchResults ? (
-            <Jobs
-              jobs={searchResults}
-              hasMoreItems={hasMoreItems}
-              totalItems={totalItems}
-            />
+            <React.Fragment>
+              <ResultsFound totalItems={totalItems} />
+              <Jobs
+                jobs={searchResults}
+                hasMoreItems={hasMoreItems}
+                totalItems={totalItems}
+              />
+            </React.Fragment>
           ) : (
             <Landing />
           )}
-          <ResultsFound totalItems={totalItems} />
 
           <Spinner loading={loading} />
           <Footer />
