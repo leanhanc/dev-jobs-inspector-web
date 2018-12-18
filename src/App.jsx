@@ -120,7 +120,6 @@ class App extends Component {
           ) : (
             <Landing />
           )}
-
           <Spinner loading={loading} />
           <Footer />
         </MuiThemeProvider>

@@ -3,33 +3,16 @@
 
 #Search {
   background-size: cover;
-  height: 200px;
-
+  height: 300px;
   @include tablet {
-    height: 300px;
+    height: 350px;
   }
   @include desktop {
-    height: 400px;
+    height: 500px;
   }
 
   background-image: url('../../img/bg-desk.jpg');
-  background-color: $violet;
   background-position: center;
-}
 
-#Search input {
-  font-size: 1.2rem;
-}
-
-.form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 66%;
-  @include desktop {
-    width: 50%;
-  }
-  font-weight: bold;
-  opacity: 0.8;
+  @include flexCenter;
 }
