@@ -19,17 +19,23 @@ class App extends Component {
   state = {
     searchString: '',
     searchResults: '',
+    locationFilter: 'Capital Federal',
     totalItems: null,
     currentPage: 2,
     hasMoreItems: false,
     loading: false
   };
 
-  handleChange = searchString => {
-    this.setState({ searchString });
+  handleSearchStringChange = e => {
+    this.setState({ searchString: e.target.value });
   };
 
-  handleSubmit = () => {
+  handleLocationFilterChange = e => {
+    this.setState({ locationFilter: e.target.value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
     if (this.state.searchString !== '') {
       api
         .search(this.state.searchString)
@@ -102,12 +108,27 @@ class App extends Component {
   }
 
   render() {
-    const { handleChange, handleSubmit } = this;
-    const { searchResults, hasMoreItems, totalItems, loading } = this.state;
+    const {
+      handleSearchStringChange,
+      handleSubmit,
+      handleLocationFilterChange
+    } = this;
+    const {
+      searchString,
+      searchResults,
+      hasMoreItems,
+      totalItems,
+      loading
+    } = this.state;
     return (
       <div className="App">
         <MuiThemeProvider theme={theme}>
-          <Header handleChange={handleChange} handleSubmit={handleSubmit} />
+          <Header
+            handleSearchStringChange={handleSearchStringChange}
+            handleSubmit={handleSubmit}
+            searchString={searchString}
+            handleLocationFilterChange={handleLocationFilterChange}
+          />
           {searchResults ? (
             <React.Fragment>
               <ResultsFound totalItems={totalItems} />
