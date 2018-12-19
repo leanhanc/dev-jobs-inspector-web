@@ -19,7 +19,7 @@ class App extends Component {
   state = {
     searchString: '',
     searchResults: '',
-    locationFilter: 'Capital Federal',
+    locationFilter: null,
     totalItems: null,
     currentPage: 2,
     hasMoreItems: false,
@@ -37,8 +37,9 @@ class App extends Component {
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.searchString !== '') {
+      this.setState({ currentPage: 2 });
       api
-        .search(this.state.searchString)
+        .search(this.state.searchString, this.state.locationFilter)
         .then(response => {
           if (!response.length) {
             this.setState({ searchResults: null });
@@ -48,6 +49,7 @@ class App extends Component {
               {
                 searchResults: response.data,
                 totalItems: response.totalItems,
+                filteredItems: response.data.length,
                 hasMoreItems: response.hasMoreItems
               },
               () => {
@@ -83,8 +85,13 @@ class App extends Component {
   getNextPage = () => {
     if (this.state.hasMoreItems) {
       this.setState({ loading: true });
+
       api
-        .search(this.state.searchString, this.state.currentPage)
+        .search(
+          this.state.searchString,
+          this.state.locationFilter,
+          this.state.currentPage
+        )
         .then(({ data, hasMoreItems }) => {
           this.setState(
             prevState => ({

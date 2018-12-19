@@ -8,13 +8,14 @@ const times = {
   thisMonth: addDays(new Date(), 30)
 };
 const provinces = [
+  { name: 'Argentina', value: '' },
   { name: 'Ciudad de Buenos Aires', value: 'Capital Federal' },
   { name: 'Buenos Aires', value: 'Buenos Aires' },
   { name: 'Catamarca', value: 'Catamarca' },
   { name: 'Chaco', value: 'Chaco' },
   { name: 'Chubut', value: 'Chubut' },
   { name: 'Córdoba', value: 'Cordoba' },
-  { name: 'Corrientes', value: 'Corriente' },
+  { name: 'Corrientes', value: 'Corrientes' },
   { name: 'Entre Ríos', value: 'Entre Rios' },
   { name: 'Formosa', value: 'Formosa' },
   { name: 'Jujuy', value: 'Jujuy' },

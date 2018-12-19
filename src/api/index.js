@@ -1,8 +1,10 @@
 const api = {};
 
-api.search = (query, page = 1) => {
+api.search = (query, filter, page = 1) => {
   return fetch(
-    `${process.env.REACT_APP_BASE_URL}/search/?query=${query}&page=${page}`
+    `${process.env.REACT_APP_BASE_URL}/search/?query=${query}&filter=${
+      filter ? filter : ''
+    }&page=${page}&`
   ).then(response => response.json());
 };
 
