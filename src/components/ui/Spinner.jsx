@@ -6,7 +6,7 @@ export default function Spinner(props) {
   const { loading } = props;
   return (
     <div className="spinner-container">
-      <ClipLoader sizeUnit="px" size={50} color="{#5643fa}" loading={loading} />
+      <ClipLoader sizeUnit="px" size={50} color="#5643fa" loading={loading} />
     </div>
   );
 }

@@ -14,12 +14,13 @@ import api from './api/index';
 import _throttle from 'lodash.throttle';
 
 import './assets/scss/main.scss';
+import NoResultsFound from './components/NoResultsFound';
 
 class App extends Component {
   state = {
     searchString: '',
-    searchResults: '',
     locationFilter: null,
+    noResultsFound: false,
     totalItems: null,
     currentPage: 2,
     hasMoreItems: false,
@@ -35,16 +36,17 @@ class App extends Component {
   };
 
   handleSubmit = e => {
+    this.setState({ searchResults: null, hasMoreItems: false });
     e.preventDefault();
     if (this.state.searchString !== '') {
       this.setState({ currentPage: 2 });
       api
         .search(this.state.searchString, this.state.locationFilter)
         .then(response => {
-          if (!response.length) {
-            this.setState({ searchResults: null });
+          if (!response.data) {
+            this.setState({ searchResults: null, noResultsFound: true });
           }
-          if (response.data.length) {
+          if (response.data && response.data.length) {
             this.setState(
               {
                 searchResults: response.data,
@@ -124,6 +126,7 @@ class App extends Component {
       searchString,
       searchResults,
       hasMoreItems,
+      noResultsFound,
       totalItems,
       loading
     } = this.state;
@@ -145,6 +148,8 @@ class App extends Component {
                 totalItems={totalItems}
               />
             </React.Fragment>
+          ) : noResultsFound ? (
+            <NoResultsFound />
           ) : (
             <Landing />
           )}

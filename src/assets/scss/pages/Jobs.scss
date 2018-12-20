@@ -8,14 +8,6 @@
     color: $cream;
   }
 
-  .no-results-found {
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-  }
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,6 +71,14 @@
   display: flex;
   justify-content: center;
   font-weight: normal;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.no-results-found {
+  height: 300px;
+  display: flex;
+  justify-content: center;
   align-items: center;
   font-size: 2rem;
 }

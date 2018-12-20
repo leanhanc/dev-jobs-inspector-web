@@ -46,9 +46,7 @@ class Jobs extends Component {
 
     return (
       <section className="Jobs">
-        {jobs === null ? (
-          <NoResultsFound />
-        ) : jobs && jobs.length ? (
+        {jobs && jobs.length ? (
           jobs.map((job, index) => {
             return (
               <Job
@@ -59,7 +57,9 @@ class Jobs extends Component {
               />
             );
           })
-        ) : null}
+        ) : (
+          <NoResultsFound />
+        )}
         {open && jobs && jobs.length ? (
           <JobDetailed
             jobs={jobs}
