@@ -8,13 +8,13 @@ import Footer from './components/Footer';
 import Landing from './components/Landing';
 import Jobs from './components/Jobs';
 import ResultsFound from './components/ResultsFound';
+import NoResultsFound from './components/NoResultsFound';
 import Spinner from './components/ui/Spinner';
 
 import api from './api/index';
 import _throttle from 'lodash.throttle';
 
 import './assets/scss/main.scss';
-import NoResultsFound from './components/NoResultsFound';
 
 class App extends Component {
   state = {
@@ -36,14 +36,19 @@ class App extends Component {
   };
 
   handleSubmit = e => {
-    this.setState({ searchResults: null, hasMoreItems: false });
+    this.setState({
+      searchResults: null,
+      hasMoreItems: false,
+      noResultsFound: false,
+      loading: true
+    });
     e.preventDefault();
     if (this.state.searchString !== '') {
       this.setState({ currentPage: 2 });
       api
         .search(this.state.searchString, this.state.locationFilter)
         .then(response => {
-          if (!response.data) {
+          if (!response.data.length) {
             this.setState({ searchResults: null, noResultsFound: true });
           }
           if (response.data && response.data.length) {
@@ -51,8 +56,8 @@ class App extends Component {
               {
                 searchResults: response.data,
                 totalItems: response.totalItems,
-                filteredItems: response.data.length,
-                hasMoreItems: response.hasMoreItems
+                hasMoreItems: response.hasMoreItems,
+                loading: false
               },
               () => {
                 window.addEventListener(
@@ -150,10 +155,12 @@ class App extends Component {
             </React.Fragment>
           ) : noResultsFound ? (
             <NoResultsFound />
+          ) : loading ? (
+            <Spinner loading={loading} />
           ) : (
             <Landing />
           )}
-          <Spinner loading={loading} />
+
           <Footer />
         </MuiThemeProvider>
       </div>
