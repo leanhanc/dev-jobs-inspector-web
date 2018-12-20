@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import NoResultsFound from './NoResultsFound';
 import Job from './Job';
 import JobDetailed from './JobDetailed';
+import Spinner from './ui/Spinner';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 import * as es from '../lib/es/';
 
@@ -40,7 +41,7 @@ class Jobs extends Component {
   };
 
   render() {
-    const { jobs, fullScreen } = this.props;
+    const { jobs, fullScreen, loading } = this.props;
     const { open, showDetailsOfJob: jobIndex } = this.state;
     const { getTime, handleClose, handleOpen, respectLineBreaks } = this;
 
@@ -72,6 +73,7 @@ class Jobs extends Component {
             respectLineBreaks={respectLineBreaks}
           />
         ) : null}
+        {loading ? <Spinner height="150px" /> : null}
       </section>
     );
   }

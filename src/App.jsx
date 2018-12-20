@@ -151,16 +151,16 @@ class App extends Component {
                 jobs={searchResults}
                 hasMoreItems={hasMoreItems}
                 totalItems={totalItems}
+                loading={loading}
               />
             </React.Fragment>
           ) : noResultsFound ? (
             <NoResultsFound />
           ) : loading ? (
-            <Spinner loading={loading} />
+            <Spinner loading={loading} height="50vh" />
           ) : (
             <Landing />
           )}
-
           <Footer />
         </MuiThemeProvider>
       </div>
