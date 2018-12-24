@@ -10,7 +10,7 @@ export default function ResultsFound(props) {
           <h4>Se encontró un resultado</h4>
         ) : (
           <span>
-            Se encontraron <strong>{totalItems}</strong> resultados
+            Se encontraron <strong>{totalItems}</strong> avisos 🕵️‍
           </span>
         )
       ) : null}

@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
+import DateSelect from './DateSelect';
 import '../assets/scss/pages/Jobs.scss';
 
-export default function NoResultsFound() {
-  return (
-    <div className="no-results-found">
-      No se encontraron resultados{' '}
-      <span role="img" aria-label="Sad Face">
-        😢
-      </span>{' '}
-    </div>
-  );
+export default class NoResultsFound extends Component {
+  render() {
+    return (
+      <div className="no-results-found">
+        No se encontraron avisos{' '}
+        <span role="img" aria-label="Sad Face">
+          &nbsp; 😢
+        </span>
+        {this.props.dateFilter ? (
+          <DateSelect
+            handleChange={this.props.handleChange}
+            dateFilter={this.props.dateFilter}
+          />
+        ) : null}
+      </div>
+    );
+  }
 }

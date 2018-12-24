@@ -1,12 +1,10 @@
-import addDays from 'date-fns/add_days';
+const dates = [
+  { name: 'Un mes', value: 'this_month' },
+  { name: 'Una semana', value: 'this_week' },
+  { name: 'Últimas 48 horas', value: 'yesterday' },
+  { name: 'Últimas 24 horas', value: 'today' }
+];
 
-const timeStrings = ['Hoy', 'Ayer', 'Esta semana', 'Este mes'];
-const times = {
-  today: addDays(new Date(), 1),
-  tomorrow: addDays(new Date(), 2),
-  thisWeek: addDays(new Date(), 7),
-  thisMonth: addDays(new Date(), 30)
-};
 const provinces = [
   { name: 'Argentina', value: '' },
   { name: 'Ciudad de Buenos Aires', value: 'Capital Federal' },
@@ -35,4 +33,4 @@ const provinces = [
   { name: 'Tucumán', value: 'Tucuman' }
 ];
 
-export { times, timeStrings, provinces };
+export { dates, provinces };

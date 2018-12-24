@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Landing from './components/Landing';
 import Jobs from './components/Jobs';
+import DateSelect from './components/DateSelect';
 import ResultsFound from './components/ResultsFound';
 import NoResultsFound from './components/NoResultsFound';
 import Spinner from './components/ui/Spinner';
@@ -20,9 +21,10 @@ class App extends Component {
   state = {
     searchString: '',
     locationFilter: null,
+    dateFilter: '',
     noResultsFound: false,
     totalItems: null,
-    currentPage: 2,
+    currentPage: 1,
     hasMoreItems: false,
     loading: false
   };
@@ -35,18 +37,49 @@ class App extends Component {
     this.setState({ locationFilter: e.target.value });
   };
 
+  handleDateFilterChange = e => {
+    this.setState({ dateFilter: e.target.value }, () => {
+      if (this.state.searchString !== '') {
+        this.setState({ currentPage: 1, loading: true });
+        api
+          .search(
+            this.state.searchString,
+            this.state.locationFilter,
+            this.state.dateFilter
+          )
+          .then(response => {
+            if (!response.data.length) {
+              this.setState({ searchResults: null, noResultsFound: true });
+            }
+            if (response.data && response.data.length) {
+              this.setState({
+                searchResults: response.data,
+                totalItems: response.totalItems,
+                hasMoreItems: response.hasMoreItems,
+                loading: false,
+                currentPage: this.state.currentPage + 1
+              });
+            }
+          });
+      }
+    });
+  };
+
   handleSubmit = e => {
     this.setState({
       searchResults: null,
       hasMoreItems: false,
-      noResultsFound: false,
-      loading: true
+      noResultsFound: false
     });
     e.preventDefault();
     if (this.state.searchString !== '') {
-      this.setState({ currentPage: 2 });
+      this.setState({ currentPage: 1, loading: true });
       api
-        .search(this.state.searchString, this.state.locationFilter)
+        .search(
+          this.state.searchString,
+          this.state.locationFilter,
+          this.state.dateFilter
+        )
         .then(response => {
           if (!response.data.length) {
             this.setState({ searchResults: null, noResultsFound: true });
@@ -57,7 +90,8 @@ class App extends Component {
                 searchResults: response.data,
                 totalItems: response.totalItems,
                 hasMoreItems: response.hasMoreItems,
-                loading: false
+                loading: false,
+                currentPage: this.state.currentPage + 1
               },
               () => {
                 window.addEventListener(
@@ -75,28 +109,14 @@ class App extends Component {
     }
   };
 
-  handleScroll = e => {
-    const pageHeight = document.documentElement.offsetHeight;
-    const windowHeight = window.innerHeight;
-    const scrollPosition =
-      window.scrollY ||
-      window.pageYOffset ||
-      document.body.scrollTop +
-        ((document.documentElement && document.documentElement.scrollTop) || 0);
-
-    if (pageHeight <= windowHeight + scrollPosition) {
-      this.getNextPage();
-    }
-  };
-
   getNextPage = () => {
     if (this.state.hasMoreItems) {
       this.setState({ loading: true });
-
       api
         .search(
           this.state.searchString,
           this.state.locationFilter,
+          this.state.dateFilter,
           this.state.currentPage
         )
         .then(({ data, hasMoreItems }) => {
@@ -114,6 +134,20 @@ class App extends Component {
     }
   };
 
+  handleScroll = e => {
+    const pageHeight = document.documentElement.offsetHeight;
+    const windowHeight = window.innerHeight;
+    const scrollPosition =
+      window.scrollY ||
+      window.pageYOffset ||
+      document.body.scrollTop +
+        ((document.documentElement && document.documentElement.scrollTop) || 0);
+
+    if (pageHeight <= windowHeight + scrollPosition) {
+      this.getNextPage();
+    }
+  };
+
   componentWillUnmount() {
     window.removeEventListener(
       'scroll',
@@ -125,11 +159,13 @@ class App extends Component {
     const {
       handleSearchStringChange,
       handleSubmit,
-      handleLocationFilterChange
+      handleLocationFilterChange,
+      handleDateFilterChange
     } = this;
     const {
       searchString,
       searchResults,
+      dateFilter,
       hasMoreItems,
       noResultsFound,
       totalItems,
@@ -146,7 +182,13 @@ class App extends Component {
           />
           {searchResults ? (
             <React.Fragment>
-              <ResultsFound totalItems={totalItems} />
+              <section className="results-found__container">
+                <ResultsFound totalItems={totalItems} />
+                <DateSelect
+                  handleChange={handleDateFilterChange}
+                  dateFilter={dateFilter}
+                />
+              </section>
               <Jobs
                 jobs={searchResults}
                 hasMoreItems={hasMoreItems}
@@ -155,7 +197,10 @@ class App extends Component {
               />
             </React.Fragment>
           ) : noResultsFound ? (
-            <NoResultsFound />
+            <NoResultsFound
+              handleChange={handleDateFilterChange}
+              dateFilter={dateFilter}
+            />
           ) : loading ? (
             <Spinner loading={loading} height="50vh" />
           ) : (

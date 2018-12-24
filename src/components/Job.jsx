@@ -32,7 +32,7 @@ const SimpleCard = props => {
       <p className="job__description">
         {job.description
           .split(' ')
-          .splice(0, 10)
+          .splice(0, 15)
           .join(' ')}
         ...
       </p>

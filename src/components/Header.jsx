@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import { provinces } from '../helpers';
 
 import '../assets/scss/pages/Home.scss';
-import '../assets/scss/pages/Header.scss';
+import '../assets/scss/components/_input.scss';
 
 export default function Header(props) {
   const {

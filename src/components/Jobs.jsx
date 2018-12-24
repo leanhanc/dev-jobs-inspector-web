@@ -53,7 +53,7 @@ class Jobs extends Component {
               <Job
                 job={job}
                 index={index}
-                key={job.id}
+                key={index}
                 openModal={this.handleOpen}
               />
             );
