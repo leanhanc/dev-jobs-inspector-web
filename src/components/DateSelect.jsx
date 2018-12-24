@@ -15,7 +15,7 @@ class DateSelect extends React.Component {
           <strong>FECHA DE PUBLICACIÓN</strong>
         </h3>
         <select
-          style={{ width: '160px' }}
+          style={{ width: '180px' }}
           value={value}
           onChange={handleChange}
           className="Form__Input Select"
