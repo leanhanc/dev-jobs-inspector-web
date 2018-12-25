@@ -100,7 +100,7 @@
 }
 
 .date-select {
-  height: 130px;
+  height: 180px;
   @include flexCenter;
   flex-direction: column;
   letter-spacing: 1.3px;
@@ -112,7 +112,7 @@
   }
 
   @include tablet {
-    height: 180px;
+    height: 190px;
     margin: 0 4rem;
   }
 
