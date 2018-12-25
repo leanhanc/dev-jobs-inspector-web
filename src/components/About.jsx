@@ -9,8 +9,8 @@ export default function About() {
       </h2>
       <Divider />
       <h2 className="About__subtitle">
-        Los desarrolladores odiamos hacer tareas repetitivas como entrar a
-        distintos portales para buscar exactamente lo mismo. <br />
+        Como developers odiamos hacer tareas repetitivas como entrar a distintos
+        portales para buscar exactamente lo mismo. <br />
         Con <strong>Dev Job Finder</strong> tenemos acceso a los avisos
         publicados en los sitios más importantes de Argentina en un sólo lugar.
       </h2>
