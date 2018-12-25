@@ -187,6 +187,7 @@ class App extends Component {
                 <DateSelect
                   handleChange={handleDateFilterChange}
                   dateFilter={dateFilter}
+                  loading={loading}
                 />
               </section>
               <Jobs
@@ -200,6 +201,7 @@ class App extends Component {
             <NoResultsFound
               handleChange={handleDateFilterChange}
               dateFilter={dateFilter}
+              loading={loading}
             />
           ) : loading ? (
             <Spinner loading={loading} height="50vh" />

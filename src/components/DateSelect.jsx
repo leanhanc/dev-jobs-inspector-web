@@ -1,12 +1,13 @@
 import React from 'react';
 
 import { dates } from '../helpers';
+import FadeLoader from './ui/FadeLoader';
 import '../assets/scss/pages/Jobs.scss';
 import '../assets/scss/components/_input.scss';
 
 class DateSelect extends React.Component {
   render() {
-    const { dateFilter: value, handleChange } = this.props;
+    const { dateFilter: value, handleChange, loading } = this.props;
 
     return (
       <div className="date-select">
@@ -29,7 +30,7 @@ class DateSelect extends React.Component {
             );
           })}
         </select>
-        <span className="date-select__value" />
+        <FadeLoader loading={loading} />
       </div>
     );
   }
