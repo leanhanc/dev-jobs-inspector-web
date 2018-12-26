@@ -25,7 +25,7 @@ export default function Features() {
           <p className="Features__Feature">
             Podés chequear el{' '}
             <a
-              href="https://github.com/leo10099/dev-job-finder"
+              href="https://github.com/leo10099/dev-job-inspector"
               className="Features__Feature-Link"
             >
               repositorio
@@ -34,7 +34,7 @@ export default function Features() {
             Si preferís obtener los datos directamente o armar tu propio
             cliente, podés acceder a la{' '}
             <a
-              href="https://github.com/leo10099/dev-job-finder-api"
+              href="https://github.com/leo10099/dev-job-inspector-api"
               className="Features__Feature-Link"
             >
               API
@@ -53,8 +53,8 @@ export default function Features() {
             <a href="https://reactjs.org/" className="Features__Feature-Link">
               React
             </a>
-            , en <strong>Dev Job Finder</strong> pasás el menor tiempo posible
-            buscando para poder concentrarte en enviar CVs.
+            , en <strong>Dev Job Inspector</strong> pasás el menor tiempo
+            posible buscando para poder concentrarte en enviar CVs.
           </p>
         </Card>
       </div>

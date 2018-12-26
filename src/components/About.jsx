@@ -11,7 +11,7 @@ export default function About() {
       <h2 className="About__subtitle">
         Como developers odiamos hacer tareas repetitivas como entrar a distintos
         portales para buscar exactamente lo mismo. <br />
-        Con <strong>Dev Job Finder</strong> tenemos acceso a los avisos
+        Con <strong>Dev Job Inspector</strong> tenemos acceso a los avisos
         publicados en los sitios más importantes de Argentina en un sólo lugar.
       </h2>
     </React.Fragment>
