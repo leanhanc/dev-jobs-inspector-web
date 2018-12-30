@@ -113,12 +113,12 @@ class App extends Component {
           if (error.message === 'Failed to fetch') {
             this.setState({
               errorMessage:
-                'Perdón. Hubo un error al intentar obtener los datos. Por favor, intentá más tarde.'
+                'No se pudiereon obtener los datos. Por favor, intentá más tarde.'
             });
           } else {
             this.setState({
               errorMessage:
-                'Perdón. Hubo un error inesperado. Por favor, intentá más tarde.'
+                'Hubo un error inesperado. Por favor, intentá más tarde.'
             });
           }
           this.setState({
@@ -249,7 +249,8 @@ class App extends Component {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                fontSize: '1.5rem'
+                fontSize: '1.2rem',
+                textAlign: 'center'
               }}
             >
               <ErrorIcon />
