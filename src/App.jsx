@@ -11,6 +11,8 @@ import DateSelect from './components/DateSelect';
 import ResultsFound from './components/ResultsFound';
 import NoResultsFound from './components/NoResultsFound';
 import Spinner from './components/ui/Spinner';
+import SnackBar from './components/ui/Snackbar';
+import ErrorIcon from '@material-ui/icons/Error';
 
 import api from './api/index';
 import _throttle from 'lodash.throttle';
@@ -26,7 +28,9 @@ class App extends Component {
     totalItems: null,
     currentPage: 1,
     hasMoreItems: false,
-    loading: false
+    loading: false,
+    errorMessage: '',
+    openSnackbar: false
   };
 
   handleSearchStringChange = e => {
@@ -105,7 +109,23 @@ class App extends Component {
             );
           }
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+          if (error.message === 'Failed to fetch') {
+            this.setState({
+              errorMessage:
+                'Perdón. Hubo un error al intentar obtener los datos. Por favor, intentá más tarde.'
+            });
+          } else {
+            this.setState({
+              errorMessage:
+                'Perdón. Hubo un error inesperado. Por favor, intentá más tarde.'
+            });
+          }
+          this.setState({
+            loading: false,
+            openSnackbar: true
+          });
+        });
     }
   };
 
@@ -148,6 +168,14 @@ class App extends Component {
     }
   };
 
+  handleSnackbarClick = state => () => {
+    this.setState({ openSnackbar: true, ...state });
+  };
+
+  handleSnackbarClose = () => {
+    this.setState({ openSnackbar: false });
+  };
+
   componentWillUnmount() {
     window.removeEventListener(
       'scroll',
@@ -160,7 +188,8 @@ class App extends Component {
       handleSearchStringChange,
       handleSubmit,
       handleLocationFilterChange,
-      handleDateFilterChange
+      handleDateFilterChange,
+      handleSnackbarClose
     } = this;
     const {
       searchString,
@@ -169,7 +198,9 @@ class App extends Component {
       hasMoreItems,
       noResultsFound,
       totalItems,
-      loading
+      loading,
+      openSnackbar,
+      errorMessage
     } = this.state;
     return (
       <div className="App">
@@ -209,6 +240,23 @@ class App extends Component {
             <Landing />
           )}
           <Footer />
+          <SnackBar
+            openSnackbar={openSnackbar}
+            handleClose={handleSnackbarClose}
+            errorMessage={errorMessage}
+          >
+            <span
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                fontSize: '1.5rem'
+              }}
+            >
+              <ErrorIcon />
+              &nbsp;
+              {errorMessage}
+            </span>
+          </SnackBar>
         </MuiThemeProvider>
       </div>
     );
