@@ -20,15 +20,13 @@
 
   &__logo {
     max-width: 120px;
-    opacity: 0.8;
+    opacity: 0.85;
     cursor: pointer;
     position: relative;
     top: -1.2rem;
 
     @include desktop {
-      position: absolute;
-      top: 0.5rem;
-      left: 1.5rem;
+      padding-bottom: 2rem;
     }
   }
 }
