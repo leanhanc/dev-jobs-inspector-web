@@ -1,11 +1,15 @@
 @import '../abstract/variables';
 @import '../abstract/mixins';
 
-#Search {
+.Header {
   background-size: cover;
-  height: 300px;
+  height: 366px;
+  @include flexCenter;
+
+  flex-direction: column;
+
   @include tablet {
-    height: 350px;
+    height: 380px;
   }
   @include desktop {
     height: 500px;
@@ -14,5 +18,17 @@
   background-image: url('../../img/bg-desk.jpg');
   background-position: center;
 
-  @include flexCenter;
+  &__logo {
+    max-width: 120px;
+    opacity: 0.9;
+    cursor: pointer;
+    position: relative;
+    top: -1.2rem;
+
+    @include desktop {
+      position: absolute;
+      top: 0.5rem;
+      left: 1.5rem;
+    }
+  }
 }

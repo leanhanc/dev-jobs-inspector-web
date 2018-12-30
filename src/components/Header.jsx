@@ -16,6 +16,13 @@ export default function Header(props) {
 
   return (
     <header className="Header">
+      <img
+        src={require('../assets/img/devjobs-logo.png')}
+        className="Header__logo"
+        onClick={() => {
+          window.location.replace('/');
+        }}
+      />
       <section id="Search">
         <form className="Form" id="Form" onSubmit={handleSubmit}>
           <input
