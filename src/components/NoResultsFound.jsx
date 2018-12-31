@@ -6,7 +6,7 @@ export default class NoResultsFound extends Component {
   render() {
     return (
       <div className="no-results-found">
-        No se encontraron avisos{' '}
+        No hay avisos para mostrar{' '}
         <span role="img" aria-label="Sad Face">
           &nbsp; 😢
         </span>

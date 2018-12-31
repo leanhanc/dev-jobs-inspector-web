@@ -10,13 +10,13 @@
   flex-wrap: wrap;
 
   justify-content: space-around;
-  min-width: 85%;
+  min-width: 90%;
   min-height: 450px;
 
   @include tablet {
     min-width: 0px;
-    width: 25%;
-    min-height: 390px;
+    max-width: 300px;
+    flex-basis: 300px;
     flex-wrap: wrap;
   }
 

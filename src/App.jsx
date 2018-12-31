@@ -53,7 +53,11 @@ class App extends Component {
           )
           .then(response => {
             if (!response.data.length) {
-              this.setState({ searchResults: null, noResultsFound: true });
+              this.setState({
+                loading: false,
+                searchResults: [],
+                noResultsFound: true
+              });
             }
             if (response.data && response.data.length) {
               this.setState({
@@ -86,7 +90,11 @@ class App extends Component {
         )
         .then(response => {
           if (!response.data.length) {
-            this.setState({ searchResults: null, noResultsFound: true });
+            this.setState({
+              searchResults: [],
+              noResultsFound: true,
+              loading: false
+            });
           }
           if (response.data && response.data.length) {
             this.setState(
