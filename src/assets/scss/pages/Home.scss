@@ -19,7 +19,7 @@
   background-position: center;
 
   &__logo {
-    max-width: 120px;
+    width: 120px;
     opacity: 0.85;
     cursor: pointer;
     position: relative;
@@ -27,6 +27,7 @@
 
     @include desktop {
       padding-bottom: 2rem;
+      width: 140px;
     }
   }
 }

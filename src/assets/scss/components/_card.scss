@@ -10,17 +10,19 @@
   flex-wrap: wrap;
 
   justify-content: space-around;
-  min-width: 95%;
+  min-width: 85%;
   min-height: 450px;
 
   @include tablet {
     min-width: 0px;
-    max-width: 300px;
-    flex-basis: 300px;
+    width: 25%;
+    min-height: 390px;
+    flex-wrap: wrap;
   }
 
   @include desktop {
     min-width: 0px;
+    min-height: 450px;
     max-width: 300px;
     flex-basis: 250px;
   }
