@@ -22,6 +22,7 @@ export default function Header(props) {
         onClick={() => {
           window.location.replace('/');
         }}
+        alt="Dev Job Inspector Logo"
       />
       <section id="Search">
         <form className="Form" id="Form" onSubmit={handleSubmit}>
