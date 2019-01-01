@@ -30,7 +30,7 @@ class DateSelect extends React.Component {
             );
           })}
         </select>
-        <FadeLoader loading={loading} />
+        {loading ? <FadeLoader loading={loading} /> : null}
       </div>
     );
   }

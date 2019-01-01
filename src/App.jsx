@@ -77,7 +77,8 @@ class App extends Component {
     this.setState({
       searchResults: null,
       hasMoreItems: false,
-      noResultsFound: false
+      noResultsFound: false,
+      totalItems: null
     });
     e.preventDefault();
     if (this.state.searchString !== '') {
@@ -219,7 +220,7 @@ class App extends Component {
             searchString={searchString}
             handleLocationFilterChange={handleLocationFilterChange}
           />
-          {searchResults ? (
+          {searchResults && searchResults.length ? (
             <React.Fragment>
               <section className="results-found__container">
                 <ResultsFound totalItems={totalItems} />
