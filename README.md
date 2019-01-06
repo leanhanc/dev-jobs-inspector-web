@@ -8,7 +8,7 @@
 npm run start
 ```
 
-## Ejecutar localmente
+## Configuración
 
 Se requiere una variable de entorno apuntando a la <a href="http://https://github.com/leo10099/dev-job-inspector-api">API</a>.
 Opcionalmente, se puede agregar otra variable de entorno apuntando
