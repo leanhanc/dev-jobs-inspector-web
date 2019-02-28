@@ -122,7 +122,7 @@ class App extends Component {
           if (error.message === 'Failed to fetch') {
             this.setState({
               errorMessage:
-                'No se pudiereon obtener los datos. Por favor, intentá más tarde.'
+                'No se pudo obtener los datos. Por favor, intentá más tarde.'
             });
           } else {
             this.setState({

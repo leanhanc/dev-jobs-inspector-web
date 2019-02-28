@@ -17,17 +17,15 @@ api.search = (query, locationFilter, dateFilter, page = 1) => {
       como variable de entorno.
       */
         if (process.env.REACT_APP_BASE_URL_FALLBACK) {
-          if (e.message === 'Failed to fetch') {
-            return fetch(
-              `${
-                process.env.REACT_APP_BASE_URL_FALLBACK
-              }/search/?query=${query}&locationFilter=${
-                locationFilter ? locationFilter : ''
-              }&dateFilter=${dateFilter ? dateFilter : ''}&page=${page}`
-            )
-              .then(response => resolve(response.json()))
-              .catch(e => reject(e));
-          }
+          return fetch(
+            `${
+              process.env.REACT_APP_BASE_URL_FALLBACK
+            }/search/?query=${query}&locationFilter=${
+              locationFilter ? locationFilter : ''
+            }&dateFilter=${dateFilter ? dateFilter : ''}&page=${page}`
+          )
+            .then(response => resolve(response.json()))
+            .catch(e => reject(e));
         } else {
           reject(e);
         }
