@@ -1,8 +1,10 @@
 import React from 'react';
+import './styles/App.css';
 import RootReducer from './shared/store/appReducer';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import Header from './components/containers/Header';
 import createSagaMiddleware from 'redux-saga';
 
 // Creating Saga Middleware
@@ -19,7 +21,11 @@ const store = createStore(
 // sagaMiddleware.run(appSagas);
 
 const App = () => {
-  return <Provider store={store} />;
+  return (
+    <Provider store={store}>
+      <Header />
+    </Provider>
+  );
 };
 
 export default App;
