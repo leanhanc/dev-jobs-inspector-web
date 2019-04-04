@@ -1,21 +1,17 @@
 import React from 'react';
-import './styles/App.css';
+import './App.css';
 import RootReducer from './shared/store/appReducer';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import Header from './components/containers/Header';
+import Header from './components/containers/Header/Header';
 import createSagaMiddleware from 'redux-saga';
 
 // Creating Saga Middleware
 const sagaMiddleware = createSagaMiddleware();
 
 // Creating Redux Store
-const store = createStore(
-  RootReducer,
-  {},
-  composeWithDevTools(applyMiddleware(sagaMiddleware))
-);
+const store = createStore(RootReducer, {}, composeWithDevTools(applyMiddleware(sagaMiddleware)));
 
 // Run Sagas
 // sagaMiddleware.run(appSagas);
