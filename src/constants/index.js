@@ -1,3 +1,4 @@
 import autocompleteSuggestions from './autocompleteSuggestions';
+import selectOptions from './selectOptions';
 
-export { autocompleteSuggestions };
+export { autocompleteSuggestions, selectOptions };

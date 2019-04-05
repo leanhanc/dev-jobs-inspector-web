@@ -5,7 +5,7 @@
   background-size: cover;
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 75vh;
   justify-content: space-evenly;
 }
 
@@ -26,6 +26,12 @@ img.Header__logo {
   }
 }
 
+.Header__Form-Controlls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 25vh;
+}
 .Header__Form-Controll {
   opacity: 0.85;
   width: 33vw;
@@ -37,8 +43,26 @@ img.Header__logo {
   font-weight: bold;
 }
 
+.Header__Form-Inputs {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
 .global-search.ant-select-auto-complete
   .ant-input-affix-wrapper
   .ant-input-suffix {
   right: 0;
+}
+
+.Header__CallToAction {
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  transition: 0.4s;
+  font-size: 1.4rem;
+}
+
+.Header__CallToAction:active {
+  transform: scale(0.97);
 }
