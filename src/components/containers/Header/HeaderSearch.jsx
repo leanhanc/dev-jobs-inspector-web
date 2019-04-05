@@ -8,7 +8,9 @@ export default class Complete extends React.Component {
 
   handleSearch = value => {
     if (value !== '') {
-      const result = this.props.suggestions.filter(suggestion => suggestion.startsWith(value));
+      const result = this.props.suggestions.filter(suggestion =>
+        suggestion.toUpperCase().startsWith(value.toUpperCase())
+      );
       this.setState({ dataSource: result });
     } else {
       this.setState({ dataSource: [] });
