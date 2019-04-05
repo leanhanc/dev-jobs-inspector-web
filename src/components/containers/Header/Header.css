@@ -1,2 +1,44 @@
 #Header {
+  align-items: center;
+  background-image: url('../../../assets/img/bg.jpg');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  #Header {
+    height: 100%;
+  }
+}
+
+img.Header__logo {
+  width: 140px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .Header__logo {
+    width: 15vw;
+  }
+}
+
+.Header__Form-Controll {
+  opacity: 0.85;
+  width: 33vw;
+  line-height: 1rem;
+}
+
+.Header__Form-Controll * {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.global-search.ant-select-auto-complete
+  .ant-input-affix-wrapper
+  .ant-input-suffix {
+  right: 0;
 }

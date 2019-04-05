@@ -1,3 +1,3 @@
-import autocompleteSuggestions from "./autocompleteSuggestions"
+import autocompleteSuggestions from './autocompleteSuggestions';
 
-export { autocompleteSuggestions }
+export { autocompleteSuggestions };
