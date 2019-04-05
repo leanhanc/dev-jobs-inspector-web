@@ -3,10 +3,6 @@ import { Icon, Select } from 'antd';
 
 const Option = Select.Option;
 
-function handleChange(value) {
-  console.log(`selected ${value}`);
-}
-
 export default props => (
   <Select
     onChange={handleChange}
