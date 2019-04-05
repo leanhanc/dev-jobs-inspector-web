@@ -5,7 +5,6 @@ const Option = Select.Option;
 
 export default props => (
   <Select
-    onChange={handleChange}
     defaultActiveFirstOption={false}
     suffixIcon={
       <Icon type="environment" style={{ color: '#4a4a4a', position: 'relative', left: '2px' }} />
