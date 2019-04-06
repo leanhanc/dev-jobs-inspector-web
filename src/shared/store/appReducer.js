@@ -10,9 +10,9 @@ export default function appReducer(state = {}, action) {
       return Object.assign({}, state, {
         searchFor: action.text
       });
-      alert('mierda');
     case SELECT_LOCATION_INPUT_CHANGE:
-      alert('hola');
+      console.log(action.type);
+      return { ...state, locationFilter: action.text };
     default:
       return state;
   }

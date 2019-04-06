@@ -5,7 +5,7 @@
   background-size: cover;
   display: flex;
   flex-direction: column;
-  height: 75vh;
+  height: 70vh;
   justify-content: space-evenly;
 }
 
@@ -34,8 +34,14 @@ img.Header__logo {
 }
 .Header__Form-Controll {
   opacity: 0.85;
-  width: 33vw;
+  width: 66vw;
   line-height: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .Header__Form-Controll {
+    width: 20vw;
+  }
 }
 
 .Header__Form-Controll * {

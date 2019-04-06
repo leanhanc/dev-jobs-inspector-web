@@ -11,9 +11,9 @@ export function onSearchTermInputChange(text) {
   };
 }
 
-export function onSelectLocationInputChange() {
-  // return {
-  //   type: SEARCH_TERM_INPUT_CHANGE,
-  //   text: event.target.value
-  // };
+export function onSelectLocationInputChange(text) {
+  return {
+    type: SELECT_LOCATION_INPUT_CHANGE,
+    text
+  };
 }

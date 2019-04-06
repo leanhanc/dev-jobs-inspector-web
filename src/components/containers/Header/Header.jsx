@@ -3,7 +3,10 @@ import HeaderSearch from './HeaderSearch';
 import HeaderSelect from './HeaderSelect';
 
 import { connect } from 'react-redux';
-import { onSearchTermInputChange } from '../../../shared/actions/headerActions';
+import {
+  onSearchTermInputChange,
+  onSelectLocationInputChange
+} from '../../../shared/actions/headerActions';
 
 import './Header.css';
 import logo from 'assets/img/logo.png';
@@ -28,7 +31,11 @@ const Header = props => {
             searchHandler={searchHandler}
             onSearchTermInputChange={props.onSearchTermInputChange}
           />
-          <HeaderSelect className="Header__Form-Controll" selectOptions={selectOptions} />
+          <HeaderSelect
+            className="Header__Form-Controll"
+            selectOptions={selectOptions}
+            onSelectLocationInputChange={props.onSelectLocationInputChange}
+          />
         </div>
         <Button type="primary" icon="search" size="large" className="Header__CallToAction">
           BUSCAR
@@ -38,12 +45,17 @@ const Header = props => {
   );
 };
 
-const mapStateToProps = ({ searchFor }) => ({ searchFor });
-
-const mapDispatchToProps = dispatch => ({
-  onSearchTermInputChange: event => dispatch(onSearchTermInputChange(event))
+const mapStateToProps = state => ({
+  searchFor: state.searchFor,
+  locationFilter: state.locationFilter
 });
 
+const mapDispatchToProps = dispatch => {
+  return {
+    onSearchTermInputChange: text => dispatch(onSearchTermInputChange(text)),
+    onSelectLocationInputChange: text => dispatch(onSelectLocationInputChange(text))
+  };
+};
 export default connect(
   mapStateToProps,
   mapDispatchToProps
