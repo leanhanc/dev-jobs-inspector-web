@@ -11,6 +11,7 @@ export default props => (
     }
     className={props.className}
     placeholder="Argentina"
+    onChange={() => props.onSearchTermInputChange}
   >
     {props.selectOptions
       ? props.selectOptions.map(option => (

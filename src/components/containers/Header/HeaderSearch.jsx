@@ -19,13 +19,15 @@ export default class Complete extends React.Component {
 
   render() {
     const { dataSource } = this.state;
-    const { className, placeholder, searchHandler } = this.props;
+    const { className, placeholder, searchHandler, onSearchTermInputChange } = this.props;
+
     return (
       <div className="global-search-wrapper">
         <AutoComplete
           className={`${className} global-search`}
           dataSource={dataSource}
           onSearch={this.handleSearch}
+          onChange={onSearchTermInputChange}
           placeholder={placeholder}
         >
           <Input
