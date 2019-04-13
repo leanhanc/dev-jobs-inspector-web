@@ -1,4 +1,6 @@
 import {
+  ADVERTS_FETCHED,
+  ERROR_FETCHING_ADVERTS_DATA,
   SEARCH_TERM_INPUT_CHANGE,
   SELECT_LOCATION_INPUT_CHANGE,
   SEARCH_BUTTON_PRESSED
@@ -17,6 +19,16 @@ export default function appReducer(state, action) {
     case SEARCH_BUTTON_PRESSED:
       return Object.assign({}, state, {
         loading: true
+      });
+    case ERROR_FETCHING_ADVERTS_DATA:
+      return Object.assign({}, state, {
+        failedToGetAdverts: true,
+        loading: false
+      });
+    case ADVERTS_FETCHED:
+      return Object.assign({}, state, {
+        adverts: action.payload,
+        loading: false
       });
     default:
       return state;
