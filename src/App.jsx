@@ -5,6 +5,7 @@ import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import Header from './components/containers/Header/Header';
+import MainContent from './components/containers/MainContent/MainContent';
 import createSagaMiddleware from 'redux-saga';
 import appSagas from './shared/sagas/';
 
@@ -20,6 +21,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <Header />
+      <MainContent />
     </Provider>
   );
 };

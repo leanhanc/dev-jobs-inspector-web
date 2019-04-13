@@ -10,6 +10,7 @@ module.exports = override(
     javascriptEnabled: true,
     modifyVars: {
       '@primary-color': '#3D329E',
+      '@error-color': '#FF220C',
       '@font-size-base': '10px'
     }
   })
