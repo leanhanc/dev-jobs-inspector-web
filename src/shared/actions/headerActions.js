@@ -17,3 +17,10 @@ export function onSelectLocationInputChange(text) {
     text
   };
 }
+
+export function onSearchButtonPressed(query) {
+  return {
+    type: SEARCH_BUTTON_PRESSED,
+    searchFor: query
+  };
+}

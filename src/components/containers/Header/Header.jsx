@@ -5,6 +5,7 @@ import HeaderSelect from './HeaderSelect';
 import { connect } from 'react-redux';
 import {
   onSearchTermInputChange,
+  onSearchButtonPressed,
   onSelectLocationInputChange
 } from '../../../shared/actions/headerActions';
 
@@ -37,7 +38,13 @@ const Header = props => {
             onSelectLocationInputChange={props.onSelectLocationInputChange}
           />
         </div>
-        <Button type="primary" icon="search" size="large" className="Header__CallToAction">
+        <Button
+          type="primary"
+          icon="search"
+          size="large"
+          className="Header__CallToAction"
+          onClick={() => props.onSearchButtonPressed(props.searchFor)}
+        >
           BUSCAR
         </Button>
       </form>
@@ -45,17 +52,22 @@ const Header = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  searchFor: state.searchFor,
-  locationFilter: state.locationFilter
-});
-
 const mapDispatchToProps = dispatch => {
   return {
     onSearchTermInputChange: text => dispatch(onSearchTermInputChange(text)),
-    onSelectLocationInputChange: text => dispatch(onSelectLocationInputChange(text))
+    onSelectLocationInputChange: text => dispatch(onSelectLocationInputChange(text)),
+    onSearchButtonPressed: searchFor => dispatch(onSearchButtonPressed(searchFor))
   };
 };
+
+const mapStateToProps = state => {
+  return {
+    loading: state.loading,
+    searchFor: state.searchFor,
+    locationFilter: state.locationFilter
+  };
+};
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
