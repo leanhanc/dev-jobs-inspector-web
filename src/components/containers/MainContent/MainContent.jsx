@@ -1,14 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ConnectionError from './ConnectionError';
-
+import About from './About';
 import './MainContent.css';
 
-const About = props => {
+const MainContent = props => {
   if (props.failedToGetAdverts) {
     return <ConnectionError />;
   } else {
-    return <main id="Content" />;
+    return (
+      <main id="Content">
+        <About />
+      </main>
+    );
   }
 };
 
@@ -17,4 +21,4 @@ const mapStateToProps = state => ({
   failedToGetAdverts: state.failedToGetAdverts
 });
 
-export default connect(mapStateToProps)(About);
+export default connect(mapStateToProps)(MainContent);
