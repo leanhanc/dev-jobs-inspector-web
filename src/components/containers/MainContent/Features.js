@@ -10,7 +10,7 @@ export default [
   {
     title: 'Open Source',
     icon: 'github',
-    description: `El proyecto tiene tres repositorios abiertos a colaboración: un web scraper, el cliente
+    description: `El proyecto tiene tres repositorios abiertos a colaboración: un scraper, el cliente
   y una API. Esta última es pública, por lo que podés utilizarla si querés armar tu propio
   cliente.`
   },
