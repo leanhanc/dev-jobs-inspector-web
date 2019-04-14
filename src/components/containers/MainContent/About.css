@@ -1,3 +1,7 @@
+:root {
+  --primary: #3d329e;
+  --text: #4a4a4a;
+}
 #About {
   display: flex;
   flex-direction: column;
@@ -5,7 +9,7 @@
 }
 
 #About * {
-  color: #4a4a4a;
+  color: var(--text);
 }
 
 @media screen and (min-width: 769px) {
@@ -13,7 +17,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 4rem auto;
+    margin: 5rem auto;
   }
 }
 
@@ -73,14 +77,82 @@
   }
 }
 
-.About__divider {
+.About__Divider {
   height: 150px;
   width: 2px;
-  color: #4a4a4a;
+  color: var(--text);
 }
 
 @media screen and (max-width: 768px) {
-  .About__divider {
+  .About__Divider {
     display: none;
+  }
+}
+
+#About__Features {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 5rem;
+  flex-wrap: wrap;
+}
+
+.About__Features-Card {
+  flex-basis: 300px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+  color: var(--text);
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .About__Features-Card {
+    font-size: 1rem;
+    height: 400px;
+    line-height: 2.2rem;
+    margin-bottom: 4rem;
+  }
+}
+@media screen and (min-width: 769px) {
+  .About__Features-Card {
+    line-height: 2.4rem;
+    height: 400px;
+  }
+}
+
+.About__Features-CardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.About__Features-CardTitle {
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.About__Features-CardText {
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
+@media screen and (max-width: 768px) {
+  .About__Features-CardIcon {
+    font-size: 5rem;
+    color: var(--primary);
+    width: 200px;
+    height: 20px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .About__Features-CardIcon {
+    font-size: 10rem;
+    color: var(--primary);
+    width: 200px;
+    height: 100px;
   }
 }

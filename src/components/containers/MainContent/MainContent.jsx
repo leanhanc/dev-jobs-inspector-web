@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ConnectionError from './ConnectionError';
 import About from './About';
 import './MainContent.css';
+import Features from './Features';
 
 const MainContent = props => {
   if (props.failedToGetAdverts) {
@@ -11,6 +12,7 @@ const MainContent = props => {
     return (
       <main id="Content">
         <About />
+        <Features />
       </main>
     );
   }
