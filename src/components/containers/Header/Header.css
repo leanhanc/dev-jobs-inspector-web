@@ -9,6 +9,12 @@
   justify-content: space-evenly;
 }
 
+@media screen and (max-width: 768px) {
+  #Header {
+    min-height: 90vh;
+  }
+}
+
 @media screen and (max-width: 768px) and (orientation: landscape) {
   #Header {
     height: 100%;
@@ -30,8 +36,13 @@ img.Header__logo {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 25vh;
 }
+@media screen and (min-width: 768px) {
+  .Header__Form-Controlls {
+    height: 25vh;
+  }
+}
+
 .Header__Form-Controll {
   opacity: 0.85;
   width: 66vw;

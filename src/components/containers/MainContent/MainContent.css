@@ -4,11 +4,19 @@
   align-items: center;
   padding: 0;
   margin: 0;
-  height: 30vh;
+  height: 100%;
+  text-align: center;
 }
 
 .Content__Error-Alert > * {
   font-size: 2.4rem;
   padding: 0;
   margin: 0;
+  line-height: 4rem;
+}
+
+@media screen and (max-width: 768px) {
+  .Content__Error-Alert > * {
+    font-size: 2rem;
+  }
 }
