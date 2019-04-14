@@ -26,7 +26,7 @@ img.Header__logo {
   cursor: pointer;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .Header__logo {
     width: 15vw;
   }
@@ -49,7 +49,7 @@ img.Header__logo {
   line-height: 1rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .Header__Form-Controll {
     width: 20vw;
   }
@@ -80,6 +80,11 @@ img.Header__logo {
   font-size: 1.4rem;
 }
 
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .Header__CallToAction {
+    margin-bottom: 2rem;
+  }
+}
 .Header__CallToAction:active {
   transform: scale(0.97);
 }
