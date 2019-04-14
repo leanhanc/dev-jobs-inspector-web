@@ -4,15 +4,24 @@
   align-items: center;
   padding: 0;
   margin: 0;
-  height: 100%;
   text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .Content__Error-Alert {
+    height: 30vh;
+  }
+}
+@media screen and (max-width: 768px) {
+  .Content__Error-Alert {
+    height: 25vh;
+  }
 }
 
 .Content__Error-Alert > * {
   font-size: 2.4rem;
   padding: 0;
-  margin: 0;
-  line-height: 4rem;
+  line-height: 3rem;
 }
 
 @media screen and (max-width: 768px) {
