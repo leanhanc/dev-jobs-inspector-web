@@ -42,6 +42,7 @@ const Header = props => {
           type="primary"
           icon="search"
           size="large"
+          loading={props.loading}
           className="Header__CallToAction"
           onClick={() => props.onSearchButtonPressed(props.searchFor)}
         >

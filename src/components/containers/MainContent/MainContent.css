@@ -29,3 +29,11 @@
     font-size: 2rem;
   }
 }
+
+.Spinner__Container {
+  height: 50vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding-top: 10rem;
+}

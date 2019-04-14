@@ -4,18 +4,23 @@ import ConnectionError from './ConnectionError';
 import About from './About';
 import './MainContent.css';
 import Features from './Features';
+import SearchingForAdverts from './SearchingForAdverts';
 
 const MainContent = props => {
-  if (props.failedToGetAdverts) {
-    return <ConnectionError />;
-  } else {
-    return (
-      <main id="Content">
-        <About />
-        <Features />
-      </main>
-    );
-  }
+  return props.failedToGetAdverts ? (
+    <ConnectionError />
+  ) : (
+    <main id="Content">
+      {props.loading ? (
+        <SearchingForAdverts />
+      ) : (
+        <>
+          <About />
+          <Features />
+        </>
+      )}
+    </main>
+  );
 };
 
 const mapStateToProps = state => ({
