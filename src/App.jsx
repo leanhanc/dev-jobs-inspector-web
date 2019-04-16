@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import Header from './components/containers/Header/Header';
 import MainContent from './components/containers/MainContent/MainContent';
+import Footer from './components/containers/Footer/Footer';
+
 import createSagaMiddleware from 'redux-saga';
 import appSagas from './shared/sagas/';
 
@@ -22,6 +24,7 @@ const App = () => {
     <Provider store={store}>
       <Header />
       <MainContent />
+      <Footer />
     </Provider>
   );
 };
