@@ -150,7 +150,7 @@
 
 @media screen and (min-width: 769px) {
   .About__Features-CardIcon {
-    font-size: 10rem;
+    font-size: 8rem;
     color: var(--primary);
     width: 200px;
     height: 100px;
