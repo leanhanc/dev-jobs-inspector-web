@@ -1,6 +1,5 @@
 import React from 'react';
-import TitleAndSubtitle from './TitleAndSubtitle';
-import Features from './Features';
+import TitleAndSubtitle from '../TitleAndSubtitle';
 import './About.css';
 
 export default function About() {

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import { Card, Icon } from 'antd';
 import featuresListContent from './FeaturesText';
-import './About.css';
+import '../About/About.css';
 
 const Features = () => {
   return (
