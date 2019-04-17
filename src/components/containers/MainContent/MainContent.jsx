@@ -5,6 +5,7 @@ import About from './About/About';
 import './MainContent.css';
 import Features from './Features/Features';
 import SearchingForAdverts from './SearchingForAdverts';
+import AdvertsFeedbackAndFilter from './Adverts/AdvertsFeedbackAndFilter';
 
 const MainContent = props => {
   return props.failedToGetAdverts ? (
