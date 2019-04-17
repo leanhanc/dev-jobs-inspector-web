@@ -14,6 +14,10 @@ const MainContent = props => {
     <main id="Content">
       {props.loading ? (
         <SearchingForAdverts />
+      ) : props.advertsFetched === true ? (
+        <>
+          <AdvertsFeedbackAndFilter />
+        </>
       ) : (
         <>
           <About />
@@ -25,8 +29,9 @@ const MainContent = props => {
 };
 
 const mapStateToProps = state => ({
-  loading: state.loading,
-  failedToGetAdverts: state.failedToGetAdverts
+  advertsFetched: state.advertsFetched,
+  failedToGetAdverts: state.failedToGetAdverts,
+  loading: state.loading
 });
 
 export default connect(mapStateToProps)(MainContent);

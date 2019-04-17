@@ -26,7 +26,6 @@ export function* advertsFetcher({ searchFor }) {
 
 function* searchWatcher() {
   yield takeLatest(SEARCH_BUTTON_PRESSED, advertsFetcher);
-  yield put({ type: ADVERTS_FETCHED });
 }
 
 export default function* appSagas() {

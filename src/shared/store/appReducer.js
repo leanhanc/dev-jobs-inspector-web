@@ -18,6 +18,7 @@ export default function appReducer(state, action) {
       });
     case SEARCH_BUTTON_PRESSED:
       return Object.assign({}, state, {
+        advertsFetched: false,
         loading: true
       });
     case ERROR_FETCHING_ADVERTS_DATA:
@@ -28,6 +29,7 @@ export default function appReducer(state, action) {
     case ADVERTS_FETCHED:
       return Object.assign({}, state, {
         adverts: action.payload,
+        advertsFetched: true,
         loading: false
       });
     default:
