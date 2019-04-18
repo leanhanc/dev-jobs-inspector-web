@@ -1,12 +1,14 @@
 import React from 'react';
 import { Icon, Select } from 'antd';
-import './Adverts.css';
 import { Animated } from 'react-animated-css';
+import { onAdvertsDateFilterInputChange } from '../../../../shared/actions/mainContentActions';
+import './Adverts.css';
 
 const Option = Select.Option;
 
-function handleChange(value) {
-  console.log(`selected ${value}`);
+function handleChange(number) {
+  console.log(number);
+  onAdvertsDateFilterInputChange(number);
 }
 
 const AdvertsFeedbackAndFilter = () => {
@@ -36,6 +38,7 @@ const AdvertsFeedbackAndFilter = () => {
           placeholder="Hoy"
           onChange={handleChange}
           className="FilterContainer__FilterOptions"
+          optionFilterProp="children"
         >
           <Option value="1">Hoy</Option>
           <Option value="2">Ayer</Option>
