@@ -7,7 +7,6 @@ import './Adverts.css';
 const Option = Select.Option;
 
 function handleChange(number) {
-  console.log(number);
   onAdvertsDateFilterInputChange(number);
 }
 
