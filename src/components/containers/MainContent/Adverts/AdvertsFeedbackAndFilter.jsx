@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Icon, Select } from 'antd';
 import { Animated } from 'react-animated-css';
 import { onAdvertsDateFilterInputChange } from '../../../../shared/actions/mainContentActions';
@@ -6,11 +7,7 @@ import './Adverts.css';
 
 const Option = Select.Option;
 
-function handleChange(number) {
-  onAdvertsDateFilterInputChange(number);
-}
-
-const AdvertsFeedbackAndFilter = () => {
+const AdvertsFeedbackAndFilter = props => {
   return (
     <section id="FeedbackAndFilter">
       <div className="FeedbackContainer">
@@ -35,7 +32,7 @@ const AdvertsFeedbackAndFilter = () => {
         </span>
         <Select
           placeholder="Hoy"
-          onChange={handleChange}
+          onChange={number => props.onAdvertsDateFilterInputChange(number)}
           className="FilterContainer__FilterOptions"
           optionFilterProp="children"
         >
@@ -50,4 +47,13 @@ const AdvertsFeedbackAndFilter = () => {
   );
 };
 
-export default AdvertsFeedbackAndFilter;
+const mapDispatchToProps = dispatch => {
+  return {
+    onAdvertsDateFilterInputChange: number => dispatch(onAdvertsDateFilterInputChange(number))
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(AdvertsFeedbackAndFilter);

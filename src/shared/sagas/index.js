@@ -13,11 +13,11 @@ export function* advertsFetcher({ searchFor, locationFilter, dateFilter }) {
   // Si la API principal está caída, usar la de respaldo
   try {
     const adverts = yield call(search, [BASE_URL, searchFor, locationFilter, dateFilter]);
-    yield put({ type: ADVERTS_FETCHED, payload: adverts });
+    yield put({ type: ADVERTS_FETCHED, adverts });
   } catch (e) {
     try {
       const adverts = yield call(search, [BASE_URL_BACKUP, searchFor, locationFilter, dateFilter]);
-      yield put({ type: ADVERTS_FETCHED, payload: adverts });
+      yield put({ type: ADVERTS_FETCHED, adverts });
     } catch (e) {
       yield put({ type: ERROR_FETCHING_ADVERTS_DATA });
     }

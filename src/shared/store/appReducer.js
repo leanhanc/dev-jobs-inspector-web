@@ -29,13 +29,13 @@ export default function appReducer(state, action) {
       });
     case ADVERTS_FETCHED:
       return Object.assign({}, state, {
-        adverts: action.payload,
+        adverts: action.adverts,
         advertsFetched: true,
         loading: false
       });
     case ADVERTS_DATE_FILTER_SETTED:
       return Object.assign({}, state, {
-        dateFilter: action.payload
+        dateFilter: action.number
       });
     default:
       return state;
