@@ -35,7 +35,7 @@ export default function appReducer(state, action) {
       });
     case ADVERTS_DATE_FILTER_SETTED:
       return Object.assign({}, state, {
-        dateFilter: action.number
+        dateFilter: Number(action.number)
       });
     default:
       return state;
