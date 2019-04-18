@@ -20,6 +20,14 @@ const searchHandler = e => {
 };
 
 const Header = props => {
+  const {
+    onSearchTermInputChange,
+    onSearchButtonPressed,
+    dateFilter,
+    locationFilter,
+    searchFor
+  } = props;
+
   return (
     <section id="Header">
       <img src={logo} alt="Dev Job Inspector Logo" className="Header__logo" />
@@ -30,12 +38,12 @@ const Header = props => {
             suggestions={autocompleteSuggestions}
             placeholder="Área, Lenguaje o Framework"
             searchHandler={searchHandler}
-            onSearchTermInputChange={props.onSearchTermInputChange}
+            onSearchTermInputChange={onSearchTermInputChange}
           />
           <HeaderSelect
             className="Header__Form-Controll"
             selectOptions={selectOptions}
-            onSelectLocationInputChange={props.onSelectLocationInputChange}
+            onSelectLocationInputChange={onSelectLocationInputChange}
           />
         </div>
         <Button
@@ -44,7 +52,7 @@ const Header = props => {
           size="large"
           loading={props.loading}
           className="Header__CallToAction"
-          onClick={() => props.onSearchButtonPressed(props.searchFor)}
+          onClick={() => onSearchButtonPressed(searchFor, locationFilter, dateFilter)}
         >
           BUSCAR
         </Button>
@@ -65,6 +73,7 @@ const mapStateToProps = state => {
   return {
     loading: state.loading,
     searchFor: state.searchFor,
+    dateFilter: state.dateFilter,
     locationFilter: state.locationFilter
   };
 };
