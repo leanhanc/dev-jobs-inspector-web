@@ -21,6 +21,7 @@ const searchHandler = e => {
 
 const Header = props => {
   const {
+    onSelectLocationInputChange,
     onSearchTermInputChange,
     onSearchButtonPressed,
     dateFilter,
@@ -43,7 +44,7 @@ const Header = props => {
           <HeaderSelect
             className="Header__Form-Controll"
             selectOptions={selectOptions}
-            onSelectLocationInputChange={onSelectLocationInputChange}
+            onSelectLocationInputChange={text => onSelectLocationInputChange(text)}
           />
         </div>
         <Button
