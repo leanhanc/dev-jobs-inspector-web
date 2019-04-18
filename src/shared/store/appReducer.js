@@ -1,4 +1,5 @@
 import {
+  ADVERTS_DATE_FILTER_SETTED,
   ADVERTS_FETCHED,
   ERROR_FETCHING_ADVERTS_DATA,
   SEARCH_TERM_INPUT_CHANGE,
@@ -31,6 +32,10 @@ export default function appReducer(state, action) {
         adverts: action.payload,
         advertsFetched: true,
         loading: false
+      });
+    case ADVERTS_DATE_FILTER_SETTED:
+      return Object.assign({}, state, {
+        dateFilter: action.payload
       });
     default:
       return state;
