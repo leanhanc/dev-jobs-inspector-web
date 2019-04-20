@@ -6,6 +6,7 @@ import './MainContent.css';
 import Features from './Features/Features';
 import SearchingForAdverts from './SearchingForAdverts';
 import AdvertsFeedbackAndFilter from './Adverts/AdvertsFeedbackAndFilter';
+import AdvertsList from './Adverts/AvertsList';
 
 const MainContent = props => {
   return props.failedToGetAdverts ? (
@@ -16,6 +17,7 @@ const MainContent = props => {
         <SearchingForAdverts />
       ) : props.advertsFetched === true ? (
         <>
+          <AdvertsList />
           <AdvertsFeedbackAndFilter />
         </>
       ) : (
