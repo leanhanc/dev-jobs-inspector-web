@@ -27,6 +27,8 @@ const AdvertsFeedbackAndFilter = props => {
         <span className="FeedbackContainer__small">
           {props.adverts.totalItems === 1 ? 'aviso' : 'avisos'}
         </span>
+
+        {props.adverts.totalItems === 0 ? <span style={{ fontSize: '3rem' }}>😢</span> : null}
       </div>
 
       <div className="FilterContainer">
