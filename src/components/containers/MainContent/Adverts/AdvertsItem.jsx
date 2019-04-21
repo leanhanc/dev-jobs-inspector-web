@@ -43,7 +43,12 @@ const AdvertsItem = props => {
         <Button type="ghost" block={true} className="AdvertsItem__Card-SeeDetails">
           VER DETALLE
         </Button>
-        <Button type="primary" block={true} className="AdvertsItem__Card-Open">
+        <Button
+          type="primary"
+          block={true}
+          className="AdvertsItem__Card-Open"
+          onClick={() => window.open(url)}
+        >
           ABRIR
         </Button>
       </Card>
