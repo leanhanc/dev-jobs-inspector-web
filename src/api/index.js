@@ -3,6 +3,6 @@ export function search(args) {
   const query = args[1];
 
   return fetch(
-    `${url}/search/?q=${query}&location=buenos%20aires&currentPage=1&dateFilter=30`
+    `${url}/search/?q=${query}&location=capital%20federal&currentPage=1&dateFilter=30`
   ).then(response => response.json());
 }
