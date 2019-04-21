@@ -4,7 +4,11 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer>
-      Hecho con&nbsp; ❤️ por <a href="https://lh.now.sh">Leandro Hanc</a>
+      Hecho con &nbsp;
+      <span role="img" aria-label="Heart">
+        ❤️
+      </span>
+      &nbsp; por <a href="https://lh.now.sh">Leandro Hanc</a>
     </footer>
   );
 };

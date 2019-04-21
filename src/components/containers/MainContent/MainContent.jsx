@@ -17,8 +17,8 @@ const MainContent = props => {
         <SearchingForAdverts />
       ) : props.advertsFetched === true ? (
         <>
-          <AdvertsList />
           <AdvertsFeedbackAndFilter />
+          <AdvertsList />
         </>
       ) : (
         <>
