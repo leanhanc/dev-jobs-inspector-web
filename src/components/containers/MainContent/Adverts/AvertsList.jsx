@@ -1,12 +1,19 @@
 import React from 'react';
+import AdvertsItem from './AdvertsItem';
 import { connect } from 'react-redux';
 
-const AvertsList = () => {
-  return <section id="AdvertsList">TEST</section>;
+const AvertsList = props => {
+  return (
+    <section id="AdvertsList">
+      {props.adverts.data.map(advert => {
+        return <AdvertsItem advertItem={advert} key={advert._id} />;
+      })}
+    </section>
+  );
 };
 
 const mapStateToProps = state => ({
-  advertsList: state.adverts
+  adverts: state.adverts
 });
 
 export default connect(mapStateToProps)(AvertsList);
