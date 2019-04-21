@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactHtmlParser from 'react-html-parser';
+import HtmlParser from 'react-html-parser';
 import { Card, Icon } from 'antd';
 import featuresListContent from './FeaturesText';
 import '../About/About.css';
@@ -13,7 +13,7 @@ const Features = () => {
             <div className="About__Features-CardContent">
               <Icon type={feature.icon} className="About__Features-CardIcon" />
               <h3 className="About__Features-CardTitle">{feature.title.toUpperCase()}</h3>
-              <p className="About__Features-CardText">{ReactHtmlParser(feature.description)}</p>
+              <p className="About__Features-CardText">{HtmlParser(feature.description)}</p>
             </div>
           </Card>
         );
