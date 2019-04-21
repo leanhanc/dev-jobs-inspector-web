@@ -46,4 +46,31 @@
 
 #AdvertsList {
   height: 100%;
+  width: 90%;
+  margin: 8rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/*ADVERTS ITEM CONTAINER */
+
+.AdvertsItem__Container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 300px;
+  margin: 4rem auto;
+}
+
+.AdvertsItem__Card > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  height: 400px;
+  min-height: 100%;
 }

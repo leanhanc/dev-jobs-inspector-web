@@ -35,7 +35,9 @@ const AdvertsItem = props => {
         <p className="AdvertsItem__Card-Description">
           {respectLineBreaks(shortenDescription(description, 15))}
         </p>
-        <a className="AdvertsItem__Card-SeeDetails">VER DETALLE</a>
+        <Button type="ghost" block={true} className="AdvertsItem__Card-SeeDetails">
+          VER DETALLE
+        </Button>
         <Button type="primary" block={true} className="AdvertsItem__Card-Open">
           ABRIR
         </Button>
