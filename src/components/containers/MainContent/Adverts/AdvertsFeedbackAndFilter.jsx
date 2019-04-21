@@ -11,7 +11,9 @@ const AdvertsFeedbackAndFilter = props => {
   return (
     <section id="FeedbackAndFilter">
       <div className="FeedbackContainer">
-        <span className="FeedbackContainer__small">Se encontraron</span>
+        <span className="FeedbackContainer__small">
+          {props.adverts.totalItems === 1 ? 'Se encontró' : 'Se encontraron'}
+        </span>
         <Animated
           isVisible={true}
           animationIn="fadeInUp"
@@ -19,10 +21,12 @@ const AdvertsFeedbackAndFilter = props => {
           animateOnMount={true}
           animationInDuration={300}
         >
-          <span className="FeedbackContainer__large">{Math.floor(Math.random() * 200)}</span>
+          <span className="FeedbackContainer__large">{props.adverts.totalItems}</span>
         </Animated>
 
-        <span className="FeedbackContainer__small">avisos</span>
+        <span className="FeedbackContainer__small">
+          {props.adverts.totalItems === 1 ? 'aviso' : 'avisos'}
+        </span>
       </div>
 
       <div className="FilterContainer">
@@ -47,6 +51,10 @@ const AdvertsFeedbackAndFilter = props => {
   );
 };
 
+const mapStateToProps = state => ({
+  adverts: state.adverts
+});
+
 const mapDispatchToProps = dispatch => {
   return {
     onAdvertsDateFilterInputChange: number => dispatch(onAdvertsDateFilterInputChange(number))
@@ -54,6 +62,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(AdvertsFeedbackAndFilter);
