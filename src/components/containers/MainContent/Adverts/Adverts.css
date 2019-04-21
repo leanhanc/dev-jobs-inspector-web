@@ -69,6 +69,12 @@
   align-items: center;
 }
 
+@media screen and (min-width: 1920px) {
+  #AdvertsList {
+    width: 75%;
+  }
+}
+
 /*ADVERTS ITEM CONTAINER */
 
 .AdvertsItem__Container {
@@ -76,9 +82,9 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  flex-basis: 300px;
-  margin: 4rem auto;
+  margin: 6rem auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+  flex-basis: 300px;
 }
 
 .AdvertsItem__Card > * {
