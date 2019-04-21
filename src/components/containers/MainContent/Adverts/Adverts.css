@@ -87,7 +87,7 @@
   justify-content: space-around;
   align-items: center;
   width: 300px;
-  height: 450px;
+  height: 480px;
 }
 
 .AdvertsItem__Card-Timestamp {
@@ -110,6 +110,7 @@
   font-size: 1.3rem;
   letter-spacing: 1px;
   color: var(--darkish);
+  font-weight: 500;
 }
 
 .AdvertsItem__Card-Description {

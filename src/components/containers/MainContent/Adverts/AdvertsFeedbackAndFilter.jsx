@@ -37,7 +37,7 @@ const AdvertsFeedbackAndFilter = props => {
           &nbsp; Fecha de Publicación
         </span>
         <Select
-          placeholder="Hoy"
+          placeholder="Filtrar por Fecha"
           onChange={number => props.onAdvertsDateFilterInputChange(number)}
           className="FilterContainer__FilterOptions"
           optionFilterProp="children"

@@ -18,7 +18,7 @@ export function onSelectLocationInputChange(text) {
   };
 }
 
-export function onSearchButtonPressed(query, locationFilter = '', dateFilter = 1) {
+export function onSearchButtonPressed(query, locationFilter = '', dateFilter) {
   return {
     type: SEARCH_BUTTON_PRESSED,
     searchFor: query,

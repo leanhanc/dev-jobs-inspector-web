@@ -11,11 +11,20 @@ import Footer from './components/containers/Footer/Footer';
 import createSagaMiddleware from 'redux-saga';
 import appSagas from './shared/sagas/';
 
+const defaultState = {
+  dateFilter: 30
+};
+
 // Creating Saga Middleware
 const sagaMiddleware = createSagaMiddleware();
 
 // Creating Redux Store
-const store = createStore(RootReducer, {}, composeWithDevTools(applyMiddleware(sagaMiddleware)));
+const store = createStore(
+  RootReducer,
+  // @ts-ignore
+  defaultState,
+  composeWithDevTools(applyMiddleware(sagaMiddleware))
+);
 
 sagaMiddleware.run(appSagas);
 
