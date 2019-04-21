@@ -7,7 +7,7 @@ import { Button, Card } from 'antd';
 import './Adverts.css';
 
 function timeSince(time) {
-  return distanceInWordsToNow(new Date(time), { locale: es }).toUpperCase();
+  return distanceInWordsToNow(new Date(time), { locale: es });
 }
 
 const shortenDescription = (string, characterLimit) => {
@@ -19,16 +19,16 @@ const shortenDescription = (string, characterLimit) => {
   );
 };
 
-const respectLineBreaks = str => {
-  return str.split('\n').map((item, key) => {
-    return (
-      <Fragment key={key}>
-        {HtmlParser(item)}
-        <br />
-      </Fragment>
-    );
-  });
-};
+// const respectLineBreaks = str => {
+//   return str.split('\n').map((item, key) => {
+//     return (
+//       <Fragment key={key}>
+//         {HtmlParser(item)}
+//         <br />
+//       </Fragment>
+//     );
+//   });
+// };
 
 const AdvertsItem = props => {
   const { createdAt, description, location, title, url } = props.advertItem;
@@ -39,9 +39,7 @@ const AdvertsItem = props => {
         <span className="AdvertsItem__Card-Timestamp">{timeSince(createdAt)}</span>
         <h4 className="AdvertsItem__Card-Title">{title}</h4>
         <span className="AdvertsItem__Card-Location">{location}</span>
-        <p className="AdvertsItem__Card-Description">
-          {respectLineBreaks(shortenDescription(description, 15))}
-        </p>
+        <p className="AdvertsItem__Card-Description">{shortenDescription(description, 15)}</p>
         <Button type="ghost" block={true} className="AdvertsItem__Card-SeeDetails">
           VER DETALLE
         </Button>
