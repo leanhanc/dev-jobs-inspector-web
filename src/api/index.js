@@ -5,6 +5,6 @@ export function search(args) {
   const date = args[3];
 
   return fetch(
-    `${url}/search/?q=${query}&location=capital%20federal&currentPage=1&dateFilter=${date}`
+    `${url}/search/?q=${query}&location=${location}&currentPage=1&dateFilter=${date}`
   ).then(response => response.json());
 }

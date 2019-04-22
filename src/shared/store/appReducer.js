@@ -34,7 +34,6 @@ export default function appReducer(state, action) {
         loading: false
       });
     case ADVERTS_DATE_FILTER_SETTED:
-      console.log(action.number)
       return Object.assign({}, state, {
         dateFilter: Number(action.number),
         advertsFetched: false,

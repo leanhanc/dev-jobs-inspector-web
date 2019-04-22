@@ -12,7 +12,8 @@ import createSagaMiddleware from 'redux-saga';
 import appSagas from './shared/sagas/';
 
 const defaultState = {
-  dateFilter: 30
+  dateFilter: 30,
+  locationFilter: ''
 };
 
 // Creating Saga Middleware

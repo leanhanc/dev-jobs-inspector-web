@@ -19,6 +19,10 @@ export function* advertsFetcher({ searchFor, locationFilter, dateFilter }) {
     dateFilter = yield select(selectors.getDateFilter);
   }
 
+  if (!locationFilter) {
+    locationFilter = yield select(selectors.getLocationFilter);
+  }
+
   // Si la API principal está caída, usar la de respaldo
   try {
     const adverts = yield call(search, [BASE_URL, searchFor, locationFilter, dateFilter]);
