@@ -125,6 +125,8 @@
   line-height: 1.8;
   text-align: center;
   letter-spacing: 1px;
+  font-weight: bold;
+  color: var(--darkish);
 }
 
 .AdvertsItem__Card-Location {
