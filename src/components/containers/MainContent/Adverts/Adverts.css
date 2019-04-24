@@ -106,6 +106,7 @@
 
 .AdvertsItem__Card-SeeDetails {
   border: 0;
+  box-shadow: none;
 }
 
 .AdvertsItem__Card-SeeDetails:hover {
