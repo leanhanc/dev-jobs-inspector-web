@@ -3,6 +3,7 @@
 :root {
   --light: rgba(0, 0, 0, 0.4);
   --darkish: rgba(0, 0, 0, 0.6);
+  --primary-light: hsla(246, 65%, 76%, 0.2);
 }
 
 #FeedbackAndFilter {
@@ -94,6 +95,21 @@
   align-items: center;
   width: 300px;
   height: 480px;
+}
+
+.AdvertsItem__Card-SeeDetails,
+.AdvertsItem__Card-Open {
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+}
+
+.AdvertsItem__Card-SeeDetails {
+  border: 0;
+}
+
+.AdvertsItem__Card-SeeDetails:hover {
+  background-color: var(--primary-light);
 }
 
 .AdvertsItem__Card-Timestamp {
