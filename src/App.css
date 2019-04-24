@@ -29,3 +29,7 @@ ul {
   list-style: none;
   font-family: 'Lato', sans-serif !important;
 }
+
+input[type='text'] {
+  letter-spacing: 1.3px;
+}

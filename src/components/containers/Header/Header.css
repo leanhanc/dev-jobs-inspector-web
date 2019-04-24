@@ -65,6 +65,7 @@ img.Header__logo {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  letter-spacing: 1.3px;
 }
 
 .global-search.ant-select-auto-complete
