@@ -18,7 +18,7 @@ const MainContent = props => {
       ) : props.advertsFetched === true ? (
         <>
           <AdvertsFeedbackAndFilter />
-          {props.adverts.totalItems > 0 ? <AdvertsList /> : null}
+          {props.totalItems > 0 ? <AdvertsList /> : null}
         </>
       ) : (
         <>
@@ -31,7 +31,8 @@ const MainContent = props => {
 };
 
 const mapStateToProps = state => ({
-  adverts: state.adverts,
+  adverts: state.data,
+  totalItems: state.totalItems,
   advertsFetched: state.advertsFetched,
   failedToGetAdverts: state.failedToGetAdverts,
   loading: state.loading

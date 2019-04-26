@@ -12,7 +12,7 @@ const AdvertsFeedbackAndFilter = props => {
     <section id="FeedbackAndFilter">
       <div className="FeedbackContainer">
         <span className="FeedbackContainer__small">
-          {props.adverts.totalItems === 1 ? 'Se encontró' : 'Se encontraron'}
+          {props.totalItems === 1 ? 'Se encontró' : 'Se encontraron'}
         </span>
         <Animated
           isVisible={true}
@@ -21,14 +21,14 @@ const AdvertsFeedbackAndFilter = props => {
           animateOnMount={true}
           animationInDuration={300}
         >
-          <span className="FeedbackContainer__large">{props.adverts.totalItems}</span>
+          <span className="FeedbackContainer__large">{props.totalItems}</span>
         </Animated>
 
         <span className="FeedbackContainer__small">
-          {props.adverts.totalItems === 1 ? 'aviso' : 'avisos'}
+          {props.totalItems === 1 ? 'aviso' : 'avisos'}
         </span>
 
-        {props.adverts.totalItems === 0 ? <span style={{ fontSize: '3rem' }}>😢</span> : null}
+        {props.totalItems === 0 ? <span style={{ fontSize: '3rem' }}>😢</span> : null}
       </div>
 
       <div className="FilterContainer">
@@ -54,7 +54,8 @@ const AdvertsFeedbackAndFilter = props => {
 };
 
 const mapStateToProps = state => ({
-  adverts: state.adverts
+  adverts: state.data,
+  totalItems: state.totalItems
 });
 
 const mapDispatchToProps = dispatch => {

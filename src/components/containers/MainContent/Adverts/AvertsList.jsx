@@ -5,9 +5,9 @@ import AdvertsItem from './AdvertsItem';
 
 const AvertsList = props => {
   return (
-    <ScrollToBottomListener onBottom={someF} debounce={800}>
+    <ScrollToBottomListener onBottom={() => console.log('bottom')} debounce={800}>
       <section id="AdvertsList">
-        {props.adverts.data.map(advert => {
+        {props.adverts.map(advert => {
           return <AdvertsItem advertItem={advert} key={advert._id} />;
         })}
       </section>
@@ -16,7 +16,7 @@ const AvertsList = props => {
 };
 
 const mapStateToProps = state => ({
-  adverts: state.adverts
+  adverts: state.data
 });
 
 export default connect(mapStateToProps)(AvertsList);

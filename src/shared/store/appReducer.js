@@ -29,7 +29,9 @@ export default function appReducer(state, action) {
       });
     case ADVERTS_FETCHED:
       return Object.assign({}, state, {
-        adverts: action.adverts,
+        hasMoreItems: action.adverts.hasMoreItems,
+        totalItems: action.adverts.totalItems,
+        data: action.adverts.data,
         advertsFetched: true,
         loading: false
       });
