@@ -2,6 +2,7 @@ import {
   ADVERTS_DATE_FILTER_SETTED,
   ADVERTS_FETCHED,
   ERROR_FETCHING_ADVERTS_DATA,
+  INCREMENT_PAGE,
   SEARCH_TERM_INPUT_CHANGE,
   SELECT_LOCATION_INPUT_CHANGE,
   SEARCH_BUTTON_PRESSED
@@ -31,7 +32,7 @@ export default function appReducer(state, action) {
       return Object.assign({}, state, {
         hasMoreItems: action.adverts.hasMoreItems,
         totalItems: action.adverts.totalItems,
-        data: action.adverts.data,
+        data: state.data ? state.data.concat(action.adverts.data) : action.adverts.data,
         advertsFetched: true,
         loading: false
       });
@@ -40,6 +41,10 @@ export default function appReducer(state, action) {
         dateFilter: Number(action.number),
         advertsFetched: false,
         loading: true
+      });
+    case INCREMENT_PAGE:
+      return Object.assign({}, state, {
+        pageNumber: state.pageNumber + 1
       });
     default:
       return state;
