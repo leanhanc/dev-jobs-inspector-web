@@ -7,7 +7,11 @@ import {
   SEARCH_BUTTON_PRESSED,
   ERROR_FETCHING_ADVERTS_DATA,
   ADVERTS_DATE_FILTER_SETTED,
-  INCREMENT_PAGE
+  INCREMENT_PAGE,
+  RESET_ERROR_STATE,
+  RESET_ADVERTS_LIST,
+  RESET_PAGE_NUMBER,
+  TOGGLE_LOADING_STATE
 } from '../actions/actionTypes';
 
 const BASE_URL = process.env.REACT_APP_BASE_API_URL;
@@ -29,6 +33,8 @@ export function* advertsFetcher({ searchFor, locationFilter, dateFilter, pageNum
     pageNumber = yield select(selectors.getPageNumber);
   }
 
+  yield put({ type: TOGGLE_LOADING_STATE });
+
   // Si la API principal está caída, usar la de respaldo
   try {
     const adverts = yield call(search, [
@@ -39,7 +45,11 @@ export function* advertsFetcher({ searchFor, locationFilter, dateFilter, pageNum
       pageNumber
     ]);
     yield put({ type: ADVERTS_FETCHED, adverts });
+    yield put({ type: TOGGLE_LOADING_STATE });
     yield put({ type: INCREMENT_PAGE });
+
+    // Si no hay mas items que mostrar, resetear para permitir una nueva búsqueda limpia
+    if (!adverts.hasMoreItems) yield put({ type: RESET_PAGE_NUMBER });
   } catch (e) {
     try {
       const adverts = yield call(search, [
@@ -51,8 +61,10 @@ export function* advertsFetcher({ searchFor, locationFilter, dateFilter, pageNum
       ]);
       yield put({ type: ADVERTS_FETCHED, adverts });
       yield put({ type: INCREMENT_PAGE });
+      yield put({ type: TOGGLE_LOADING_STATE });
     } catch (e) {
       yield put({ type: ERROR_FETCHING_ADVERTS_DATA });
+      yield put({ type: TOGGLE_LOADING_STATE });
     }
   }
 }

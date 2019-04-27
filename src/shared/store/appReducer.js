@@ -5,7 +5,10 @@ import {
   INCREMENT_PAGE,
   SEARCH_TERM_INPUT_CHANGE,
   SELECT_LOCATION_INPUT_CHANGE,
-  SEARCH_BUTTON_PRESSED
+  SEARCH_BUTTON_PRESSED,
+  TOGGLE_LOADING_STATE,
+  RESET_PAGE_NUMBER,
+  RESET_ADVERTS_LIST
 } from '../actions/actionTypes';
 
 export default function appReducer(state, action) {
@@ -20,31 +23,41 @@ export default function appReducer(state, action) {
       });
     case SEARCH_BUTTON_PRESSED:
       return Object.assign({}, state, {
-        advertsFetched: false,
-        loading: true
+        advertsFetched: false
       });
     case ERROR_FETCHING_ADVERTS_DATA:
       return Object.assign({}, state, {
-        failedToGetAdverts: true,
-        loading: false
+        failedToGetAdverts: true
       });
     case ADVERTS_FETCHED:
       return Object.assign({}, state, {
         hasMoreItems: action.adverts.hasMoreItems,
         totalItems: action.adverts.totalItems,
-        data: state.data ? state.data.concat(action.adverts.data) : action.adverts.data,
-        advertsFetched: true,
-        loading: false
+        data:
+          state.pageNumber === 1
+            ? action.adverts.data
+            : state.data
+            ? state.data.concat(action.adverts.data)
+            : action.adverts.data,
+        advertsFetched: true
       });
     case ADVERTS_DATE_FILTER_SETTED:
       return Object.assign({}, state, {
         dateFilter: Number(action.number),
-        advertsFetched: false,
-        loading: true
+        advertsFetched: false
       });
     case INCREMENT_PAGE:
       return Object.assign({}, state, {
         pageNumber: state.pageNumber + 1
+      });
+    case TOGGLE_LOADING_STATE:
+      return Object.assign({}, state, {
+        loading: !state.loading
+      });
+
+    case RESET_PAGE_NUMBER:
+      return Object.assign({}, state, {
+        pageNumber: 1
       });
     default:
       return state;

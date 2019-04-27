@@ -13,8 +13,8 @@ const MainContent = props => {
     <ConnectionError />
   ) : (
     <main id="Content">
-      {props.loading ? (
-        <SearchingForAdverts />
+      {props.loading && props.pageNumber === 1 ? (
+        <SearchingForAdverts paddingTop="10rem" />
       ) : props.advertsFetched === true ? (
         <>
           <AdvertsFeedbackAndFilter />
@@ -35,7 +35,8 @@ const mapStateToProps = state => ({
   totalItems: state.totalItems,
   advertsFetched: state.advertsFetched,
   failedToGetAdverts: state.failedToGetAdverts,
-  loading: state.loading
+  loading: state.loading,
+  pageNumber: state.pageNumber
 });
 
 export default connect(mapStateToProps)(MainContent);
