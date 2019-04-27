@@ -28,7 +28,11 @@ const AdvertsFeedbackAndFilter = props => {
           {props.totalItems === 1 ? 'aviso' : 'avisos'}
         </span>
 
-        {props.totalItems === 0 ? <span style={{ fontSize: '3rem' }}>😢</span> : null}
+        {props.totalItems === 0 ? (
+          <span role="img" aria-label="sad-face" style={{ fontSize: '3rem' }}>
+            😢
+          </span>
+        ) : null}
       </div>
 
       <div className="FilterContainer">

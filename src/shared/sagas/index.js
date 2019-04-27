@@ -8,8 +8,7 @@ import {
   ERROR_FETCHING_ADVERTS_DATA,
   ADVERTS_DATE_FILTER_SETTED,
   INCREMENT_PAGE,
-  RESET_ERROR_STATE,
-  RESET_ADVERTS_LIST,
+  RESET_FAILED_TO_GET_ADVERTS,
   RESET_PAGE_NUMBER,
   TOGGLE_LOADING_STATE
 } from '../actions/actionTypes';
@@ -34,6 +33,7 @@ export function* advertsFetcher({ searchFor, locationFilter, dateFilter, pageNum
   }
 
   yield put({ type: TOGGLE_LOADING_STATE });
+  yield put({ type: RESET_FAILED_TO_GET_ADVERTS })
 
   // Si la API principal está caída, usar la de respaldo
   try {

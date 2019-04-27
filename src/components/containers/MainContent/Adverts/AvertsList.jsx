@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { onScrollToBottom } from '../../../../shared/actions/mainContentActions';
 import ScrollToBottomListener from 'react-bottom-scroll-listener';

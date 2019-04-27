@@ -8,7 +8,7 @@ import {
   SEARCH_BUTTON_PRESSED,
   TOGGLE_LOADING_STATE,
   RESET_PAGE_NUMBER,
-  RESET_ADVERTS_LIST
+  RESET_FAILED_TO_GET_ADVERTS
 } from '../actions/actionTypes';
 
 export default function appReducer(state, action) {
@@ -28,6 +28,10 @@ export default function appReducer(state, action) {
     case ERROR_FETCHING_ADVERTS_DATA:
       return Object.assign({}, state, {
         failedToGetAdverts: true
+      });
+    case RESET_FAILED_TO_GET_ADVERTS:
+      return Object.assign({}, state, {
+        failedToGetAdverts: false
       });
     case ADVERTS_FETCHED:
       return Object.assign({}, state, {
@@ -54,7 +58,6 @@ export default function appReducer(state, action) {
       return Object.assign({}, state, {
         loading: !state.loading
       });
-
     case RESET_PAGE_NUMBER:
       return Object.assign({}, state, {
         pageNumber: 1
