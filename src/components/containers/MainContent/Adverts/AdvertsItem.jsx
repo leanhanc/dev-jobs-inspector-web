@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
+import AdvertsDetailedModal from './AdvertsDetailedModal';
 import * as es from '../../../../lib/es';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 import HtmlParser from 'react-html-parser';
@@ -30,30 +31,53 @@ const shortenDescription = (string, characterLimit) => {
 //   });
 // };
 
-const AdvertsItem = props => {
-  const { createdAt, description, location, title, url } = props.advertItem;
+class AdvertsItem extends Component {
+  state = {
+    showAdvertDetailsModal: false
+  };
 
-  return (
-    <div className="AdvertsItem__Container">
-      <Card className="AdvertsItem__Card">
-        <span className="AdvertsItem__Card-Timestamp">{timeSince(createdAt)}</span>
-        <h4 className="AdvertsItem__Card-Title">{title}</h4>
-        <span className="AdvertsItem__Card-Location">{location}</span>
-        <p className="AdvertsItem__Card-Description">{shortenDescription(description, 15)}</p>
-        <Button type="ghost" block={true} className="AdvertsItem__Card-SeeDetails">
-          VER DETALLE
-        </Button>
-        <Button
-          type="primary"
-          block={true}
-          className="AdvertsItem__Card-Open"
-          onClick={() => window.open(url)}
-        >
-          ABRIR
-        </Button>
-      </Card>
-    </div>
-  );
-};
+  toggleModalVisibility = () => {
+    this.setState({
+      showAdvertDetailsModal: this.state.showAdvertDetailsModal ? false : true
+    });
+  };
+
+  render() {
+    const { createdAt, description, location, title, url } = this.props.advertItem;
+    const { showAdvertDetailsModal } = this.state;
+
+    return (
+      <div className="AdvertsItem__Container">
+        <Card className="AdvertsItem__Card">
+          <span className="AdvertsItem__Card-Timestamp">{timeSince(createdAt)}</span>
+          <h4 className="AdvertsItem__Card-Title">{title}</h4>
+          <span className="AdvertsItem__Card-Location">{location}</span>
+          <p className="AdvertsItem__Card-Description">{shortenDescription(description, 15)}</p>
+          <Button
+            type="ghost"
+            block={true}
+            className="AdvertsItem__Card-SeeDetails"
+            onClick={this.toggleModalVisibility}
+          >
+            VER DETALLE
+          </Button>
+          <AdvertsDetailedModal
+            show={showAdvertDetailsModal}
+            toggle={this.toggleModalVisibility}
+            advertItem={this.props.advertItem}
+          />
+          <Button
+            type="primary"
+            block={true}
+            className="AdvertsItem__Card-Open"
+            onClick={() => window.open(url)}
+          >
+            ABRIR
+          </Button>
+        </Card>
+      </div>
+    );
+  }
+}
 
 export default AdvertsItem;
