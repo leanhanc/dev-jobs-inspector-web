@@ -20,16 +20,16 @@ const shortenDescription = (string, characterLimit) => {
   );
 };
 
-// const respectLineBreaks = str => {
-//   return str.split('\n').map((item, key) => {
-//     return (
-//       <Fragment key={key}>
-//         {HtmlParser(item)}
-//         <br />
-//       </Fragment>
-//     );
-//   });
-// };
+const respectLineBreaks = str => {
+  return str.split('\n').map((item, key) => {
+    return (
+      <Fragment key={key}>
+        {HtmlParser(item)}
+        <br />
+      </Fragment>
+    );
+  });
+};
 
 class AdvertsItem extends Component {
   state = {
@@ -65,6 +65,8 @@ class AdvertsItem extends Component {
             show={showAdvertDetailsModal}
             toggle={this.toggleModalVisibility}
             advertItem={this.props.advertItem}
+            timeSince={timeSince}
+            respectLineBreaks={respectLineBreaks}
           />
           <Button
             type="primary"

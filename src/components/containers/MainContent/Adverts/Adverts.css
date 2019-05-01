@@ -142,3 +142,36 @@
   font-size: 1.1rem;
   line-height: 2rem;
 }
+
+.AdvertsItem__Modal-Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.AdvertsItem__Modal-Container > *:not(:first-child) {
+  padding-top: 4rem;
+}
+
+.AdvertsItem__Modal-Extra_Info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.2rem;
+}
+
+.AdvertsItem__Modal-Buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.AdvertsItem__Modal-Button {
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+
+  font-weight: bold;
+}
