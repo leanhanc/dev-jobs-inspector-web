@@ -10,7 +10,7 @@ import {
 } from '../../../shared/actions/headerActions';
 
 import './Header.css';
-import logo from 'assets/img/logo.png';
+import logo from '../../../assets/img/logo.png';
 
 import { Button } from 'antd';
 import { autocompleteSuggestions, selectOptions } from '../../../constants/';

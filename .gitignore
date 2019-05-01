@@ -49,3 +49,6 @@ now.json# See https://help.github.com/articles/ignoring-files/ for more about ig
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#Now
+now.json
