@@ -114,7 +114,7 @@
 }
 @media screen and (min-width: 769px) {
   .About__Features-Card {
-    line-height: 2.4rem;
+    line-height: 2.4rem !important;
     height: 400px;
   }
 }
