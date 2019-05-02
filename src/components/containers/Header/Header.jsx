@@ -20,14 +20,7 @@ const searchHandler = e => {
 };
 
 const Header = props => {
-  const {
-    onSelectLocationInputChange,
-    onSearchTermInputChange,
-    onSearchButtonPressed,
-    dateFilter,
-    locationFilter,
-    searchFor
-  } = props;
+  const { onSelectLocationInputChange, onSearchTermInputChange, onSearchButtonPressed } = props;
 
   return (
     <section id="Header">
@@ -53,7 +46,11 @@ const Header = props => {
           size="large"
           loading={props.loading}
           className="Header__CallToAction"
-          onClick={() => onSearchButtonPressed(searchFor, locationFilter, dateFilter)}
+          onClick={() =>
+            props.searchFor
+              ? props.onSearchButtonPressed(props.searchFor, props.locationFilter, props.dateFilter)
+              : null
+          }
         >
           BUSCAR
         </Button>
