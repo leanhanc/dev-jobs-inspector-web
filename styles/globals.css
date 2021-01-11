@@ -1,9 +1,45 @@
+:root {
+  --purple10: #b1add8;
+  --purple50: #3d329e;
+  --grey: #d9d9d9;
+  --black: rgba(0, 0, 0, 0.5);
+}
+
+@font-face {
+  font-family: "Lato-regular";
+  src: url("/fonts/Lato-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lato-bold";
+  src: url("/fonts/Lato-Bold.ttf");
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lato-light";
+  src: url("/fonts/Lato-Light.ttf");
+  font-style: lighter;
+  font-weight: 200;
+  font-display: swap;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+  color: var(--black);
+  font-family: "Lato-Regular", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
 }
 
 a {
