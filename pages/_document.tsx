@@ -10,24 +10,9 @@ class CustomDoc extends Document {
     return (
       <Html>
         <Head>
-          <link
-            rel="preload"
-            href="/fonts/Lato-Regular.ttf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/Lato-Light.ttf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/Lato-Bold.ttf"
-            as="font"
-            crossOrigin=""
-          />
+          <link rel="preload" href="/fonts/Lato-Regular.ttf" as="font" crossOrigin="" />
+          <link rel="preload" href="/fonts/Lato-Light.ttf" as="font" crossOrigin="" />
+          <link rel="preload" href="/fonts/Lato-Bold.ttf" as="font" crossOrigin="" />
         </Head>
         <body>
           <Main />

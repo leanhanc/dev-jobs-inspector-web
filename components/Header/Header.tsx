@@ -3,15 +3,14 @@ import Image from "next/image";
 
 // Assets
 import searchIcon from "../../public/img/search-icon.svg";
+import locationIcon from "../../public/img/location-icon.svg";
 
 // Components
-import Input from "components/Input";
+import TypeaheadInput from "components/TypeaheadInput";
+import SelectInput from "components/SelectInput";
 
 // Styles
 import styles from "./Header.module.sass";
-
-// Data
-import searchOptions from "data/searchOptions";
 
 const Header = () => {
   return (
@@ -38,19 +37,8 @@ const Header = () => {
         </div>
 
         <fieldset className={styles.HeaderInputs}>
-          <Input
-            type="text"
-            placeholder="Área, lenguaje o framework"
-            icon={searchIcon}
-            variant="typeahead"
-          />
-
-          <Input
-            type="text"
-            placeholder="Argentina"
-            icon={searchIcon}
-            variant="dropdown"
-          />
+          <TypeaheadInput type="text" placeholder="Área, lenguaje o framework" icon={searchIcon} />
+          <SelectInput type="text" placeholder="Argentina" icon={locationIcon} />
         </fieldset>
       </div>
     </div>

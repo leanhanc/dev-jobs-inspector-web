@@ -1,0 +1,32 @@
+.TypeaheadInputContainer
+  background-color: #fff
+  border-radius: 4px
+  left: 0
+  max-height: 0
+  min-width: 280px
+  opacity: 0
+  overflow: scroll
+  position: absolute
+  top: 0
+  transition: opacity 300ms ease-in, max-heigth 300ms ease-in
+  width: 100%
+  z-index: 20
+
+.TypeaheadInputContainerOpen
+  max-height: 105px
+  opacity: 1
+  top: 50px
+
+.TypeaheadInputListItem
+  cursor: pointer
+  padding: 0.5rem 1rem
+  transition: background-color 300ms ease-in
+
+  &:hover
+    background-color: var(--purple10)
+    &:first-of-type
+      border-top-left-radius: 4px
+      border-top-right-radius: 4px
+    &:last-of-type
+      border-bottom-left-radius: 4px
+      border-bottom-right-radius: 4px

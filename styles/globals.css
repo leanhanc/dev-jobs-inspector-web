@@ -1,5 +1,6 @@
 :root {
-  --purple10: #b1add8;
+  --purple10: #e5e3f2;
+  --purple30: #b1add8;
   --purple50: #3d329e;
   --grey30: #c0c0c0;
   --grey50: #b3b3b3;
@@ -38,9 +39,8 @@ body {
 
 body {
   color: var(--black);
-  font-family: "Lato-Regular", -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
+  font-family: "Lato-Regular", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -48,6 +48,95 @@ a {
   text-decoration: none;
 }
 
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
 * {
   box-sizing: border-box;
+}
+
+/* Utility classes */
+.pointer {
+  cursor: pointer;
+}
+
+.relative {
+  position: relative;
+}
+
+.rotated-vertically {
+  transform: rotate(180deg);
+}
+
+/* Input Global styles */
+.Input {
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.BaseInput {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  border: 0;
+  box-shadow: 0 0 1px 1px var(--grey);
+  color: var(--black);
+  display: flex;
+  font-family: "Lato-bold";
+  font-family: "Lato-bold";
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  min-width: 280px;
+  outline: 0;
+  padding: 12px 10px;
+  width: 100%;
+}
+
+.BaseInput:focus {
+  box-shadow: 0 0 2px 3px var(--purple50);
+}
+
+.BaseInput::placeholder {
+  align-self: center;
+  letter-spacing: 0.9px;
+  justify-self: center;
+  color: var(--grey30);
+  font-family: "Lato-bold";
+  font-weight: 700;
+}
+
+.InputIcon {
+  cursor: pointer;
+  position: absolute;
+  right: 9px;
+  top: 9px;
+  transition: 300ms ease-in;
+}
+
+.BaseInput .placeholder {
+  align-self: center;
+  background-color: transparent;
+  letter-spacing: 0.9px;
+  justify-self: center;
+  color: var(--grey30);
+  font-family: "Lato-bold";
+  font-weight: 700;
+}
+
+/* Medium screen breakpoint */
+@media screen and (min-width: 1200px) {
+  .BaseInput {
+    font-size: 1.075rem;
+    min-width: 420px;
+  }
+
+  .InputIcon  {
+    right: 24px;
+    top: 10px;
+  }
 }
