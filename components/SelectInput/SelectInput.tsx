@@ -9,7 +9,6 @@ import dropdownOption from "data/dropdownOptions";
 
 // Styles
 import styles from "./SelectInput.module.sass";
-import { classNames } from "styles";
 
 interface SelectInputProps {
   placeholder?: string;
