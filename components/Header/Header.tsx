@@ -8,6 +8,7 @@ import locationIcon from "../../public/img/location-icon.svg";
 // Components
 import TypeaheadInput from "components/TypeaheadInput";
 import SelectInput from "components/SelectInput";
+import Button from "components/Button";
 
 // Styles
 import styles from "./Header.module.sass";
@@ -40,6 +41,8 @@ const Header = () => {
           <TypeaheadInput type="text" placeholder="Área, lenguaje o framework" icon={searchIcon} />
           <SelectInput type="text" placeholder="Argentina" icon={locationIcon} />
         </fieldset>
+
+        <Button type="button">BUSCAR</Button>
       </div>
     </div>
   );
