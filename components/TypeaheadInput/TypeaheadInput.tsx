@@ -48,7 +48,7 @@ const TypeheadInputProps: React.FC<TypeheadInputProps> = ({ placeholder, type = 
       <input
         maxLength={32}
         type={type}
-        className="BaseInput pointer"
+        className="BaseInput"
         placeholder={placeholder}
         value={searchValue}
         onChange={onInputTypeChange}

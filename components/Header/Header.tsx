@@ -42,7 +42,9 @@ const Header = () => {
           <SelectInput type="text" placeholder="Argentina" icon={locationIcon} />
         </fieldset>
 
-        <Button type="button">BUSCAR</Button>
+        <Button type="button" style={styles.HeaderCta}>
+          BUSCAR
+        </Button>
       </div>
     </div>
   );

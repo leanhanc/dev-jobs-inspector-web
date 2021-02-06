@@ -7,7 +7,9 @@ import styles from "./Button.module.sass";
 export interface ButtonProp {
   type?: React.ButtonHTMLAttributes<HTMLButtonElement>["type"];
   disabled?: boolean;
-  variant: "primary";
+  variant?: "primary";
+  children: React.ReactNode;
+  style?: string;
 }
 
 const Button: React.FC<ButtonProp> = ({
@@ -15,12 +17,13 @@ const Button: React.FC<ButtonProp> = ({
   type = "button",
   disabled = false,
   variant = "primary",
+  style,
 }) => {
   return (
     <button
       type={type}
       disabled={disabled}
-      className={classNames(styles.Button, { [styles.primary]: variant === "primary" })}
+      className={classNames(styles.Button, style, { [styles.primary]: variant === "primary" })}
     >
       {children}
     </button>

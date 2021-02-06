@@ -12,19 +12,18 @@
   z-index: -10
 
 .HeaderContent
-  padding: 4rem 1rem
   align-items: center
   display: flex
   flex-direction: column
-  justify-content: space-around
   height: 100%
+  justify-content: space-around
 
 .HeaderLogo
   div
     margin: auto
     width: 120px
     height: 120px
-    +min-lg
+    +min-md
       width: 150px
       height: 150px
 
@@ -39,3 +38,10 @@
 
   div:not(:first-of-type)
     margin-top: 32px
+
+.HeaderCta
+  margin-top: 1rem
+  margin-bottom: 1rem
+  +min-lg
+    margin-top: 0
+    margin-left: 0

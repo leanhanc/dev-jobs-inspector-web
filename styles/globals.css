@@ -3,6 +3,7 @@
   --purple30: #b1add8;
   --purple40: #5e52ab;
   --purple50: #3d329e;
+  --gray20: #e8e8e8;
   --grey30: #c0c0c0;
   --grey50: #b3b3b3;
   --gray70: #4a4a4a;
@@ -68,6 +69,10 @@ li {
 
 .relative {
   position: relative;
+}
+
+.bold {
+  font-family: "Lato-Bold";
 }
 
 .rotated-vertically {

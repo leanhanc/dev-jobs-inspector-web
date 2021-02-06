@@ -1,11 +1,49 @@
 .About
   color: var(--gray70)
-  dispay: flex
+  display: flex
   flex-direction: column
-  +min-md
+  align-items: center
+  justify-content: center
+  +min-sm
     flex-direction: row
+    padding: 3rem
 
   .title
-    font-size: 1.8rem
-    text-align: center
+    font-size: 18px
     letter-spacing: 1.5px
+    line-height: 27px
+    margin-left: auto
+    margin: 30px 0 0 0
+    margin-right: auto
+    text-align: center
+    +min-md
+      font-size: 32px
+      text-align: right
+      letter-spacing: 4px
+      max-width: 520px
+      line-height: 44px
+      margin: 0
+      margin-left: 0
+      margin-right: 0
+
+  .separator
+    background-color: var(--gray20)
+    display: none
+    height: 150px
+    margin-left: 2rem
+    margin-right: 2rem
+    width: 2px
+    +min-md
+      display: block
+
+  .subtitle
+    font-family: "Lato-Light"
+    font-size: 14px
+    letter-spacing: 1.2px
+    line-height: 24px
+    padding-left: 6px
+    text-align: center
+    +min-md
+      text-align: left
+      font-size: 16px
+      max-width: 540px
