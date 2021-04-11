@@ -12,11 +12,10 @@ import styles from "./SelectInput.module.sass";
 
 interface SelectInputProps {
   placeholder?: string;
-  type?: string;
-  icon?: any;
+  Icon?: any;
 }
 
-const SelectInput: React.FC<SelectInputProps> = ({ placeholder, type = "text", icon }) => {
+const SelectInput: React.FC<SelectInputProps> = ({ placeholder, Icon }) => {
   // State
   const [isSelectOpen, setIsSelectOpen] = useState(false);
   const [currentSelectItemValue, setSelectedItemValue] = useState("");
@@ -44,13 +43,13 @@ const SelectInput: React.FC<SelectInputProps> = ({ placeholder, type = "text", i
           <span className="placeholder">{placeholder}</span>
         )}
 
-        {icon && (
+        {Icon && (
           <span
             className={classnames("InputIcon", {
               "rotated-vertically": isSelectOpen,
             })}
           >
-            <img src={icon} />
+            <Icon />
           </span>
         )}
         <div

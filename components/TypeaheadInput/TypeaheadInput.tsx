@@ -12,11 +12,10 @@ import styles from "./TypeaheadInput.module.sass";
 
 interface TypeheadInputProps {
   placeholder?: string;
-  type?: string;
-  icon?: any;
+  Icon?: any;
 }
 
-const TypeheadInputProps: React.FC<TypeheadInputProps> = ({ placeholder, type = "text", icon }) => {
+const TypeheadInputProps: React.FC<TypeheadInputProps> = ({ placeholder, Icon }) => {
   // State
   const [isTypeaheadOpen, setIsTypeaheadOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
@@ -47,7 +46,7 @@ const TypeheadInputProps: React.FC<TypeheadInputProps> = ({ placeholder, type = 
     <div className="Input" ref={typeaheadContainerRef}>
       <input
         maxLength={32}
-        type={type}
+        type="text"
         className="BaseInput"
         placeholder={placeholder}
         value={searchValue}
@@ -55,9 +54,9 @@ const TypeheadInputProps: React.FC<TypeheadInputProps> = ({ placeholder, type = 
         onClick={onTypeaheadInsideClick}
       />
 
-      {icon && (
+      {Icon && (
         <span className="InputIcon">
-          <img src={icon} />
+          <Icon />
         </span>
       )}
 

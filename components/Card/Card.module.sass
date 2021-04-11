@@ -1,0 +1,31 @@
+.Card
+  align-items: center
+  box-shadow: rgb(0 0 0 / 14%) 0px 2px 7px 0px
+  display: flex
+  flex-direction: column
+  padding: 2rem 1rem
+  text-align: center
+  width: 300px
+  min-height: 320px
+  &:not(:first-of-type)
+    margin-top: 2rem
+  +min-md
+    &:not(:first-of-type)
+      margin-top: 0
+
+.CardIcon
+  svg 
+    fill: var(--purple50)
+    height: 50px
+    width: 50px
+
+.CardTitle
+  color: var(--gray70)
+  letter-spacing: 1.2px
+  font-size: 18px
+  font-weight: 700
+
+.CardContent
+  font-family: "Lato-Light"
+  font-size: 14px
+  letter-spacing: 1.1px

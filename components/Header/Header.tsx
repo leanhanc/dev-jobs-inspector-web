@@ -2,8 +2,8 @@ import React from "react";
 import Image from "next/image";
 
 // Assets
-import searchIcon from "../../public/img/search-icon.svg";
-import locationIcon from "../../public/img/location-icon.svg";
+import searchIcon from "../../assets/search-icon.svg";
+import locationIcon from "../../assets/location-icon.svg";
 
 // Components
 import TypeaheadInput from "components/TypeaheadInput";
@@ -38,8 +38,8 @@ const Header = () => {
         </div>
 
         <fieldset className={styles.HeaderInputs}>
-          <TypeaheadInput type="text" placeholder="Área, lenguaje o framework" icon={searchIcon} />
-          <SelectInput type="text" placeholder="Argentina" icon={locationIcon} />
+          <TypeaheadInput placeholder="Área, lenguaje o framework" Icon={searchIcon} />
+          <SelectInput placeholder="Argentina" Icon={locationIcon} />
         </fieldset>
 
         <Button type="button" style={styles.HeaderCta}>
