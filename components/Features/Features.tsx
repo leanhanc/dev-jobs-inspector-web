@@ -16,7 +16,7 @@ const cards = [
   {
     Icon: <SourcesIcon />,
     title: "Múltiples Fuentes",
-    content: `Encontrás al mismo tiempo avisos publicados recientemente en Computrabajo, Zonajobs y Bumeran.`,
+    content: `Encontrás al mismo tiempo avisos publicados recientemente en Computrabajo, Zonajobs y Bumeran, tres de los portales de trabajo más populares.`,
   },
   {
     Icon: <Github />,
