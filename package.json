@@ -9,6 +9,7 @@
     "clean": "rm -rf /.next"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.19",
     "@babel/core": "^7.13.8",
     "@babel/preset-flow": "^7.12.13",
     "@babel/preset-react": "^7.12.13",
