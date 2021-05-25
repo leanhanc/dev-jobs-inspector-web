@@ -13,12 +13,18 @@ import styles from "./TypeaheadInput.module.sass";
 interface TypeheadInputProps {
   placeholder?: string;
   Icon?: any;
+  searchTerm: string;
+  setSearchTerm?: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const TypeheadInputProps: React.FC<TypeheadInputProps> = ({ placeholder, Icon }) => {
+const TypeheadInputProps: React.FC<TypeheadInputProps> = ({
+  placeholder,
+  Icon,
+  searchTerm,
+  setSearchTerm,
+}) => {
   // State
   const [isTypeaheadOpen, setIsTypeaheadOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
 
   // Refs
   const typeaheadContainerRef = useRef(null);
@@ -27,17 +33,17 @@ const TypeheadInputProps: React.FC<TypeheadInputProps> = ({ placeholder, Icon })
   const onTypeaheadInsideClick = () => setIsTypeaheadOpen(true);
   const onTypeaheadOutsideClick = () => setIsTypeaheadOpen(false);
   const onInputTypeChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-    setSearchValue(event.target.value);
+    setSearchTerm(event.target.value);
   const onTypeaheadSelected = (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-    setSearchValue(event.currentTarget.id.split("-").pop());
+    setSearchTerm(event.currentTarget.id.split("-").pop());
     setIsTypeaheadOpen(false);
   };
 
   // Memos
   const filteredSearchOptions = useMemo(() => {
-    const regex = new RegExp(`^${searchValue}`, `i`);
+    const regex = new RegExp(`^${searchTerm}`, `i`);
     return searchOptions.sort().filter(option => regex.test(option));
-  }, [searchValue]);
+  }, [searchTerm]);
 
   // Hooks
   useOnClickOutside(typeaheadContainerRef, onTypeaheadOutsideClick);
@@ -49,7 +55,7 @@ const TypeheadInputProps: React.FC<TypeheadInputProps> = ({ placeholder, Icon })
         type="text"
         className="BaseInput"
         placeholder={placeholder}
-        value={searchValue}
+        value={searchTerm}
         onChange={onInputTypeChange}
         onClick={onTypeaheadInsideClick}
       />
@@ -60,7 +66,7 @@ const TypeheadInputProps: React.FC<TypeheadInputProps> = ({ placeholder, Icon })
         </span>
       )}
 
-      {searchValue && (
+      {searchTerm && (
         <div
           className={classnames(styles.TypeaheadInputContainer, {
             [styles.TypeaheadInputContainerOpen]: isTypeaheadOpen,
