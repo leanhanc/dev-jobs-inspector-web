@@ -1,15 +1,12 @@
 import React, { useState, useCallback } from "react";
+import { QueryLazyOptions } from "@apollo/client";
 import Image from "next/image";
-import { useLazyQuery } from "@apollo/client";
 
 // Components
 import Button from "components/Button";
 
 import TypeaheadInput from "components/TypeaheadInput";
 import SelectInput from "components/SelectInput";
-
-// Data
-import { findJobs } from "graphql/jobs";
 
 // Assets
 import searchIcon from "../../assets/search-icon.svg";
@@ -22,29 +19,21 @@ const JOBS_PER_PAGE = 20;
 
 interface HeaderProps {
   currentPage: number;
+  onSearch: (options?: QueryLazyOptions<FindJobsVariables>) => void;
 }
 
-const Header = ({ currentPage }: HeaderProps) => {
+const Header = ({ currentPage, onSearch }: HeaderProps) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const [callFindJobs, { data: findJobsData, loading: findJobsLoading }] = useLazyQuery<
-    FindJobsResponse,
-    FindJobsVariables
-  >(findJobs, {
-    fetchPolicy: "network-only",
-  });
-
   const handleSearch = useCallback(() => {
-    callFindJobs({
+    onSearch({
       variables: {
         page: currentPage,
         limit: JOBS_PER_PAGE,
         search: searchTerm,
       },
     });
-  }, [searchTerm, callFindJobs, currentPage, searchTerm]);
-
-  console.log(findJobsData);
+  }, [searchTerm, currentPage, searchTerm]);
 
   return (
     <div id="Header" className={styles.Header}>
