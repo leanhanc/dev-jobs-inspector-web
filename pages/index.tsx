@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useLazyQuery } from "@apollo/client";
 
 // Components
@@ -6,12 +6,13 @@ import Head from "next/head";
 import Header from "components/Header";
 import About from "components/About";
 import Features from "components/Features";
+import Adverts from "components/Adverts";
 import Footer from "components/Footer";
 
 // Data
 import { findJobs } from "graphql/jobs";
 
-export default function Home() {
+const Home = () => {
   const [currentPage, setCurrentPage] = useState();
 
   // Queries
@@ -19,8 +20,26 @@ export default function Home() {
     FindJobsResponse,
     FindJobsVariables
   >(findJobs, {
-    fetchPolicy: "network-only",
+    fetchPolicy: "cache-and-network",
   });
+
+  // Memos
+  const { adverts, totalAdverts } = useMemo(() => {
+    console.log("find", findJobsData);
+    if (findJobsData?.paginatedJobs) {
+      return {
+        adverts: findJobsData.paginatedJobs.result,
+        totalAdverts: findJobsData.paginatedJobs.total,
+      };
+    }
+    return {
+      adverts: null,
+      totalAdverts: null,
+    };
+  }, [findJobsData]);
+
+  console.log("ad", adverts);
+  console.log("tota", totalAdverts);
 
   return (
     <>
@@ -30,12 +49,20 @@ export default function Home() {
       </Head>
 
       <main>
-        <Header onSearch={callFindJobs} currentPage={currentPage} />
-        <About />
-        <Features />
+        <Header onSearch={callFindJobs} currentPage={currentPage} isLoading={findJobsLoading} />
+        {adverts ? (
+          <Adverts adverts={adverts} isLoading={findJobsLoading}></Adverts>
+        ) : (
+          <>
+            <About />
+            <Features />
+          </>
+        )}
       </main>
 
       <Footer />
     </>
   );
-}
+};
+
+export default Home;

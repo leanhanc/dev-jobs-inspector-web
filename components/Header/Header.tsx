@@ -19,10 +19,11 @@ const JOBS_PER_PAGE = 20;
 
 interface HeaderProps {
   currentPage: number;
+  isLoading: boolean;
   onSearch: (options?: QueryLazyOptions<FindJobsVariables>) => void;
 }
 
-const Header = ({ currentPage, onSearch }: HeaderProps) => {
+const Header = ({ currentPage, onSearch, isLoading }: HeaderProps) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = useCallback(() => {
@@ -68,7 +69,7 @@ const Header = ({ currentPage, onSearch }: HeaderProps) => {
           <SelectInput placeholder="Argentina" Icon={locationIcon} />
         </fieldset>
 
-        <Button type="button" style={styles.HeaderCta} onClick={handleSearch}>
+        <Button type="button" style={styles.HeaderCta} onClick={handleSearch} disabled={isLoading}>
           BUSCAR
         </Button>
       </div>

@@ -5,13 +5,13 @@ declare interface FindJobsVariables {
 }
 
 declare interface FindJobsResponse {
-  data?: {
-    total: number;
+  paginatedJobs?: {
+    total?: number;
     result?: {
       date?: string;
       description?: string;
       url?: string;
       site?: string;
-    };
+    }[];
   };
 }
