@@ -1,10 +1,38 @@
+import { PuffLoader } from "react-spinners";
+
+// Components
+import AdvertCard from "components/AdvertCard";
+
+// Styles
+import styles from "./Adverts.module.sass";
 interface AdvertsProps {
-  adverts: FindJobsResponse["paginatedJobs"]["result"];
-  isLoading: boolean;
+	adverts: Advert[];
+	isLoading: boolean;
 }
 
 const Adverts = ({ adverts, isLoading = true }: AdvertsProps) => {
-  return <div id="Adverts"></div>;
+	if (isLoading) {
+		return (
+			<div id="Adverts" className={styles.Adverts}>
+				<PuffLoader />
+			</div>
+		);
+	}
+
+	if (adverts.length === 0) {
+		return (
+			<div id="Adverts" className={styles.Adverts}>
+				No encontramos resultados para tu búsqueda
+			</div>
+		);
+	}
+	return (
+		<section id="Adverts" className={styles.Adverts}>
+			{adverts.map(advert => {
+				return <AdvertCard advert={advert} key={advert.url} />;
+			})}
+		</section>
+	);
 };
 
 export default Adverts;

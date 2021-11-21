@@ -1,17 +1,19 @@
-declare interface FindJobsVariables {
+declare interface FindAdvertsVariables {
   limit?: number;
   page?: number;
   search?: string;
 }
 
-declare interface FindJobsResponse {
+declare interface Advert {
+  date?: string;
+  description?: string;
+  url?: string;
+  site?: string;
+}
+
+declare interface FindAdvertsResponse {
   paginatedJobs?: {
     total?: number;
-    result?: {
-      date?: string;
-      description?: string;
-      url?: string;
-      site?: string;
-    }[];
+    result?: Advert[];
   };
 }

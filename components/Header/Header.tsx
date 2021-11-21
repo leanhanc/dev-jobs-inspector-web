@@ -20,7 +20,7 @@ const JOBS_PER_PAGE = 20;
 interface HeaderProps {
   currentPage: number;
   isLoading: boolean;
-  onSearch: (options?: QueryLazyOptions<FindJobsVariables>) => void;
+  onSearch: (options?: QueryLazyOptions<FindAdvertsVariables>) => void;
 }
 
 const Header = ({ currentPage, onSearch, isLoading }: HeaderProps) => {

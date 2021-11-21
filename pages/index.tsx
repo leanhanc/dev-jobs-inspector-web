@@ -10,59 +10,56 @@ import Adverts from "components/Adverts";
 import Footer from "components/Footer";
 
 // Data
-import { findJobs } from "graphql/jobs";
+import { findAdverts } from "graphql/jobs";
 
 const Home = () => {
-  const [currentPage, setCurrentPage] = useState();
+	const [currentPage, setCurrentPage] = useState();
 
-  // Queries
-  const [callFindJobs, { data: findJobsData, loading: findJobsLoading }] = useLazyQuery<
-    FindJobsResponse,
-    FindJobsVariables
-  >(findJobs, {
-    fetchPolicy: "cache-and-network",
-  });
+	// Queries
+	const [callFindJobs, { data: findAdvertsData, loading: findAdvertsLoading }] = useLazyQuery<
+		FindAdvertsResponse,
+		FindAdvertsVariables
+	>(findAdverts, {
+		fetchPolicy: "cache-and-network",
+	});
 
-  // Memos
-  const { adverts, totalAdverts } = useMemo(() => {
-    console.log("find", findJobsData);
-    if (findJobsData?.paginatedJobs) {
-      return {
-        adverts: findJobsData.paginatedJobs.result,
-        totalAdverts: findJobsData.paginatedJobs.total,
-      };
-    }
-    return {
-      adverts: null,
-      totalAdverts: null,
-    };
-  }, [findJobsData]);
+	// Memos
+	const { adverts, totalAdverts } = useMemo(() => {
+		console.log("find", findAdvertsData);
+		if (findAdvertsData?.paginatedJobs) {
+			return {
+				adverts: findAdvertsData.paginatedJobs.result,
+				totalAdverts: findAdvertsData.paginatedJobs.total,
+			};
+		}
+		return {
+			adverts: null,
+			totalAdverts: null,
+		};
+	}, [findAdvertsData]);
 
-  console.log("ad", adverts);
-  console.log("tota", totalAdverts);
+	return (
+		<>
+			<Head>
+				<title>Dev Job Inspector Argentina</title>
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
 
-  return (
-    <>
-      <Head>
-        <title>Dev Job Inspector Argentina</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+			<main>
+				<Header onSearch={callFindJobs} currentPage={currentPage} isLoading={findAdvertsLoading} />
+				{adverts ? (
+					<Adverts adverts={adverts} isLoading={findAdvertsLoading} />
+				) : (
+					<>
+						<About />
+						<Features />
+					</>
+				)}
+			</main>
 
-      <main>
-        <Header onSearch={callFindJobs} currentPage={currentPage} isLoading={findJobsLoading} />
-        {adverts ? (
-          <Adverts adverts={adverts} isLoading={findJobsLoading}></Adverts>
-        ) : (
-          <>
-            <About />
-            <Features />
-          </>
-        )}
-      </main>
-
-      <Footer />
-    </>
-  );
+			<Footer />
+		</>
+	);
 };
 
 export default Home;
