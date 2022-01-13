@@ -1,160 +1,169 @@
 :root {
-  --purple10: #e5e3f2;
-  --purple30: #b1add8;
-  --purple40: #5e52ab;
-  --purple50: #3d329e;
-  --grey20: #e8e8e8;
-  --grey30: #c0c0c0;
-  --grey50: #b3b3b3;
-  --grey70: #4a4a4a;
-  --black: rgba(0, 0, 0, 0.5);
+	--purple10: #e5e3f2;
+	--purple30: #b1add8;
+	--purple40: #5e52ab;
+	--purple50: #3d329e;
+	--grey20: #e8e8e8;
+	--grey30: #c0c0c0;
+	--grey50: #b3b3b3;
+	--grey70: #4a4a4a;
+	--black: rgba(0, 0, 0, 0.66);
+}
+
+html {
+	-moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+	font-family: Lato-regular;
+	src: url("/fonts/Lato-Regular.ttf");
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: "Lato-regular";
-  src: url("/fonts/Lato-Regular.ttf");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
+	font-family: Lato-bold;
+	src: url("/fonts/Lato-Bold.ttf");
+	font-style: bold;
+	font-weight: 700;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: "Lato-bold";
-  src: url("/fonts/Lato-Bold.ttf");
-  font-style: bold;
-  font-weight: 700;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Lato-light";
-  src: url("/fonts/Lato-Light.ttf");
-  font-style: lighter;
-  font-weight: 200;
-  font-display: swap;
+	font-family: Lato-light;
+	src: url("/fonts/Lato-Light.ttf");
+	font-style: lighter;
+	font-weight: 200;
+	font-display: swap;
 }
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  line-height: 1.5;
+	padding: 0;
+	margin: 0;
+	line-height: 1.5;
+}
+
+p {
+	margin: 0;
 }
 
 body {
-  color: var(--black);
-  font-family: "Lato-Regular", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	color: var(--black);
+	font-family: "Lato-Regular", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+		Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
-  border-bottom: 2px;
-  border-color: transparent;
-  transition: all 0.3 ease;
-  color: var(--purple30);
-  text-decoration: none;
+	border-bottom: 2px;
+	border-color: transparent;
+	transition: all 0.3 ease;
+	color: var(--purple30);
+	text-decoration: none;
 }
 
 a:hover {
-  border-color: var(--purple30);
-  padding-bottom: 0.4rem;
+	border-color: var(--purple30);
+	padding-bottom: 0.4rem;
 }
 
 ul,
 li {
-  padding: 0;
-  margin: 0;
-  list-style: none;
+	padding: 0;
+	margin: 0;
+	list-style: none;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 /* Utility classes */
 .pointer {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .relative {
-  position: relative;
+	position: relative;
 }
 
 .bold {
-  font-family: "Lato-Bold";
+	font-family: Lato-bold;
 }
 
 .rotated-vertically {
-  transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 /* Input Global styles */
 .Input {
-  padding: 0;
-  margin: 0;
-  position: relative;
+	padding: 0;
+	margin: 0;
+	position: relative;
 }
 
 .BaseInput {
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 5px;
-  border: 0;
-  box-shadow: 0 0 1px 1px var(--grey);
-  color: var(--black);
-  display: flex;
-  font-family: "Lato-bold";
-  font-family: "Lato-bold";
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.9px;
-  min-width: 280px;
-  outline: 0;
-  padding: 12px 16px;
-  width: 100%;
+	align-items: center;
+	background-color: rgba(255, 255, 255, 0.9);
+	border-radius: 5px;
+	border: 0;
+	box-shadow: 0 0 1px 1px var(--grey);
+	color: var(--black);
+	display: flex;
+	font-family: "Lato-bold";
+	font-family: "Lato-bold";
+	font-weight: 700;
+	font-size: 1rem;
+	letter-spacing: 0.9px;
+	min-width: 280px;
+	outline: 0;
+	padding: 12px 16px;
+	width: 100%;
 }
 
 .BaseInput:focus {
-  box-shadow: 0 0 2px 3px var(--purple50);
+	box-shadow: 0 0 2px 3px var(--purple50);
 }
 
 .BaseInput::placeholder {
-  align-self: center;
-  background-color: transparent;
-  letter-spacing: 0.9px;
-  justify-self: center;
-  color: var(--grey30);
-  font-family: "Lato-bold";
-  font-weight: 700;
+	align-self: center;
+	background-color: transparent;
+	letter-spacing: 0.9px;
+	justify-self: center;
+	color: var(--grey30);
+	font-family: "Lato-bold";
+	font-weight: 700;
 }
 
 .BaseInput .placeholder {
-  align-self: center;
-  background-color: transparent;
-  letter-spacing: 0.9px;
-  justify-self: center;
-  color: var(--grey30);
-  font-family: "Lato-bold";
-  font-weight: 700;
+	align-self: center;
+	background-color: transparent;
+	letter-spacing: 0.9px;
+	justify-self: center;
+	color: var(--grey30);
+	font-family: "Lato-bold";
+	font-weight: 700;
 }
 
 .InputIcon {
-  cursor: pointer;
-  position: absolute;
-  right: 9px;
-  top: 9px;
-  transition: 300ms ease-in;
+	cursor: pointer;
+	position: absolute;
+	right: 9px;
+	top: 9px;
+	transition: 300ms ease-in;
 }
 
 /* Medium screen breakpoint */
 @media screen and (min-width: 1200px) {
-  .BaseInput {
-    font-size: 1.075rem;
-    min-width: 420px;
-  }
+	.BaseInput {
+		font-size: 1.075rem;
+		min-width: 420px;
+	}
 
-  .InputIcon  {
-    right: 24px;
-    top: 10px;
-  }
+	.InputIcon  {
+		right: 24px;
+		top: 10px;
+	}
 }

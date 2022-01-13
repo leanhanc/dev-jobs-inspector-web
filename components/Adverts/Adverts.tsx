@@ -29,7 +29,7 @@ const Adverts = ({ adverts, isLoading = true }: AdvertsProps) => {
 	return (
 		<section id="Adverts" className={styles.Adverts}>
 			{adverts.map(advert => {
-				return <AdvertCard advert={advert} key={advert.url} />;
+				return <AdvertCard advert={advert} key={advert._id} />;
 			})}
 		</section>
 	);

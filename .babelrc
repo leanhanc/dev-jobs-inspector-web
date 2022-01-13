@@ -1,4 +1,19 @@
 {
-  "presets": ["next/babel"],
-  "plugins": ["inline-react-svg"]
+	"presets": ["next/babel"],
+	"plugins": [
+		[
+			"inline-react-svg",
+			{
+				"svgo": {
+					"plugins": [
+						{
+							"name": "removeAttrs",
+							"params": { "attrs": "(data-prefix|aria-hidden|data-icon)" }
+						},
+						"cleanupIDs"
+					]
+				}
+			}
+		]
+	]
 }
