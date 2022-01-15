@@ -8,10 +8,16 @@
     margin-top: 0rem
   .title
     margin-right: auto
+    margin-top: 1rem
+    margin-left: auto
+    margin-right: auto
+    +min-md
+      margin-left: 0
     font-size: 18px
     font-weight: bold
     height: 52px
     display: -webkit-box
+    text-transform: capitalize
     overflow: hidden
     text-overflow: ellipsis
     color: var(--black)
@@ -29,10 +35,16 @@
     font-family: Lato-light
     margin-bottom: 2rem
   .metadata
+    -webkit-box-orient: vertical
+    -webkit-line-clamp: 1
     display: flex
     color: var(--grey50)
     margin: 0.2rem 0
     font-size: 12px
+    display: -webkit-box
+    text-overflow: ellipsis
+    max-height: 20px
+    overflow: hidden
     text-transform: uppercase
     letter-spacing: 1px
     padding-bottom: 4px
@@ -46,13 +58,19 @@
       height: 16px
       margin-right: 0.5rem
       color: var(--purple30)
+  .date
+    margin-right: auto
+    text-transform: uppercase
+    color: var(--purple30)
+    font-weight: 600
+    font-size: 12px
   .ctaButton
     cursor: pointer
     color: #fff
     text-transform: uppercase
     background-color: var(--purple50)
     width: fit-content
-    padding: 1rem 3rem
+    padding: 1rem 2.2rem
     margin-left: auto
     margin-right: auto
     +min-md
