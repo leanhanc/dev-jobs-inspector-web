@@ -2,9 +2,17 @@
   display: flex
   flex-wrap: wrap
   gap: 32px
-  justify-content: flex-start
+  justify-content: center
   margin-left: auto
   margin-right: auto
   width: 100%
   padding: 4rem 2rem 7.125rem 2rem
   min-height: 25vh
+  +min-sm
+    max-width: 728px
+  +min-md
+    justify-content: flex-start
+    max-width: 1028px
+  +min-lg
+    max-width: 1360px
+    gap: 32px
