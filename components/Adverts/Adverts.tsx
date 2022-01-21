@@ -2,15 +2,25 @@ import { PuffLoader } from "react-spinners";
 
 // Components
 import AdvertCard from "components/AdvertCard";
+import Pagination from "components/Pagination";
 
 // Styles
 import styles from "./Adverts.module.sass";
 interface AdvertsProps {
 	adverts: Advert[];
 	isLoading: boolean;
+	handlePageChange: React.Dispatch<React.SetStateAction<number>>;
+	currentPage: number;
+	totalPages: number;
 }
 
-const Adverts = ({ adverts, isLoading = true }: AdvertsProps) => {
+const Adverts = ({
+	adverts,
+	isLoading = true,
+	currentPage,
+	totalPages,
+	handlePageChange,
+}: AdvertsProps) => {
 	if (isLoading) {
 		return (
 			<div id="Adverts" className={styles.Adverts}>
@@ -28,9 +38,17 @@ const Adverts = ({ adverts, isLoading = true }: AdvertsProps) => {
 	}
 	return (
 		<section id="Adverts" className={styles.Adverts}>
-			{adverts.map(advert => {
-				return <AdvertCard advert={advert} key={advert._id} />;
-			})}
+			<div className={styles.AdvertsList}>
+				{adverts.map(advert => {
+					return <AdvertCard advert={advert} key={advert._id} />;
+				})}
+			</div>
+
+			<Pagination
+				currentPage={currentPage}
+				totalPages={totalPages}
+				handlePageChange={handlePageChange}
+			/>
 		</section>
 	);
 };

@@ -15,17 +15,24 @@ import locationIcon from "../../assets/location-icon.svg";
 // Styles
 import styles from "./Header.module.sass";
 
-const JOBS_PER_PAGE = 20;
+// Config
+import { JOBS_PER_PAGE } from "pages";
 
 interface HeaderProps {
 	currentPage: number;
 	isLoading: boolean;
 	onSearch: (options?: QueryLazyOptions<FindAdvertsVariables>) => void;
+	searchTerm: string;
+	handleSearchTermChanged: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Header = ({ currentPage, onSearch, isLoading }: HeaderProps) => {
-	const [searchTerm, setSearchTerm] = useState("");
-
+const Header = ({
+	currentPage,
+	onSearch,
+	isLoading,
+	handleSearchTermChanged,
+	searchTerm,
+}: HeaderProps) => {
 	const handleSearch = useCallback(() => {
 		onSearch({
 			variables: {
@@ -64,7 +71,7 @@ const Header = ({ currentPage, onSearch, isLoading }: HeaderProps) => {
 							placeholder="Área, lenguaje o framework"
 							Icon={searchIcon}
 							searchTerm={searchTerm}
-							setSearchTerm={setSearchTerm}
+							setSearchTerm={handleSearchTermChanged}
 						/>
 						<SelectInput placeholder="Argentina" Icon={locationIcon} />
 					</fieldset>
