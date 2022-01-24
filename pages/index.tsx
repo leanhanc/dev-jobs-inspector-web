@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useLazyQuery } from "@apollo/client";
 
 // Components
@@ -12,35 +12,33 @@ import Footer from "components/Footer";
 // Data
 import { findAdverts } from "graphql/jobs";
 
-export const JOBS_PER_PAGE = 4;
+export const JOBS_PER_PAGE = 8;
 
 const Home = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [searchTerm, setSearchTerm] = useState("");
 
+	// Refs
+	const currentResults = useRef<Advert[]>();
+	const currentTotalPages = useRef<number>();
+
 	// Queries
 	const [callFindJobs, { data: findAdvertsData, loading: findAdvertsLoading }] = useLazyQuery<
 		FindAdvertsResponse,
 		FindAdvertsVariables
-	>(findAdverts, {
-		fetchPolicy: "cache-and-network",
-	});
+	>(findAdverts);
 
 	// Memos
-	const { adverts, totalAdverts } = useMemo(() => {
+	const adverts = useMemo(() => {
 		if (findAdvertsData?.paginatedJobs) {
-			return {
-				adverts: findAdvertsData.paginatedJobs.result,
-				totalAdverts: findAdvertsData.paginatedJobs.total,
-			};
+			currentResults.current = findAdvertsData.paginatedJobs.result;
+			currentTotalPages.current = Math.ceil(findAdvertsData.paginatedJobs.total / JOBS_PER_PAGE);
+
+			return findAdvertsData.paginatedJobs.result;
 		}
-		return {
-			adverts: null,
-			totalAdverts: null,
-		};
 	}, [findAdvertsData]);
 
-	// Effects
+	//	Effects;
 	useEffect(() => {
 		callFindJobs({
 			variables: {
@@ -52,7 +50,7 @@ const Home = () => {
 	}, [currentPage]);
 
 	return (
-		<div style={{ height: "100%" }}>
+		<>
 			<Head>
 				<title>Dev Job Inspector Argentina</title>
 				<link rel="icon" href="/favicon.ico" />
@@ -63,15 +61,16 @@ const Home = () => {
 					handleSearchTermChanged={setSearchTerm}
 					onSearch={callFindJobs}
 					currentPage={currentPage}
+					setCurrentPage={setCurrentPage}
 					isLoading={findAdvertsLoading}
 					searchTerm={searchTerm}
 				/>
-				{adverts ? (
+				{currentResults.current || adverts ? (
 					<Adverts
-						adverts={adverts}
+						adverts={adverts || currentResults.current}
 						isLoading={findAdvertsLoading}
 						currentPage={currentPage}
-						totalPages={Math.ceil(totalAdverts / JOBS_PER_PAGE)}
+						totalPages={currentTotalPages.current}
 						handlePageChange={setCurrentPage}
 					/>
 				) : (
@@ -82,8 +81,13 @@ const Home = () => {
 				)}
 			</main>
 
-			<Footer />
-		</div>
+			<Footer
+				onClose={() => {
+					console.log("hola!");
+				}}
+				hola="adasd"
+			/>
+		</>
 	);
 };
 

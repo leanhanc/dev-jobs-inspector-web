@@ -51,4 +51,10 @@ const AdvertCard = ({ advert }: AdvertCardProps) => {
 	);
 };
 
+`
+	p {
+		font-size: 1.2rem;
+	}
+`;
+
 export default AdvertCard;

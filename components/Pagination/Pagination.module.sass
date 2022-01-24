@@ -2,10 +2,20 @@
   display: flex
   width: 100%
   justify-content: center
+  padding-bottom: 4rem
 .PaginationList
   list-style: none
+  gap: 4px
+  +min-md
+    gap: 1rem
+  display: flex
   margin: 0
   padding: 0
-  display: flex
   li
-    margin: 0 1px
+    padding: 4px 6px
+.PaginationCurrentPage
+  background-color: var(--purple40)
+.PaginationDisabledArrow
+  pointer-events: none
+  a
+    opacity: 0.3

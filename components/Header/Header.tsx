@@ -24,6 +24,7 @@ interface HeaderProps {
 	onSearch: (options?: QueryLazyOptions<FindAdvertsVariables>) => void;
 	searchTerm: string;
 	handleSearchTermChanged: React.Dispatch<React.SetStateAction<string>>;
+	setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Header = ({
@@ -32,8 +33,14 @@ const Header = ({
 	isLoading,
 	handleSearchTermChanged,
 	searchTerm,
+	setCurrentPage,
 }: HeaderProps) => {
 	const handleSearch = useCallback(() => {
+		// Reset Pagination if needed
+		if (currentPage > 1) {
+			setCurrentPage(1);
+		}
+
 		onSearch({
 			variables: {
 				page: currentPage,

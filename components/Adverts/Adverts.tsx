@@ -21,7 +21,7 @@ const Adverts = ({
 	totalPages,
 	handlePageChange,
 }: AdvertsProps) => {
-	if (isLoading) {
+	if (isLoading && !adverts) {
 		return (
 			<div id="Adverts" className={styles.Adverts}>
 				<PuffLoader />
@@ -36,6 +36,7 @@ const Adverts = ({
 			</div>
 		);
 	}
+
 	return (
 		<section id="Adverts" className={styles.Adverts}>
 			<div className={styles.AdvertsList}>
