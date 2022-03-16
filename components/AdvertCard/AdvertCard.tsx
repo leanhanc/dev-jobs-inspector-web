@@ -2,9 +2,9 @@ import formatDistance from "date-fns/formatDistance";
 import esLocale from "date-fns/locale/es";
 
 // Assets
-import GlobeIcon from "../../assets/globe.svg";
-import Publisher from "../../assets/publisher.svg";
-import ArrowRight from "../../assets/arrow-right.svg";
+import GlobeIcon from "public/img/globe.svg";
+import Publisher from "public/img/publisher.svg";
+import ArrowRight from "public/img/open.svg";
 
 // Styles
 import advertCardStyles from "./AdvertCard.module.sass";
@@ -45,16 +45,11 @@ const AdvertCard = ({ advert }: AdvertCardProps) => {
 				rel="noopener noreferrer"
 				target="_blank"
 			>
-				Abrir <ArrowRight />
+				Abrir
+				<ArrowRight width="12" heigth="12" />
 			</a>
 		</article>
 	);
 };
-
-`
-	p {
-		font-size: 1.2rem;
-	}
-`;
 
 export default AdvertCard;

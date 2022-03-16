@@ -9,8 +9,9 @@ import TypeaheadInput from "components/TypeaheadInput";
 import SelectInput from "components/SelectInput";
 
 // Assets
-import searchIcon from "../../assets/search-icon.svg";
-import locationIcon from "../../assets/location-icon.svg";
+import searchIcon from "/public/img/search-icon.svg";
+import locationIcon from "/public/img/location.svg";
+import RightArrow from "/public/img/arrow-right.svg";
 
 // Styles
 import styles from "./Header.module.sass";
