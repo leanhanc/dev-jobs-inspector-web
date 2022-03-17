@@ -28,18 +28,19 @@ const TypeheadInputProps: React.FC<TypeheadInputProps> = ({
 
 	// Refs
 	const typeaheadContainerRef = useRef(null);
+	const typeaheadInputRef = useRef(null);
 
 	// Handlers
-	const onTypeaheadInsideClick = () => {
-		setIsTypeaheadOpen(true);
-		typeaheadContainerRef.current?.focus();
-	};
+	const onTypeaheadInsideClick = () => setIsTypeaheadOpen(true);
 	const onTypeaheadOutsideClick = () => setIsTypeaheadOpen(false);
 	const onInputTypeChange = (event: React.ChangeEvent<HTMLInputElement>) =>
 		setSearchTerm(event.target.value);
 	const onTypeaheadSelected = (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
 		setSearchTerm(event.currentTarget.dataset.name);
 		setIsTypeaheadOpen(false);
+	};
+	const onTypeaheadIconPress = () => {
+		typeaheadInputRef.current?.focus();
 	};
 
 	// Memos
@@ -61,10 +62,11 @@ const TypeheadInputProps: React.FC<TypeheadInputProps> = ({
 				value={searchTerm}
 				onChange={onInputTypeChange}
 				onClick={onTypeaheadInsideClick}
+				ref={typeaheadInputRef}
 			/>
 
 			{Icon && (
-				<span className="InputIcon">
+				<span className="InputIcon" onClick={onTypeaheadIconPress}>
 					<Icon />
 				</span>
 			)}
