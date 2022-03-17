@@ -1,4 +1,6 @@
+// Hooks
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useLoadingContext } from "hooks";
 import { useLazyQuery } from "@apollo/client";
 
 // Components
@@ -15,18 +17,27 @@ import { findAdverts } from "graphql/jobs";
 export const JOBS_PER_PAGE = 8;
 
 const Home = () => {
-	const [currentPage, setCurrentPage] = useState(1);
+	const [currentPage, setCurrentPage] = useState(0);
 	const [searchTerm, setSearchTerm] = useState("");
 
 	// Refs
 	const currentResults = useRef<Advert[]>();
 	const currentTotalPages = useRef<number>();
 
+	// Context
+	const { toggleLoading } = useLoadingContext();
+
 	// Queries
 	const [callFindJobs, { data: findAdvertsData, loading: findAdvertsLoading }] = useLazyQuery<
 		FindAdvertsResponse,
 		FindAdvertsVariables
-	>(findAdverts);
+	>(findAdverts, {
+		onCompleted: () => {
+			console.log("toggling");
+			toggleLoading();
+		},
+		onError: () => toggleLoading(),
+	});
 
 	// Memos
 	const adverts = useMemo(() => {
@@ -40,6 +51,8 @@ const Home = () => {
 
 	//	Effects;
 	useEffect(() => {
+		if (!currentPage) return;
+
 		callFindJobs({
 			variables: {
 				page: currentPage,

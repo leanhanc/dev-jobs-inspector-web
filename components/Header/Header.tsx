@@ -18,6 +18,7 @@ import styles from "./Header.module.sass";
 
 // Config
 import { JOBS_PER_PAGE } from "pages";
+import { useLoadingContext } from "hooks";
 
 interface HeaderProps {
 	currentPage: number;
@@ -36,11 +37,13 @@ const Header = ({
 	searchTerm,
 	setCurrentPage,
 }: HeaderProps) => {
+	// Context
+	const { toggleLoading } = useLoadingContext();
+
+	// Handlers
 	const handleSearch = useCallback(() => {
-		// Reset Pagination if needed
-		if (currentPage > 1) {
-			setCurrentPage(1);
-		}
+		setCurrentPage(1);
+		toggleLoading();
 
 		onSearch({
 			variables: {

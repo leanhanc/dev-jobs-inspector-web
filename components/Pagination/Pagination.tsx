@@ -1,3 +1,4 @@
+import { useLoadingContext } from "hooks";
 import React, { AriaAttributes } from "react";
 
 // Styles
@@ -9,36 +10,47 @@ interface PaginationProps {
 	totalPages: number;
 }
 
-interface PostData {}
-
 export interface PostFa {
 	title: string;
 }
 
 const Pagination = ({ handlePageChange, currentPage, totalPages }: PaginationProps) => {
+	// Context
+	const { toggleLoading } = useLoadingContext();
+
 	const pages = Array.from(Array(totalPages).keys()).slice(0, 10);
 
 	const onPaginationItemPress = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
 		e.preventDefault();
+
 		// Update current page
 		if (e.currentTarget.dataset.arrow === "prev") {
+			toggleLoading();
 			handlePageChange(currentPage - 1);
 			return;
 		}
 		if (e.currentTarget.dataset.arrow === "next") {
+			toggleLoading();
 			handlePageChange(currentPage + 1);
 			return;
 		}
 		if (e.currentTarget.dataset.arrow === "first") {
+			toggleLoading();
 			handlePageChange(1);
 			return;
 		}
 		if (e.currentTarget.dataset.arrow === "last") {
+			toggleLoading();
 			handlePageChange(totalPages);
 			return;
 		}
 
-		handlePageChange(parseInt(e.currentTarget.dataset.page as string));
+		const page = parseInt(e.currentTarget.dataset.page as string);
+
+		if (page !== currentPage) {
+			toggleLoading();
+			handlePageChange(page);
+		}
 	};
 
 	return (
