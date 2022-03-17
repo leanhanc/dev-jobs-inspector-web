@@ -30,7 +30,10 @@ const TypeheadInputProps: React.FC<TypeheadInputProps> = ({
 	const typeaheadContainerRef = useRef(null);
 
 	// Handlers
-	const onTypeaheadInsideClick = () => setIsTypeaheadOpen(true);
+	const onTypeaheadInsideClick = () => {
+		setIsTypeaheadOpen(true);
+		typeaheadContainerRef.current?.focus();
+	};
 	const onTypeaheadOutsideClick = () => setIsTypeaheadOpen(false);
 	const onInputTypeChange = (event: React.ChangeEvent<HTMLInputElement>) =>
 		setSearchTerm(event.target.value);
