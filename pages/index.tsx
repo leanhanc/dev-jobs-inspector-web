@@ -81,12 +81,7 @@ const Home = () => {
 				)}
 			</main>
 
-			<Footer
-				onClose={() => {
-					console.log("hola!");
-				}}
-				hola="adasd"
-			/>
+			<Footer />
 		</>
 	);
 };

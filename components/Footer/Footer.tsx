@@ -3,14 +3,9 @@ import React from "react";
 // Styles
 import styles from "./Footer.module.sass";
 
-interface FooterProps {
-	onClose: () => void;
-	hola: string;
-}
-
-const Footer = ({ onClose, hola }: FooterProps) => {
+const Footer = () => {
 	return (
-		<div id="Footer" className={styles.footer} onClick={onClose}>
+		<div id="Footer" className={styles.footer}>
 			<p>
 				Hecho con
 				<span role="img" aria-label="Heart">
