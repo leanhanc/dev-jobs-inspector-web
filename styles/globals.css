@@ -22,6 +22,11 @@ body {
 	height: 100%;
 }
 
+#__next {
+	height: 100%;
+	isolation: isolate;
+}
+
 @font-face {
 	font-family: Lato-regular;
 	src: url("/fonts/Lato-Regular.ttf");

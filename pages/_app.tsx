@@ -1,11 +1,22 @@
-import "../styles/globals.css";
-import { ApolloProvider } from "@apollo/client";
 import client from "graphql/client";
+
+// Providers
+import { ApolloProvider } from "@apollo/client";
+import { LoadingContextProvider } from "contexts/LoadingContext";
+
+// Styles
+import "../styles/globals.css";
+
+// Components
+import LoadingOverlay from "components/LoadingOverlay";
 
 function DevJobInspector({ Component, pageProps }) {
 	return (
 		<ApolloProvider client={client}>
-			<Component {...pageProps} />
+			<LoadingContextProvider>
+				<Component {...pageProps} />
+				<LoadingOverlay />
+			</LoadingContextProvider>
 		</ApolloProvider>
 	);
 }

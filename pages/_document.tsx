@@ -17,6 +17,7 @@ class CustomDoc extends Document {
 				<body>
 					<Main />
 					<NextScript />
+					<div id="loading-overlay"></div>
 				</body>
 			</Html>
 		);
