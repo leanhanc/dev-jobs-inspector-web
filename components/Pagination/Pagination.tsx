@@ -72,6 +72,7 @@ const Pagination = ({ handlePageChange, currentPage, totalPages }: PaginationPro
 
 					return (
 						<li
+							key={index}
 							onClick={onPaginationItemPress}
 							className={isCurrentPage ? styles.PaginationCurrentPage : ""}
 							data-page={index + 1}
