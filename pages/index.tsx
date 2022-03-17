@@ -33,7 +33,6 @@ const Home = () => {
 		FindAdvertsVariables
 	>(findAdverts, {
 		onCompleted: () => {
-			console.log("toggling");
 			toggleLoading();
 		},
 		onError: () => toggleLoading(),
@@ -65,19 +64,20 @@ const Home = () => {
 	return (
 		<>
 			<Head>
-				<title>Dev Job Inspector Argentina</title>
+				<title>Dev Jobs Inspector Argentina</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
+			<Header
+				handleSearchTermChanged={setSearchTerm}
+				onSearch={callFindJobs}
+				currentPage={currentPage}
+				setCurrentPage={setCurrentPage}
+				isLoading={findAdvertsLoading}
+				searchTerm={searchTerm}
+			/>
+
 			<main>
-				<Header
-					handleSearchTermChanged={setSearchTerm}
-					onSearch={callFindJobs}
-					currentPage={currentPage}
-					setCurrentPage={setCurrentPage}
-					isLoading={findAdvertsLoading}
-					searchTerm={searchTerm}
-				/>
 				{currentResults.current || adverts ? (
 					<Adverts
 						adverts={adverts || currentResults.current}

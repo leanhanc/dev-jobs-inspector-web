@@ -27,6 +27,11 @@ body {
 	isolation: isolate;
 }
 
+main {
+	max-width: 1366px;
+	margin: auto;
+}
+
 @font-face {
 	font-family: Lato-regular;
 	src: url("/fonts/Lato-Regular.ttf");

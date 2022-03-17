@@ -60,7 +60,7 @@ const Header = ({
 				<div className={styles.HeaderContent}>
 					<div className={styles.HeaderBackground} />
 					<Image
-						alt="Dev Job Inspector Argentina"
+						alt="Dev Jobs Inspector Argentina"
 						objectPosition="left"
 						priority
 						src="/img/bg.jpg"
