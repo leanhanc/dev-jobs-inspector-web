@@ -2,6 +2,7 @@ declare interface FindAdvertsVariables {
 	limit?: number;
 	page?: number;
 	search?: string;
+	location?: string;
 }
 
 declare interface Advert {

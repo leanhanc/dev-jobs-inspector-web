@@ -13,9 +13,10 @@ import styles from "./SelectInput.module.sass";
 interface SelectInputProps {
 	placeholder?: string;
 	Icon?: any;
+	onSelect: (any) => void;
 }
 
-const SelectInput: React.FC<SelectInputProps> = ({ placeholder, Icon }) => {
+const SelectInput = ({ onSelect, placeholder, Icon }: SelectInputProps) => {
 	// State
 	const [isSelectOpen, setIsSelectOpen] = useState(false);
 	const [currentSelectItemValue, setSelectedItemValue] = useState("");
@@ -27,8 +28,17 @@ const SelectInput: React.FC<SelectInputProps> = ({ placeholder, Icon }) => {
 	const onSelectInputInsideClick = () => !isSelectOpen && setIsSelectOpen(true);
 	const onSelectInputOutsideClick = () => setIsSelectOpen(false);
 	const onSelectInputItemSelected = (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-		setSelectedItemValue(event.currentTarget.innerText);
+		const selectedText = event.currentTarget.innerText;
+		const selectedValue = event.currentTarget.id;
+
+		console.log({ selectedValue: event.currentTarget });
 		setIsSelectOpen(false);
+		setSelectedItemValue(selectedText);
+		if (selectedText === "Argentina") {
+			onSelect("");
+		} else {
+			onSelect(selectedValue);
+		}
 	};
 
 	// Hooks
@@ -38,7 +48,9 @@ const SelectInput: React.FC<SelectInputProps> = ({ placeholder, Icon }) => {
 		<div className="Input" ref={selectInputContainerRef}>
 			<div className="BaseInput pointer relative" onClick={onSelectInputInsideClick}>
 				{currentSelectItemValue ? (
-					<span>{currentSelectItemValue}</span>
+					<span className={classnames({ SelectInputListItemSelected: currentSelectItemValue })}>
+						{currentSelectItemValue}
+					</span>
 				) : (
 					<span>{placeholder}</span>
 				)}
@@ -63,7 +75,7 @@ const SelectInput: React.FC<SelectInputProps> = ({ placeholder, Icon }) => {
 								<li
 									className={styles.SelectInputListItem}
 									key={`dropdown-${option.value}`}
-									id={`dropdown-${option.value}`}
+									id={option.value}
 									onClick={onSelectInputItemSelected}
 								>
 									{option.name}

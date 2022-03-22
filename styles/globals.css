@@ -151,8 +151,7 @@ li {
 	box-shadow: 0 0 2px 3px var(--purple50);
 }
 
-.BaseInput::placeholder,
-.BaseInput > span {
+.BaseInput::placeholder {
 	align-self: center;
 	background-color: transparent;
 	letter-spacing: 0.9px;

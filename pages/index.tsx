@@ -19,13 +19,15 @@ export const JOBS_PER_PAGE = 8;
 const Home = () => {
 	const [currentPage, setCurrentPage] = useState(0);
 	const [searchTerm, setSearchTerm] = useState("");
+	const [location, setLocation] = useState("");
 
+	console.log({ location });
 	// Refs
 	const currentResults = useRef<Advert[]>();
 	const currentTotalPages = useRef<number>();
 
 	// Context
-	const { toggleLoading } = useLoadingContext();
+	const { setIsLoading } = useLoadingContext();
 
 	// Queries
 	const [callFindJobs, { data: findAdvertsData, loading: findAdvertsLoading }] = useLazyQuery<
@@ -33,9 +35,11 @@ const Home = () => {
 		FindAdvertsVariables
 	>(findAdverts, {
 		onCompleted: () => {
-			toggleLoading();
+			setIsLoading(false);
 		},
-		onError: () => toggleLoading(),
+		onError: () => {
+			setIsLoading(false);
+		},
 	});
 
 	// Memos
@@ -52,14 +56,17 @@ const Home = () => {
 	useEffect(() => {
 		if (!currentPage) return;
 
+		setIsLoading(true);
+
 		callFindJobs({
 			variables: {
 				page: currentPage,
+				location,
 				limit: JOBS_PER_PAGE,
 				search: searchTerm,
 			},
 		});
-	}, [currentPage]);
+	}, [currentPage, setIsLoading]);
 
 	return (
 		<>
@@ -74,7 +81,10 @@ const Home = () => {
 				currentPage={currentPage}
 				setCurrentPage={setCurrentPage}
 				isLoading={findAdvertsLoading}
+				setIsLoading={setIsLoading}
 				searchTerm={searchTerm}
+				location={location}
+				setLocation={setLocation}
 			/>
 
 			<main>
