@@ -35,7 +35,10 @@
     font-family: Lato-light
     margin-bottom: 2rem
     width: 100%
-  .metadata
+  .metadataItems
+    +min-md
+      margin-right: auto
+  .metadataItem
     -webkit-box-orient: vertical
     -webkit-line-clamp: 1
     display: flex
@@ -55,10 +58,12 @@
     +min-md
       margin-left: 0
     svg
+      vertical-align: text-bottom
       width: 16px
       height: 16px
       margin-right: 0.5rem
-      color: var(--purple30)
+      path
+        fill: var(--purple30)
   .date
     margin-right: auto
     text-transform: uppercase

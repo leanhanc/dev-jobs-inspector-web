@@ -13,6 +13,7 @@ declare interface Advert {
 	url?: string;
 	site?: string;
 	publisher?: string;
+	location: string;
 }
 
 declare interface FindAdvertsResponse {
