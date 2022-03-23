@@ -21,7 +21,6 @@ const Home = () => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [location, setLocation] = useState("");
 
-	console.log({ location });
 	// Refs
 	const currentResults = useRef<Advert[]>();
 	const currentTotalPages = useRef<number>();

@@ -31,7 +31,6 @@ const SelectInput = ({ onSelect, placeholder, Icon }: SelectInputProps) => {
 		const selectedText = event.currentTarget.innerText;
 		const selectedValue = event.currentTarget.id;
 
-		console.log({ selectedValue: event.currentTarget });
 		setIsSelectOpen(false);
 		setSelectedItemValue(selectedText);
 		if (selectedText === "Argentina") {
