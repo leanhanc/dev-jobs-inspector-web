@@ -32,7 +32,7 @@ const Adverts = ({
 	if (adverts.length === 0) {
 		return (
 			<div id="Adverts" className={styles.Adverts}>
-				No encontramos resultados para tu búsqueda
+				<p className={styles.NoResults}>No encontramos resultados para tu búsqueda 😢</p>
 			</div>
 		);
 	}
