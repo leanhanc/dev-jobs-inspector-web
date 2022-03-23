@@ -5,7 +5,7 @@ import styles from "./Footer.module.sass";
 
 const Footer = () => {
 	return (
-		<div id="Footer" className={styles.footer}>
+		<footer id="Footer" className={styles.footer}>
 			<p>
 				Hecho con
 				<span role="img" aria-label="Heart">
@@ -16,7 +16,7 @@ const Footer = () => {
 					Leandro Hanc
 				</a>
 			</p>
-		</div>
+		</footer>
 	);
 };
 

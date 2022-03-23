@@ -6,6 +6,9 @@ import Pagination from "components/Pagination";
 
 // Styles
 import styles from "./Adverts.module.sass";
+
+// Assets
+import EmptyIllustration from "public/img/empty.svg";
 interface AdvertsProps {
 	adverts: Advert[];
 	isLoading: boolean;
@@ -33,6 +36,7 @@ const Adverts = ({
 		return (
 			<div id="Adverts" className={styles.Adverts}>
 				<p className={styles.NoResults}>No encontramos resultados para tu búsqueda 😢</p>
+				<EmptyIllustration></EmptyIllustration>
 			</div>
 		);
 	}

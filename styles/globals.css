@@ -28,8 +28,26 @@ body {
 }
 
 main {
-	max-width: 1366px;
+	/* min-height: 100%; */
 	margin: auto;
+}
+
+@media screen and (min-width: 600px) {
+	main {
+		max-width: 728px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	main {
+		max-width: 1120px;
+	}
+}
+
+@media screen and (min-width: 1920px) {
+	main {
+		max-width: 1440px;
+	}
 }
 
 @font-face {

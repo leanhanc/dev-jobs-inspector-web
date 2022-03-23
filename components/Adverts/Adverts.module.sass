@@ -3,13 +3,15 @@
   min-height: 100%
   margin-top: 1rem
   margin-bottom: 1rem
-  padding-left: 3rem
-  padding-right: 3rem
+  text-align: center
   +min-md
     margin-top: 4rem
-  text-align: center
 .NoResults
   font-size: 1rem
+  + svg
+    padding: 2rem 0
+    max-height: 400px
+    max-width: calc(100vw - 20px)
   +min-md
     font-size: 1.4rem
 .AdvertsList
@@ -21,13 +23,3 @@
   justify-content: center
   padding: 4rem 2rem 4rem 2rem
   min-height: 25vh
-  +min-sm
-    max-width: 728px
-  +min-md
-    justify-content: flex-start
-    max-width: 1028px
-  +min-lg
-    max-width: 1366px
-    gap: 32px
-    display: flex
-    justify-content: center
