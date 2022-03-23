@@ -1,15 +1,15 @@
 {
-  "extends": ["plugin:prettier/recommended", "pretier/react"],
-  "parserOptions": {
-    "sourceType": "module"
-  },
-  "parser": "babel-eslint",
-  "env": {
-    "es6": true,
-    "node": true
-  },
-  "rules": {
-    "prettier/prettier": ["error", { "singleQuote": true, "printWidth": 100 }]
-  },
-  "plugins": ["prettier", "react"]
+	"extends": ["plugin:prettier/recommended", "prettier/react"],
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"parser": "babel-eslint",
+	"env": {
+		"es6": true,
+		"node": true
+	},
+	"rules": {
+		"prettier/prettier": ["error", { "singleQuote": true, "printWidth": 100 }]
+	},
+	"plugins": ["prettier", "react"]
 }
