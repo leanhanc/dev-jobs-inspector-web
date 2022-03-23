@@ -177,6 +177,10 @@ li {
 	color: var(--grey30);
 }
 
+.InputIcon svg path {
+	fill: var(--grey30);
+}
+
 /* Medium screen breakpoint */
 @media screen and (min-width: 1200px) {
 	.BaseInput {
