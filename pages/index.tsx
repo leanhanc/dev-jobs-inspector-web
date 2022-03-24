@@ -1,7 +1,7 @@
 // Hooks
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useLoadingContext } from "hooks";
-import { useLazyQuery, resetApolloContext } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 
 // Components
 import Head from "next/head";
@@ -24,6 +24,7 @@ const Home = () => {
 	// Refs
 	const currentResults = useRef<Advert[]>();
 	const currentTotalPages = useRef<number>();
+	const lastTermSearched = useRef<string>("");
 
 	// Context
 	const { setIsLoading } = useLoadingContext();
@@ -52,6 +53,24 @@ const Home = () => {
 	}, [findAdvertsData]);
 
 	// Handlers
+	const handleSearch = useCallback(() => {
+		if (searchTerm === lastTermSearched.current) return;
+
+		setCurrentPage(1);
+		setIsLoading(true);
+
+		lastTermSearched.current = searchTerm;
+
+		callFindJobs({
+			variables: {
+				location,
+				page: currentPage,
+				limit: JOBS_PER_PAGE,
+				search: searchTerm,
+			},
+		});
+	}, [searchTerm, currentPage, searchTerm, location]);
+
 	const handleGoHome = () => {
 		currentResults.current = undefined;
 		setCurrentPage(0);
@@ -85,14 +104,11 @@ const Home = () => {
 
 			<Header
 				handleGoHome={handleGoHome}
+				handleSearch={handleSearch}
 				handleSearchTermChanged={setSearchTerm}
-				onSearch={callFindJobs}
-				currentPage={currentPage}
-				setCurrentPage={setCurrentPage}
 				isLoading={findAdvertsLoading}
-				setIsLoading={setIsLoading}
 				searchTerm={searchTerm}
-				location={location}
+				setIsLoading={setIsLoading}
 				setLocation={setLocation}
 			/>
 

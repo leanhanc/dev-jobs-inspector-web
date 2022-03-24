@@ -21,47 +21,23 @@ import { JOBS_PER_PAGE } from "pages";
 import { useLoadingContext } from "hooks";
 
 interface HeaderProps {
-	currentPage: number;
-	isLoading: boolean;
-	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-	onSearch: (options?: QueryLazyOptions<FindAdvertsVariables>) => void;
-	searchTerm: string;
-	handleSearchTermChanged: React.Dispatch<React.SetStateAction<string>>;
-	setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
-	location: string;
-	setLocation: React.Dispatch<React.SetStateAction<string>>;
 	handleGoHome: () => void;
+	handleSearch: () => void;
+	handleSearchTermChanged: React.Dispatch<React.SetStateAction<string>>;
+	isLoading: boolean;
+	searchTerm: string;
+	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+	setLocation: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Header = ({
-	currentPage,
-	onSearch,
+	handleSearch,
 	isLoading,
 	handleGoHome,
 	handleSearchTermChanged,
 	searchTerm,
-	setCurrentPage,
-	location,
 	setLocation,
 }: HeaderProps) => {
-	// Context
-	const { setIsLoading } = useLoadingContext();
-
-	// Handlers
-	const handleSearch = useCallback(() => {
-		setCurrentPage(1);
-		setIsLoading(true);
-
-		onSearch({
-			variables: {
-				location,
-				page: currentPage,
-				limit: JOBS_PER_PAGE,
-				search: searchTerm,
-			},
-		});
-	}, [searchTerm, currentPage, searchTerm, location]);
-
 	return (
 		<div id="Header" className={styles.Header}>
 			<div className={styles.Hero}>
