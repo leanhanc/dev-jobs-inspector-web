@@ -15,6 +15,7 @@ interface TypeheadInputProps {
 	Icon?: any;
 	searchTerm: string;
 	setSearchTerm?: React.Dispatch<React.SetStateAction<string>>;
+	submitHandler?: () => void;
 }
 
 const TypeheadInputProps: React.FC<TypeheadInputProps> = ({
@@ -22,6 +23,7 @@ const TypeheadInputProps: React.FC<TypeheadInputProps> = ({
 	Icon,
 	searchTerm,
 	setSearchTerm,
+	submitHandler,
 }) => {
 	// State
 	const [isTypeaheadOpen, setIsTypeaheadOpen] = useState(false);
@@ -41,6 +43,12 @@ const TypeheadInputProps: React.FC<TypeheadInputProps> = ({
 	};
 	const onTypeaheadIconPress = () => {
 		typeaheadInputRef.current?.focus();
+	};
+	const onTypeaheadSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
+		if (e.key === "Enter") {
+			setIsTypeaheadOpen(false);
+			submitHandler();
+		}
 	};
 
 	// Memos
@@ -63,6 +71,7 @@ const TypeheadInputProps: React.FC<TypeheadInputProps> = ({
 				onChange={onInputTypeChange}
 				onClick={onTypeaheadInsideClick}
 				ref={typeaheadInputRef}
+				onKeyDown={onTypeaheadSubmit}
 			/>
 
 			{Icon && (

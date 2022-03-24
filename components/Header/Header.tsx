@@ -68,6 +68,7 @@ const Header = ({
 							Icon={searchIcon}
 							searchTerm={searchTerm}
 							setSearchTerm={handleSearchTermChanged}
+							submitHandler={handleSearch}
 						/>
 						<SelectInput placeholder="Argentina" Icon={locationIcon} onSelect={setLocation} />
 					</fieldset>
