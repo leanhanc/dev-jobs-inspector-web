@@ -1,7 +1,7 @@
 // Hooks
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLoadingContext } from "hooks";
-import { useLazyQuery } from "@apollo/client";
+import { useLazyQuery, resetApolloContext } from "@apollo/client";
 
 // Components
 import Head from "next/head";
@@ -51,6 +51,15 @@ const Home = () => {
 		}
 	}, [findAdvertsData]);
 
+	// Handlers
+	const handleGoHome = () => {
+		currentResults.current = undefined;
+		setCurrentPage(0);
+		setLocation("");
+		setSearchTerm("");
+		callFindJobs();
+	};
+
 	//	Effects;
 	useEffect(() => {
 		if (!currentPage) return;
@@ -75,6 +84,7 @@ const Home = () => {
 			</Head>
 
 			<Header
+				handleGoHome={handleGoHome}
 				handleSearchTermChanged={setSearchTerm}
 				onSearch={callFindJobs}
 				currentPage={currentPage}

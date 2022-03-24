@@ -15,9 +15,6 @@ export interface PostFa {
 }
 
 const Pagination = ({ handlePageChange, currentPage, totalPages }: PaginationProps) => {
-	// Context
-	// const {toggleLoading } = useLoadingContext();
-
 	const pages = Array.from(Array(totalPages).keys()).slice(0, 10);
 
 	const onPaginationItemPress = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
@@ -25,22 +22,18 @@ const Pagination = ({ handlePageChange, currentPage, totalPages }: PaginationPro
 
 		// Update current page
 		if (e.currentTarget.dataset.arrow === "prev") {
-			//toggleLoading();
 			handlePageChange(currentPage - 1);
 			return;
 		}
 		if (e.currentTarget.dataset.arrow === "next") {
-			//toggleLoading();
 			handlePageChange(currentPage + 1);
 			return;
 		}
 		if (e.currentTarget.dataset.arrow === "first") {
-			//toggleLoading();
 			handlePageChange(1);
 			return;
 		}
 		if (e.currentTarget.dataset.arrow === "last") {
-			//toggleLoading();
 			handlePageChange(totalPages);
 			return;
 		}
@@ -48,7 +41,6 @@ const Pagination = ({ handlePageChange, currentPage, totalPages }: PaginationPro
 		const page = parseInt(e.currentTarget.dataset.page as string);
 
 		if (page !== currentPage) {
-			//toggleLoading();
 			handlePageChange(page);
 		}
 	};

@@ -30,12 +30,14 @@ interface HeaderProps {
 	setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 	location: string;
 	setLocation: React.Dispatch<React.SetStateAction<string>>;
+	handleGoHome: () => void;
 }
 
 const Header = ({
 	currentPage,
 	onSearch,
 	isLoading,
+	handleGoHome,
 	handleSearchTermChanged,
 	searchTerm,
 	setCurrentPage,
@@ -81,6 +83,7 @@ const Header = ({
 							layout="responsive"
 							objectPosition="center"
 							src="/img/logo.png"
+							onClick={handleGoHome}
 						/>
 					</div>
 					<fieldset className={styles.HeaderInputs}>
